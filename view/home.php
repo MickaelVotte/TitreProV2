@@ -6,23 +6,16 @@
 <body>
     <?php include('../elements/header.php') ?>
 
-    <div>
-        <img class="banner-image" src="../assets/img/backgroundhome.jpg" alt="navbar-image">
-        <h1 class="text-center title">Running Race</h1>
+
+    <div class="banner-image w-100 d-flex justify-content-center align-items-center">
+
+        <div class=" container text-center">
+            <h1><span class="text1">Running Race</span></h1>
+        </div>
     </div>
 
+
+
+
+    <?php include('../elements/footer.php') ?>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php include('../elements/footer.php') ?>
