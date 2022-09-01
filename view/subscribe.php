@@ -5,7 +5,7 @@ session_start(); ?>
 include('../elements/top.php');
 include('../elements/header.php');
 
-
+require_once '../controllers/controller_subscribe.php'
 ?>
 
 
@@ -25,38 +25,44 @@ include('../elements/header.php');
             <div>
                 <label for="lastname">Nom: <span class="text-danger"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span></label>
                 <br>
-                <input id="lastname" name="lastname" type="text" required value="<?= $_POST['lastname'] ?? '' ?>">
+                <input id="lastname" name="lastname" type="text"  value="<?= $_POST['lastname'] ?? '' ?>">
             </div>
             <div>
                 <label for="firstname">Prénon: <span class="text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span></label>
                 <br>
-                <input id="firstname" name="firstname" type="text" required value="<?= $_POST['firstname'] ?? '' ?>">
+                <input id="firstname" name="firstname" type="text"  value="<?= $_POST['firstname'] ?? '' ?>">
             </div>
             <div>
                 <label for="age">age: <span class="text-danger"><?= isset($errors['age']) ? $errors['age'] : '' ?></span></label>
                 <br>
-                <input id="age" name="age" type="number" min="18" max="99" required value="<?= $_POST['age'] ?? '' ?>">
+                <input id="age" name="age" type="number" min="18" max="99"  value="<?= $_POST['age'] ?? '' ?>">
             </div>
             <div>
                 <label for="mail">Email: <span class="text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span></label>
                 <br>
-                <input id="mail" name="mail" type="mail" required value="<?= ($_POST['mail']) ?? '' ?>">
+                <input id="mail" name="mail" type="mail"  value="<?= ($_POST['mail']) ?? '' ?>">
             </div>
             <div>
                 <label for="password">Mot de Passe: <span class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
                 <br>
-                <input id="password" name="password" type="password" required value="<?= $_POST['address'] ?? '' ?>">
+                <input id="password" name="password" type="password"  value="<?= $_POST['address'] ?? '' ?>">
             </div>
             <div>
-                <label for="ConfirmPassword"> Confirmer Mot de Passe: <span class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
+                <label for="confirmPassword"> Confirmer Mot de Passe: <span class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
                 <br>
-                <input id="ConfirmPassword" name="ConfirmPassword" type="password" required value="<?= $_POST['address'] ?? '' ?>">
+                <input id="confirmPassword" name="confirmPassword" type="password"  value="<?= $_POST['address'] ?? '' ?>">
+            </div>
+            <div class="mt-3 pt-3">
+                <label name="cgu" id="cgu"><span class="text-danger"><?= isset($errors['cgu']) ? $errors['cgu'] : '' ?></span></label>
+                    <input type="checkbox" name="cgu" id='cgu'
+                    value="<?= $_POST['cgu'] ?? ''?>">J'accepte les conditions général d'utilisation</input>
+                
             </div>
 
 
             <div class="m-5">
                 <div>
-                    <button class="btn btn-success">Ajouter</button>
+                    <button class="btn btn-success">Valider</button>
                 </div>
             </div>
 
