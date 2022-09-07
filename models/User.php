@@ -164,6 +164,21 @@ class User extends DataBase
 
 
 
+
+    /**
+     * fonction qui permet d'avoir tous les information de l'utilisateur
+     * @return un boolean
+     */
+    public function getInfoUser(string $mail): array{
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM `user` WHERE `user_mail` = :mail";
+        $query =$pdo->prepare($sql);
+        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 /**
  * fonction qui de recuperer les information d'un utilisateur de la bdd
  * @param array retourne un tableau associatif
@@ -173,7 +188,7 @@ class User extends DataBase
     public function getOneCoureur($id): array
     {
         $pdo = parent::connectDb();  
-        $sql = "SELECT * FROM user WHERE `user_id` =id";
+        $sql = "SELECT * FROM user WHERE `user_id` = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $id, PDO::PARAM_STR);
         $query->execute();
@@ -182,4 +197,21 @@ class User extends DataBase
     }
 
 
+    public function updateUser($lastname, $firstname, $age, $mail, $idUser)
+    {
+        $pdo=parent::connectDb();
+        $sql="UPDATE user SET user_firstname = :firstname, user_lastname = :lastname, user_age = :age, user_mail = :mail
+        WHERE user_id = :id ";
+
+        $query= $pdo->prepare($sql);
+
+        $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
+        $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+        $query->bindValue(':age', $age, PDO::PARAM_STR);
+        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $query->bindValue(':id', $idUser, PDO::PARAM_INT);
+
+        $query->execute();
+
+    }
 }

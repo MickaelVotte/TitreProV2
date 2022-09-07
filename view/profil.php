@@ -1,13 +1,19 @@
 <?php
 //cela permet d'utiliser les variables de session: $_session
 session_start(); ?>
+
+
+
 <?php
+require_once '../models/Database.php';
+require_once '../models/User.php';
+require_once '../models/User.php';
 include('../elements/top.php');
 include('../elements/header.php');
 
-require_once '../controllers/controller_subscribe.php'
-?>
 
+var_dump($_SESSION);
+?>
 
 
 
@@ -24,7 +30,7 @@ require_once '../controllers/controller_subscribe.php'
     </div>
     <div class="col-lg-4 col-sm-12 text-center">
         <p>Mon profil</p>
-        <p><a href="../view/modifySubcribe.php">Modifier cotre compte</a></p>
+        <p><a href="../view/modifySubcribe.php?id=<?=$_SESSION['user']['user_id']?>">Modifier votre compte</a></p>
     </div>
 
 </div>

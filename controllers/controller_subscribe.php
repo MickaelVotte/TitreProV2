@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_SESSION['user']))
+{
+    header('Location: home.php');
+}
 
 require_once '../config.php';
 require_once '../models/Database.php';

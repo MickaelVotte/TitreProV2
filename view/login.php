@@ -44,7 +44,7 @@ require_once '../controllers/controller_login.php';
         
     </form>
     <div>
-        <small> <a class="d-flex justify-content-center m-5" href="">mot de passe oubliée</a></small>
+        <small> <a class="d-flex justify-content-center m-5" href="./forgotPassword.php">mot de passe oubliée</a></small>
 
     </div>
 </div>
