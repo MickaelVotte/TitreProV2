@@ -34,6 +34,7 @@ include('../elements/top.php')
                             <li><a class="dropdown-item" href="../view/subscribe.php">s'incrire</a></li>
                             <li><a class="dropdown-item" href="../view/login.php">connexion</a></li>
                             <li><a class="dropdown-item" href="#">deconnexion</a></li>
+                            <li><a class="dropdown-item" href="/view/profil.php">Profil</a></li>
                         </ul>
                     </li>
                 </ul>

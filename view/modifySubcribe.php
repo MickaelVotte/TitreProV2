@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php
 //cela permet d'utiliser les variables de session: $_session
 session_start(); ?>
@@ -13,7 +18,7 @@ require_once '../controllers/controller_subscribe.php'
 
 <div class="text-center m-5">
 
-    <p>S'INSCRICRE</p>
+    <p>MODIFIER VOTRE COMPTE</p>
 </div>
 
 <div class="row d-flex justify-content-center m-0 p-0">
@@ -76,3 +81,4 @@ require_once '../controllers/controller_subscribe.php'
 
 
 <?php include('../elements/footer.php') ?>
+

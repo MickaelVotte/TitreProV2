@@ -3,6 +3,7 @@
 
 require_once '../config.php';
 require_once '../models/Database.php';
+require_once '../models/User.php';
 
 
 // 1 - je lance mes tests uniquement lors de la validation du formulaire de type POST
@@ -83,6 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $firstname = htmlspecialchars($_POST['firstname']);
         $age = htmlspecialchars($_POST['age']);
         $mail = htmlspecialchars($_POST['mail']);
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        
+        $coureurObj = new User();
+
+        $coureurObj->addUser($firstname, $lastname, $age, $mail, $password);
+
+
 
     }
 }
