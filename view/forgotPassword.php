@@ -9,10 +9,10 @@ include('../elements/header.php');
 
 
 <div class="text-center">
-    <p>Mot de passe oubliée</p>
+    <p>Mot de passe oublié</p>
 </div>
 
-
+    
 
 
 

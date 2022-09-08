@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php include('../elements/top.php') ?>
 
 
@@ -18,56 +19,69 @@
     <div class="container">
 
 
-        <div class="text-center">
+        <div class="text-center m-5">
             <H2>Page d'Accueil</H2>
         </div>
 
 
 
 
-        <div class="blockcards row d-flex justify-content-center p-0">
-
-
-            <div class="col-lg-4 col-12 threecards">
-                <div class="">
-                    <img class="cardImg" src="" alt="">
-                    <H2 class="pt-3 pb-3 ps-2 fw-bold">Entre Aide</H2>
-                <p>Privbeighb nefkj zfpij z,jfjpzfrejp</p>
-                    <div class="d-flex justify-content-center">
-                        <button class="read-more-btn ">
-                            Read More
-                        </button>
+        <div class="row d-flex justify-content-center m-0 p-0 mt-5">
+            <div class="col-lg-4 col-12">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-title">
+                        <span class="date">Il y a 3 jours</span>
+                        <h3>Title</h3>
+                    </div>
+                    <div class="card-paragraph">
+                         <p>Privbeighb nefkj zfpij z,jfjpzfrejp Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde vero modi consectetur optio voluptas error sit! Ut odit amet dicta excepturi ad quo necessitatibus cupiditate, facilis, eaque ratione in!</p>
+                    </div>
+                   
+                    <div class="card-bottom">
+                        <div class="stat">
+                            <a href="#">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-title">
+                        <span class="date">Il y a 3 jours</span>
+                        <h3>Title</h3>
+                    </div>
+                    <div class="card-paragraph">
+                         <p>Privbeighb nefkj zfpij z,jfjpzfrejp Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde vero modi consectetur optio voluptas error sit! Ut odit amet dicta excepturi ad quo necessitatibus cupiditate, facilis, eaque ratione in!</p>
+                    </div>
+                   
+                    <div class="card-bottom">
+                        <div class="stat">
+                            <a href="#">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-title">
+                        <span class="date">Il y a 3 jours</span>
+                        <h3>Title</h3>
+                    </div>
+                    <div class="card-paragraph">
+                         <p>Privbeighb nefkj zfpij z,jfjpzfrejp Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde vero modi consectetur optio voluptas error sit! Ut odit amet dicta excepturi ad quo necessitatibus cupiditate, facilis, eaque ratione in!</p>
+                    </div>
+                   
+                    <div class="card-bottom">
+                        <div class="stat">
+                            <a href="#">En savoir plus</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-12  threecards">
-                <div class="">
-                    <img class="cardImg" src="" alt="">
-                    <H2 class="pt-3 pb-3 ps-2 fw-bold">Evenement</H2>
-                    <p>Privbeighb nefkj zfpij z,jfjpzfrejp</p>
-                    <div class="d-flex justify-content-center">
-                        <button class="read-more-btn ">
-                            Read More
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4 col-12 threecards">
-                <div class="">
-                    <img class="cardImg" src="" alt="">
-                    <H2 class="pt-3 pb-3 ps-2 fw-bold">Communautaire</H2>
-                <p>Privbeighb nefkj zfpij z,jfjpzfrejp</p>
-                    <div class="d-flex justify-content-center">
-                        <button class="read-more-btn ">
-                            Read More
-                        </button>
-                    </div>
-                </div>
-
-            </div>
 
 
         </div>

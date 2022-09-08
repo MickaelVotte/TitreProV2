@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style/footer.css">
     <link rel="stylesheet" href="../assets/style/navbar.css">
+    <link rel="stylesheet" href="../assets/style/home.css">
  
     
 </head>

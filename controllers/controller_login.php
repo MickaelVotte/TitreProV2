@@ -37,7 +37,7 @@ if(count($errors)==0){
         //je recupere toutes les info de l'utilisateur pour ensuite les stocker dans une variable $userinfos à l'aide du mail.
         $userInfos = $userObj->getInfoUser($_POST['login']);
 
-        //je recupere le md^p hashé dans le tableau $userinfos
+        //je recupere le mdp hashé dans le tableau $userinfos
         //j'utilise ensuite la fonction password_verify pour verifier le mdp hashé
         if(password_verify($_POST['password'], $userInfos['user_password']))
         {

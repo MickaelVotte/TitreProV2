@@ -1,4 +1,5 @@
 <?php
+
 include('../elements/top.php')
 
 ?>
@@ -10,7 +11,7 @@ include('../elements/top.php')
 
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
-            
+
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,25 +24,36 @@ include('../elements/top.php')
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Information</a>
                     </li>
+                    <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Organiser un évènement</a>
                     </li>
+                    <?php } else { ?>
+                        <li><a href=""></a></li>
+                        <?php } ?>
                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             paramètres
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../view/subscribe.php">s'incrire</a></li>
-                            <li><a class="dropdown-item" href="../view/login.php">connexion</a></li>
-                            <li><a class="dropdown-item" href="../view/logout.php">deconnexion</a></li>
-                            <li><a class="dropdown-item" href="/view/profil.php">Profil</a></li>
+                            <?php if (isset($_SESSION['user'])) { ?>
+                                <li><a class="dropdown-item" href="../view/subscribe.php">s'incrire</a></li>
+                                <li><a class="dropdown-item" href="../view/login.php">connexion</a></li>
+                                <li><a class="dropdown-item" href="../view/logout.php">deconnexion</a></li>
+                                <li><a class="dropdown-item" href="/view/profil.php">Profil</a></li>
+                            <?php } else { ?>
+                                <li><a class="dropdown-item" href="../view/subscribe.php">s'incrire</a></li>
+                                <li><a class="dropdown-item" href="../view/login.php">connexion</a></li>
+                            <?php } ?>
+
+
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-   
+
 
 
 
