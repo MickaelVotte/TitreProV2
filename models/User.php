@@ -10,7 +10,9 @@ class User extends DataBase
     private string $_user_mail;
     private string $_user_password;
     private int $_role_id_role;
-    private string $_name_role;
+    private string $_token_date;
+    private string $_token_value;
+
 
 
 
@@ -69,25 +71,33 @@ class User extends DataBase
         $this->_user_password = $password;
     }
 
-    
+
     public function getRoleIdRole()
     {
         return $this->_role_id_role;
     }
     public function setRoleIdRole(int $idRole)
     {
-    $this->_role_id_role = $idRole;
+        $this->_role_id_role = $idRole;
     }
 
-    public function getNameRole()
+    public function getTokenDate()
     {
-        return $this->_name_role;
+        return $this->_token_date;
     }
-    public function setNameRole(string $nameRole)
+    public function setTokenDate(string $date)
     {
-        $this->_name_role=$nameRole;
+        $this->_token_date = $date;
     }
 
+    public function getTokenValue()
+    {
+        return $this->_token_value;
+    }
+    public function setTokenValue(string $value)
+    {
+        $this->_token_value = $value;
+    }
 
 
 
@@ -169,25 +179,26 @@ class User extends DataBase
      * fonction qui permet d'avoir tous les information de l'utilisateur
      * @return un boolean
      */
-    public function getInfoUser(string $mail): array{
+    public function getInfoUser(string $mail): array
+    {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM `user` WHERE `user_mail` = :mail";
-        $query =$pdo->prepare($sql);
+        $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
 
-/**
- * fonction qui de recuperer les information d'un utilisateur de la bdd
- * @param array retourne un tableau associatif
- */
+    /**
+     * fonction qui de recuperer les information d'un utilisateur de la bdd
+     * @param array retourne un tableau associatif
+     */
 
 
     public function getOneCoureur($id): array
     {
-        $pdo = parent::connectDb();  
+        $pdo = parent::connectDb();
         $sql = "SELECT * FROM user WHERE `user_id` = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $id, PDO::PARAM_STR);
@@ -199,11 +210,11 @@ class User extends DataBase
 
     public function updateUser($lastname, $firstname, $age, $mail, $idUser)
     {
-        $pdo=parent::connectDb();
-        $sql="UPDATE user SET user_firstname = :firstname, user_lastname = :lastname, user_age = :age, user_mail = :mail
+        $pdo = parent::connectDb();
+        $sql = "UPDATE user SET user_firstname = :firstname, user_lastname = :lastname, user_age = :age, user_mail = :mail
         WHERE user_id = :id ";
 
-        $query= $pdo->prepare($sql);
+        $query = $pdo->prepare($sql);
 
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
@@ -212,6 +223,64 @@ class User extends DataBase
         $query->bindValue(':id', $idUser, PDO::PARAM_INT);
 
         $query->execute();
-
     }
+
+
+
+        public function createToken($tokenDate, $tokenValue, $mail)
+        {
+            $pdo = parent::connectDb();
+            $sql= "UPDATE user SET token_date = :tokenDate, token_value = :tokenValue WHERE user_mail = :mail";
+            $query = $pdo->prepare($sql);
+
+            $query->bindValue(':tokenDate', $tokenDate, PDO::PARAM_STR);
+            $query->bindValue(':tokenValue', $tokenValue, PDO::PARAM_STR);
+            $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+
+            $query->execute();
+        }
+
+
+
+
+        public function validateToken($token, $jetlag)
+        {
+         $pdo = parent::connectDb();
+         $sql = "SELECT token_date FROM user where token_value = :tokenValue";
+         $query = $pdo->prepare($sql);
+
+         $query->bindValue(':tokenValue', $token, pdo::PARAM_STR);
+
+         $query->execute();
+
+         $result = $query->fetchAll();
+
+         //je fais un test pour savoir si $result est vide
+         if (count($result) != 0) {
+            $tokenDate = $result[0]['token_date'];
+            $timestamp = strtotime($tokenDate);
+            $diffTime =    abs(time() + $jetlag - $timestamp);
+            return $diffTime < 60 * 30 ? true : false;
+         } else {
+             return false; 
+         }
+
+        }
+
+
+
+        public function updatePassword($tokenValue, $password)
+        {
+            $pdo = parent::connectDb();
+            $sql = "UPDATE user SET";
+        }
+
+
+
+
+
+
+
+
+
 }
