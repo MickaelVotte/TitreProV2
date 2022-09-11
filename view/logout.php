@@ -10,7 +10,7 @@ require_once '../controllers/controller_logout.php'
 <?php include('../elements/top.php') ?>
 <?php include('../elements/header.php') ?>
 
-<div class="text-center">
+<div class="mt-5 text-center">
     <p>Vous vous êtes bien déconnecté(e)</p>
 </div>
 <div class="text-center">

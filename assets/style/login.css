@@ -14,8 +14,13 @@ background-size: cover;
 background-repeat: no-repeat;
 background-position:center;
 background-blend-mode: darken;
-
-
+}
+.bglogin2{
+background: rgba(0, 0, 0, 0.2)  url("../img/imglogin.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-position:center;
+background-blend-mode: darken;
 }
 
 
@@ -41,8 +46,25 @@ background-blend-mode: darken;
     font-weight: 600;
 
 }
+.titleNameLogin2{
+    margin-top: 4rem;
+    font-size: 2rem;
+    font-weight: 600;
+
+}
 
 
+.titleLogin{
+    font-weight: 600;
+    font-size: 2rem;
+    position: relative;
+    content: '';
+    padding: 0;
+    margin: 0 ;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    
+}
 .titleLogin{
     font-weight: 600;
     font-size: 2rem;
@@ -121,6 +143,7 @@ label{
   
     
 }
+
 
 
 @media screen and (max-width: 600px) {

@@ -17,7 +17,6 @@ require_once '../controllers/controller_subscribe.php'
 
         <div class="form-control text-center  shadow p-0 mb-5 bg-body rounded ">
             <div class="text-center titleLogin">
-
                 <p>Créer un compte</p>
             </div>
             <hr>
