@@ -2,36 +2,31 @@
 <footer>
   
     <ul class="naviguer-bloc">
-        <li class="naviguer">Naviguer</li>
-        <li>voyages en amérique du nord</li>
-        <li>voyages en amérique du sud</li>
-        <li>voyages en océanie</li>
-        <li>voyages en asie</li>
-        <li>voyages en afrique</li>
-        <li>voyages en europe</li>
+        <li class="naviguer">Running Race</li>
+        <p>Running Race est site qui à pour but de regrouper les énènement sportifs de course à pied et de trial de la région Normandie. Trouver et planifiez vos prochaines courses, créez et partager vos course afin d'en faire participer au plus grand nombre. Organisateur publiez gratuitement votre évènement en quelque clics.</p>
     </ul>
 
     <ul class="services">
-        <li class="propos">A propos</li>
-        <li>notre compagnie</li>
-        <li>nos services</li>
-        <li>aide en ligne</li>
-        <li>conditions générales de vente</li>
-        <li>politique de confidentialité</li>
-        <li>contact</li>
+        <li class="propos">Lien uitile</li>
+        <li><a class="footerlink" href="../view/subscribe.php">Créer un compte</a></li>
+        <li><a class="footerlink" href="../view/login.php"> Se connecter</a></li>
+        <li> <a class="footerlink" href="#">Contact</a> </li>
     </ul>
 
     <ul class="visite">
-        <li class="blog">Blog</li>
-        <li>
-            Visiter Paris en 3 jours, mission<br />
-            Impossible ?
-        </li>
-        <li>
-            Maroc, Tunisie, des destinations<br />
-            Incroyables à petits prix !
-        </li>
-        <li>Visiter Barcelone en 3 jours</li>
+        <li class="blog">Courses</li>
+        <li> <a  class="footerlink"href="#">Marathon</a> </li>
+        <li> <a  class="footerlink"href="#">Trial</a></li>
+        <li> <a  class="footerlink"href="#">Evènement créer</a></li>
+    </ul>
+
+
+    <ul class="politique">
+        <li class="pdc">En savoir plus</li>
+        <li> <a  class="footerlink"href="#">Politiques de confidentialités</a></li>
+        <li> <a  class="footerlink"href="#">Mention légales</a></li>
+        <li> <a  class="footerlink"href="#">©2022 Running&Race</a></li>
+
     </ul>
 </footer>
 

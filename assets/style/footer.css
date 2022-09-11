@@ -13,7 +13,7 @@ footer {
     justify-content: space-evenly;
     flex-direction: wrap;
     text-align: center;
-    background-color: #2b5cb8;
+    background-color: rgb(17, 25, 33);
     align-items: center;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -24,53 +24,93 @@ footer {
   ul {
     list-style-type: none;
   }
+
+  li{
+    padding: 0.5rem;
+  }
   .naviguer {
-    font-size: 1.5rem;
+  
+    font-size: 1.2rem;
     font-weight: bold;
     text-transform: none;
     padding-bottom: 2rem;
-    padding-top: 2rem;
+    padding-top: 6rem;
   }
   .naviguer-bloc {
+    text-align: justify;
+    font-size: 0.75rem;
+    color: #ffffff;
     height: 14.25rem;
     width: 17.25rem;
     justify-content: space-evenly;
     flex-direction: column;
     display: flex;
-    text-transform: uppercase;
+    text-transform: none;
     padding-bottom: 2rem;
   }
   
   .propos {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-transform: none;
     padding-bottom: 2rem;
     padding-top: 2rem;
   }
   .services {
+    font-size: 1rem;
+    color: #ffffff;
     height: 14.25rem;
     width: 17.25rem;
     justify-content: space-evenly;
     flex-direction: column;
     display: flex;
-    text-transform: uppercase;
+    text-transform: none;
     padding-bottom: 2rem;
+    text-align: justify;
   }
   .blog {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     padding-bottom: 2rem;
     padding-top: 2rem;
   }
   .visite {
+    color: #ffffff;
+    font-size: 1rem;
     height: 14.25rem;
     width: 17.25rem;
     justify-content: space-evenly;
     flex-direction: column;
     display: flex;
     padding-bottom: 2rem;
+    text-align: justify;
+
   }
+
+.politique{
+  color: #ffffff;
+  font-size: 1rem;
+  height: 14.25rem;
+  width: 17.25rem;
+  justify-content: space-evenly;
+  flex-direction: column;
+  display: flex;
+  padding-bottom: 2rem;
+  text-align: justify;
+}
+
+
+.pdc{
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: none;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  
+}
+
+
   .title {
     font-size: 1.125rem;
     font-weight: bold;
@@ -85,7 +125,7 @@ footer {
   .pays {
     font-size: 0.875rem;
     font-weight: bold;
-    color: #999999;
+    color: #ffffff;
     text-transform: uppercase;
     padding: 0.5rem;
   }
@@ -94,6 +134,18 @@ footer {
     padding: 0.5rem;
   }
 
+
+
+  .footerlink{
+    text-decoration: none;
+    color: #ffffff;
+
+  }
+
+  .footerlink:hover{
+    color: rgb(255, 7, 110);
+    
+  }
 
   @media screen and (max-width: 767px){
     footer{

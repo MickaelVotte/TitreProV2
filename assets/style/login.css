@@ -1,13 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Poppins:ital,wght@0,200;0,600;0,700;1,500;1,600&display=swap');
 
 *{font-family: 'Poppins', sans-serif;
- 
+ box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+
+
+.bglogin{
+background: rgba(0, 0, 0, 0.2)  url("../img/login.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-position:center;
+background-blend-mode: darken;
+
+
+}
+
+
+
+
 .formulaire{
-    margin-top: 8rem;
+    margin-top: 3rem;
     position: relative;
-    
+    margin-bottom: 10rem;
+}
+
+.formulaire2{
+    margin-top: 7rem;
+    position: relative;
+    margin-bottom: 7rem;
+    padding: 0;
+}
+
+
+.titleNameLogin{
+    margin-top: 4rem;
+    font-size: 2rem;
+    font-weight: 600;
 
 }
 
@@ -16,17 +47,17 @@
     font-weight: 600;
     font-size: 2rem;
     position: relative;
-    
     content: '';
     padding: 0;
     margin: 0 ;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     margin-top: 2rem;
     
 }
 
 
 hr{
+    padding: 0;
     margin-left: 5rem;
     margin-right: 5rem;
     color: #4070f4;
@@ -43,9 +74,27 @@ label{
 
 
 .input2{
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
+
+.forgotPw{
+    position: relative;
+    right: 12%;
+    font-size: 0.75rem;
+    
+}
+
+
+.textLoginBottom
+{
+    margin-top: 2rem;
+    font-size: 0.95rem;
+}
+
+.linkBottom{
+    text-decoration: none;
+}
 
 .inputfield
 {
@@ -55,7 +104,7 @@ label{
     height: 3rem;
     width: 80%;
     border-radius: 0.5rem;
-    padding: 0 2.5rem;
+    padding: 0;
     margin-left: 2.5rem;
 }
 
@@ -116,11 +165,11 @@ i{
     background-color: #4070f4;
     border-radius: 0.5rem;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     cursor:pointer;
-    height: 3rem;
-    padding: 0.5rem;
+    height: 2.7rem;
+    padding: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;

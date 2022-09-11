@@ -9,7 +9,7 @@ include('../elements/top.php')
 <header>
 
 
-    <nav class="navbar navbar-expand-lg bg-primary navbarCss">
+    <nav class="navbar navbar-expand-lg navbarCss">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="#">Navbar</a>
