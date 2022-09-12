@@ -32,7 +32,7 @@ include('../elements/header.php');
             <span class="textProfil">Course crée</span>
             <span class="num" data-val="400">000</span>
             <div class="text-center m-0 p-0">
-                <p>Voir les coourses crée</p>
+                <p>Voir les coourses crées</p>
             </div>
         </div>
 
@@ -54,7 +54,7 @@ include('../elements/header.php');
             </div>
           
             <div class="text-center m-0 p-0">
-                  <p><i class="fa-solid fa-circle-xmark supCompte"></i><a class="linkProfil" href="#">supprimer votre compte</a></p>
+                  <p><a class="linkProfil" href="./closeAccount.php">supprimer votre compte</a></p>
             </div>
           
         </div>

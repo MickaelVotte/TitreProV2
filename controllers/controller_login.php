@@ -42,6 +42,12 @@ if(count($errors)==0){
         if(password_verify($_POST['password'], $userInfos['user_password']))
         {
             $_SESSION['user'] = $userInfos;
+            // unset() permet de supprimer les infos qu'on ne souhaite pas voire dans la variables de session
+            unset($_SESSION['user']['user_password']);
+            unset($_SESSION['user']['role_id_role']);
+            unset($_SESSION['user']['token_value']);
+            unset($_SESSION['user']['token_date']);
+
             header('Location: home.php');
         }else{
             $errors['connection'] = "Identifiant ou Mot de passe incorrect";

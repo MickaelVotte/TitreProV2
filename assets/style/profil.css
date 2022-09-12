@@ -40,7 +40,7 @@
     margin-bottom: 5rem;
     width: 25rem;
     height: 38rem;
-    border: 1px solid #567ff1;
+    border:3px solid #567ff1;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -123,8 +123,10 @@ span.textProfil {
 
 .linkProfil{
     font-size: 1rem;
+    text-decoration: none;
 }
 
 .supCompte{
-    font-size: 0.5rem;
+    height: 0.5rem;
+
 }
