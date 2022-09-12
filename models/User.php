@@ -208,6 +208,16 @@ class User extends DataBase
     }
 
 
+
+    /**
+     * fonction qui permet de modifier l'utilisateur de la bdd
+     * @param string $lastname nom de l'utilisateur
+     * @param string $firstname prenon de l'utilisateur
+     * @param string $age age de l'utilisateur
+     * @param string $mail email de l'utilisateur
+     * @param string $idUser l'id de l'utilisateur
+     */
+
     public function updateUser($lastname, $firstname, $age, $mail, $idUser)
     {
         $pdo = parent::connectDb();
@@ -227,60 +237,103 @@ class User extends DataBase
 
 
 
-        public function createToken($tokenDate, $tokenValue, $mail)
-        {
-            $pdo = parent::connectDb();
-            $sql= "UPDATE user SET token_date = :tokenDate, token_value = :tokenValue WHERE user_mail = :mail";
-            $query = $pdo->prepare($sql);
 
-            $query->bindValue(':tokenDate', $tokenDate, PDO::PARAM_STR);
-            $query->bindValue(':tokenValue', $tokenValue, PDO::PARAM_STR);
-            $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+    /**
+     *  fonction qui permet de créer un token 
+     *  @param string $tokenDate la date de création du  token
+     *  @param string  $tokenValue va generer une valeur aleatoire qui correspondra à la valeur du token,
+     *  @param string  $mail email de l'utilisateur
+     */
 
-            $query->execute();
-        }
+    public function createToken($tokenDate, $tokenValue, $mail)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE user SET token_date = :tokenDate, token_value = :tokenValue WHERE user_mail = :mail";
+        $query = $pdo->prepare($sql);
+
+        $query->bindValue(':tokenDate', $tokenDate, PDO::PARAM_STR);
+        $query->bindValue(':tokenValue', $tokenValue, PDO::PARAM_STR);
+        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+
+        $query->execute();
+    }
 
 
 
 
-        public function validateToken($token, $jetlag)
-        {
-         $pdo = parent::connectDb();
-         $sql = "SELECT token_date FROM user where token_value = :tokenValue";
-         $query = $pdo->prepare($sql);
 
-         $query->bindValue(':tokenValue', $token, pdo::PARAM_STR);
+    /**
+     * fonction qui permet de valider le token nouvellement créer 
+     * @param array tableau associatif
+     * 
+     */
 
-         $query->execute();
+    public function validateToken($token, $jetlag)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT token_date FROM user where token_value = :tokenValue";
+        $query = $pdo->prepare($sql);
 
-         $result = $query->fetchAll();
+        $query->bindValue(':tokenValue', $token, pdo::PARAM_STR);
 
-         //je fais un test pour savoir si $result est vide
-         if (count($result) != 0) {
+        $query->execute();
+
+        $result = $query->fetchAll();
+
+        //je fais un test pour savoir si $result est vide
+        if (count($result) != 0) {
+            //je stock la date du token dans une variable
             $tokenDate = $result[0]['token_date'];
+            //strtotime()permet de convertir une date en timestamp
             $timestamp = strtotime($tokenDate);
+            //abs()retourne la valeur absolue d'un nombre
+            // decalage horraire - timestamp de la date
             $diffTime =    abs(time() + $jetlag - $timestamp);
+            //convertir en minutes, le token sera valide d'une durée de 30min
             return $diffTime < 60 * 30 ? true : false;
-         } else {
-             return false; 
-         }
-
+        } else {
+            return false;
         }
+    }
 
 
 
-        public function updatePassword($tokenValue, $password)
-        {
-            $pdo = parent::connectDb();
-            $sql = "UPDATE user SET";
-        }
+    /**
+     * fonction qui va permettre de modifier le password
+     *   
+     */
 
+    public function updatePassword($tokenValue, $password)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE user SET user_password= :password WHERE token_value = :tokenValue";
+        $query = $pdo->prepare($sql);
 
+        $query->bindValue(':tokenValue', $tokenValue, PDO::PARAM_STR );
+        $query->bindValue(':password', $password, PDO::PARAM_STR );
 
+        $query->execute();
+       
 
+    }
 
+/**
+     * fonction qui permet de supprimer l'utilisateur de la bdd 
+     * 
+     */
 
+    public function deleteUser($id)
+    {
+        $pdo = parent::connectDb();
 
+        $sql = "DELETE FROM user WHERE user_id = :id";
+
+        $query = $pdo->prepare($sql);
+
+        //je lis la valeur du parametre (ex: id) un marqueur nominatif :id à l'aide de la méthode-> bindValue();
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+    }
 
 
 }

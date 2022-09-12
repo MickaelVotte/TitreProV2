@@ -43,7 +43,6 @@ include('../elements/top.php');
 
             <div class="m-5">
                 <div>
-                    <input type="hidden" name="" value="">
                     <button class="btn btn-success">Modifier</button>
                 </div>
             </div>

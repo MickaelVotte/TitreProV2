@@ -10,9 +10,9 @@
     <script src="https://kit.fontawesome.com/4cb0c25a26.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../assets/style/footer.css">
     <link rel="stylesheet" href="../assets/style/navbar.css">
-    <link rel="stylesheet" href="../assets/style/home.css">
     <link rel="stylesheet" href="../assets/style/login.css">
     <link rel="stylesheet" href="../assets/style/profil.css">
+    <link rel="stylesheet" href="../assets/style/home.css">
     
 </head>
 <body class="d-flex flex-column min-vh-100 m-0 p-0" >

@@ -16,8 +16,6 @@ $user = new User();
 
 $infoUser = $user->getOneCoureur($_GET['id']);
 
-var_dump($infoUser);
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $errors = [];
 

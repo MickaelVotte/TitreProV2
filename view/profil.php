@@ -50,8 +50,11 @@ include('../elements/header.php');
             <span class="textProfil">Profil</span>
             <span class="num" data-val="400">000</span>
             <div class="text-center m-0 p-0">
-                  <p><a  href="../view/modifySubcribe.php?id=<?= $_SESSION['user']['user_id'] ?>">Modifier votre compte</a></p>
-
+                  <p><a class="linkProfil"  href="../view/modifySubcribe.php?id=<?= $_SESSION['user']['user_id'] ?>">Modifier votre compte</a></p>
+            </div>
+          
+            <div class="text-center m-0 p-0">
+                  <p><i class="fa-solid fa-circle-xmark supCompte"></i><a class="linkProfil" href="#">supprimer votre compte</a></p>
             </div>
           
         </div>

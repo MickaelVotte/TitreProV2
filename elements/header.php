@@ -36,14 +36,13 @@ include('../elements/top.php')
                             paramètres
                         </a>
                         <ul class="dropdown-menu">
-                            <?php if (isset($_SESSION['user'])) { ?>
-                                <li><a class="dropdown-item" href="../view/subscribe.php">s'incrire</a></li>
+                            <?php if (isset($_SESSION['user'])) { ?>       
                                 <li><a class="dropdown-item" href="../view/login.php">connexion</a></li>
                                 <li><a class="dropdown-item" href="../view/logout.php">deconnexion</a></li>
                                 <li><a class="dropdown-item" href="/view/profil.php">Profil</a></li>
-                            <?php } else { ?>
-                                <li><a class="dropdown-item" href="../view/subscribe.php">s'incrire</a></li>
-                                <li><a class="dropdown-item" href="../view/login.php">connexion</a></li>
+                                <?php } else { ?>
+                                    <li><a class="dropdown-item" href="../view/subscribe.php">s'incrire</a></li>
+                                    <li><a class="dropdown-item" href="../view/login.php">connexion</a></li>
                             <?php } ?>
 
 
