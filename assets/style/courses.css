@@ -1,0 +1,22 @@
+
+.banner-image2 {
+    background:  rgba(0, 0, 0, 0.2)  url('../img/imglogin.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 25rem;
+background-blend-mode: darken;
+
+}
+
+.banner-image3 {
+    background:  rgba(0, 0, 0, 0.2)  url('../img/runningfooter.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 25rem;
+background-blend-mode: darken;
+
+}

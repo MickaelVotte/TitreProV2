@@ -28,12 +28,12 @@ require_once '../controllers/controller_subscribe.php'
             <div>
                 <label for="firstname"> <span class="text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2 " id="firstname" name="firstname" type="text" placeholder="Prénom " required value="<?= $_POST['firstname'] ?? '' ?>"><i class="fa-regular fa-user "></i>
+                <input class="inputfield2 " id="firstname" name="firstname" type="text" placeholder="Prénom" required value="<?= $_POST['firstname'] ?? '' ?>"><i class="fa-regular fa-user "></i>
             </div>
             <div>
                 <label for="age"> <span class="text-danger"><?= isset($errors['age']) ? $errors['age'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2 " id="age" name="age" type="number" min="18" max="99" placeholder="Age " required value="<?= $_POST['age'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
+                <input class="inputfield2 " id="age" name="age" type="date" placeholder="Date de naissance" required value="<?= $_POST['age'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
             </div>
             <div>
                 <label for="mail"> <span class="text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span></label>

@@ -22,7 +22,7 @@ include('../elements/top.php')
                         <a class="nav-link active" aria-current="page" href="../view/home.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Information</a>
+                        <a class="nav-link active" href="../view/courses.php">Courses</a>
                     </li>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">

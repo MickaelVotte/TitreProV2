@@ -1,0 +1,14 @@
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.case{
+    height: 8em;
+}
+
+.logoCalendar
+{
+    right: 0%;
+    margin: 0;
+}
