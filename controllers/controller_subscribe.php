@@ -39,13 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(isset($_POST['age']))
     {
-        if(empty($_POST['age'])){
-            $errors['age']= 'Champ obligatoire';
-        }else if($_POST['age'] < 18){
-            $errors['age'] = "Vous devez etes majeurs pour être inscrit(e)";
+        if(empty($_POST['birthday'])){
+            $errors['birthday']= 'Champ obligatoire';
         }
     }
-    
 
 
     if (isset($_POST['mail'])) {
@@ -82,15 +79,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (count($errors) == 0) {
         $lastname = htmlspecialchars($_POST['lastname']);
         $firstname = htmlspecialchars($_POST['firstname']);
-        $age = htmlspecialchars($_POST['age']);
+        $birthday = htmlspecialchars($_POST['birthday']);
         $mail = htmlspecialchars($_POST['mail']);
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         
         $coureurObj = new User();
 
-        $coureurObj->addUser($firstname, $lastname, $age, $mail, $password);
+        $coureurObj->addUser($firstname, $lastname, $birthday, $mail, $password);
 
-
+        header('Location: home.php');
 
     }
 }

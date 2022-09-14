@@ -1,13 +1,13 @@
 <?php session_start() ?>
-<?php include('../elements/top.php') ?>
-
-<?php include('../elements/header.php');
-require_once '../controllers/controller_calendar.php';
-
+<?php require_once '../controllers/controller_calendar.php';
 
 ?>
 
 
+
+<?php include('../elements/top.php') ?>
+
+<?php include('../elements/header.php');?>
 <body>
 
 

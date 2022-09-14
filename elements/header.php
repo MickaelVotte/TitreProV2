@@ -26,7 +26,7 @@ include('../elements/top.php')
                     </li>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Organiser un évènement</a>
+                        <a class="nav-link active" href="../view/event.php">Organiser un évènement</a>
                     </li>
                     <?php } else { ?>
                         <li><a href=""></a></li>

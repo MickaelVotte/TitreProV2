@@ -22,6 +22,13 @@ background-repeat: no-repeat;
 background-position:center;
 background-blend-mode: darken;
 }
+.bglogin3{
+background: rgba(0, 0, 0, 0.2)  url("../img/secondcard.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-position:center;
+background-blend-mode: darken;
+}
 
 
 
@@ -37,6 +44,13 @@ background-blend-mode: darken;
     position: relative;
     margin-bottom: 7rem;
     padding: 0;
+}
+.formulaire3{
+    margin-top: 7rem;
+    position: relative;
+    margin-bottom: 7rem;
+    padding: 0;
+    width: 80%;
 }
 
 
@@ -140,6 +154,19 @@ label{
     border-radius: 0.5rem;
     padding: 0 2.5rem;
     margin-left: 2.5rem;
+  
+    
+}
+.inputfield3
+{
+    text-align: center;
+    margin-top: 0rem;
+    position: relative;
+    height: 3rem;
+    width: 60%;
+    border-radius: 0.5rem;
+    padding: 0 2.5rem;
+    
   
     
 }

@@ -6,7 +6,7 @@ class User extends DataBase
     private int $_user_id;
     private string $_user_firstname;
     private string $_user_lastname;
-    private int $_user_age;
+    private string $_user_birthday;
     private string $_user_mail;
     private string $_user_password;
     private int $_role_id_role;
@@ -46,11 +46,11 @@ class User extends DataBase
 
     public function getUserAge()
     {
-        return $this->_user_age;
+        return $this->_user_birthday;
     }
-    public function setUserAge(int $age)
+    public function setUserAge(string $birthday)
     {
-        $this->_user_age = $age;
+        $this->_user_age = $birthday;
     }
 
     public function getUserMail()
@@ -151,13 +151,13 @@ class User extends DataBase
      * @param string $mail email de l'utilisateur
      * @param string $password mot de passe de l'utilisateur
      */
-    public function addUser(string $firstname, string $lastname, string $age, string $mail, string $password): void
+    public function addUser(string $firstname, string $lastname, string $birthday, string $mail, string $password): void
     {
         //création d'une instance pdo via la fonction du parent
         $pdo = parent::connectDb();
 
         //j'écris  la requete qui va permettre d'ajouter un user;
-        $sql = "INSERT INTO user (`user_firstname`, `user_lastname`, `user_age`,`user_mail`, `user_password`) VALUES (:firstname, :lastname, :age, :mail, :password)";
+        $sql = "INSERT INTO user (`user_firstname`, `user_lastname`, `user_birthday`,`user_mail`, `user_password`) VALUES (:firstname, :lastname, :birthday, :mail, :password)";
 
 
         //je prepare la requete que je stock dans query à l'aide de la méthode->prepare()
@@ -165,7 +165,7 @@ class User extends DataBase
 
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-        $query->bindValue(':age', $age, PDO::PARAM_STR);
+        $query->bindValue(':birthday', $birthday, PDO::PARAM_STR);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->bindValue(':password', $password, PDO::PARAM_STR);
 
@@ -218,17 +218,17 @@ class User extends DataBase
      * @param string $idUser l'id de l'utilisateur
      */
 
-    public function updateUser($lastname, $firstname, $age, $mail, $idUser)
+    public function updateUser($lastname, $firstname, $birthday, $mail, $idUser)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE user SET user_firstname = :firstname, user_lastname = :lastname, user_age = :age, user_mail = :mail
+        $sql = "UPDATE user SET user_firstname = :firstname, user_lastname = :lastname, user_birthday = :birthday, user_mail = :mail
         WHERE user_id = :id ";
 
         $query = $pdo->prepare($sql);
 
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-        $query->bindValue(':age', $age, PDO::PARAM_STR);
+        $query->bindValue(':birthday', $birthday, PDO::PARAM_STR);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->bindValue(':id', $idUser, PDO::PARAM_INT);
 

@@ -1,11 +1,12 @@
 <?php
 //cela permet d'utiliser les variables de session: $_session
-session_start(); ?>
+session_start(); 
+require_once '../controllers/controller_login.php';
+?>
 <?php
 include('../elements/top.php');
 include('../elements/header.php');
 
-require_once '../controllers/controller_login.php';
 ?>
 
 

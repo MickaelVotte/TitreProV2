@@ -2,10 +2,10 @@
 //cela permet d'utiliser les variables de session: $_session
 session_start(); ?>
 <?php
+require_once '../controllers/controller_subscribe.php';
 include('../elements/top.php');
 include('../elements/header.php');
 
-require_once '../controllers/controller_subscribe.php'
 ?>
 
 
@@ -31,9 +31,9 @@ require_once '../controllers/controller_subscribe.php'
                 <input class="inputfield2 " id="firstname" name="firstname" type="text" placeholder="Prénom" required value="<?= $_POST['firstname'] ?? '' ?>"><i class="fa-regular fa-user "></i>
             </div>
             <div>
-                <label for="age"> <span class="text-danger"><?= isset($errors['age']) ? $errors['age'] : '' ?></span></label>
+                <label for="birthday"><span class="text-danger"><?= isset($errors['birthday']) ? $errors['birthday'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2 " id="age" name="age" type="date" placeholder="Date de naissance" required value="<?= $_POST['age'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
+                <input class="inputfield2 " id="birthday" name="birthday" type="date" placeholder="Date de naissance" required value="<?= $_POST['age'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
             </div>
             <div>
                 <label for="mail"> <span class="text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span></label>

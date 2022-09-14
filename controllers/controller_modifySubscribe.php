@@ -44,11 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 
-    if (isset($_POST['age'])) {
-        if (empty($_POST['age'])) {
-            $errors['age'] = 'Champ obligatoire';
+    if (isset($_POST['birthday'])) {
+        if (empty($_POST['birthday'])) {
+            $errors['birthday'] = 'Champ obligatoire';
         } else if ($_POST['age'] < 18) {
-            $errors['age'] = "Vous devez etes majeurs pour être inscrit(e)";
+            $errors['birthday'] = "Vous devez etes majeurs pour être inscrit(e)";
         }
     }
 
@@ -67,13 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (count($errors) == 0) {
         $lastname = htmlspecialchars($_POST['lastname']);
         $firstname = htmlspecialchars($_POST['firstname']);
-        $age = htmlspecialchars($_POST['age']);
+        $age = htmlspecialchars($_POST['birthday']);
         $mail = htmlspecialchars($_POST['mail']);
         $idUser = htmlspecialchars($_POST['idUser']);
 
         $modifycoureurObj = new User();
 
-        $modifycoureurObj->updateUser($lastname, $firstname,  $age, $mail, $idUser);
+        $modifycoureurObj->updateUser($lastname, $firstname,  $birthday, $mail, $idUser);
 
 
         header('Location: home.php');
