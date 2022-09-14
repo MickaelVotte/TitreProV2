@@ -7,8 +7,6 @@ include('../elements/header.php');
 
 ?>
 
-<?php var_dump($_FILES) ?>
-
 
 <div class=" bglogin3 row d-flex justify-content-center m-0 p-0">
     <form class="col-lg-4 col-sm-12 formulaire3" action="" method="post" enctype="multipart/form-data" novalidate>
@@ -27,7 +25,7 @@ include('../elements/header.php');
                 <div class="col-6">
                     <label for="image"> <span class="text-danger"><?= isset($errors['image']) ? $errors['image'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="image" name="image" type="file" data placeholder="image" required value="<?= $_POST['image'] ?? '' ?>">
+                    <input class="inputfield3" id="image" name="image" type="file" data placeholder="image"  required value="<?= $_POST['image'] ?? '' ?>">
                 </div>
             </div>
 
@@ -39,19 +37,19 @@ include('../elements/header.php');
             <div class="row">
 
                 <div class="col-sm-6">
-                    <label for="name"><span class="text-danger"><?= isset($errors['name']) ? $errors['name'] : '' ?></span></label>
+                    <label for="name"><span id='errorName'class="text-danger"><?= isset($errors['name']) ? $errors['name'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="name" name="name" type="text" placeholder="Nom de la course" required value="<?= $_POST['name'] ?? '' ?>">
+                    <input class="inputfield3" id="name" name="name" type="text" placeholder="Nom de la course" onkeypress="deletemessageError('errorName')" required value="<?= $_POST['name'] ?? '' ?>">
                 </div>
                 <div class="col-sm-6">
-                    <label for="place"><span class="text-danger"><?= isset($errors['place']) ? $errors['place'] : '' ?></span></label>
+                    <label for="place"><span id="errorPlace" class="text-danger"><?= isset($errors['place']) ? $errors['place'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="place" name="place" type="text" placeholder="lieu de la course" required value="<?= $_POST['place'] ?? '' ?>">
+                    <input class="inputfield3" id="place" name="place" type="text" placeholder="lieu de la course" onkeypress="deletemessageError('errorPlace')" required value="<?= $_POST['place'] ?? '' ?>">
                 </div>
                 <div class="col-sm-6">
-                    <label for="date"> <span class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span></label>
+                    <label for="date"> <span id="errorDate" class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" required value="<?= $_POST['date'] ?? '' ?>">
+                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? '' ?>">
                 </div>
 
 
@@ -59,9 +57,9 @@ include('../elements/header.php');
 
 
                 <div class="col-sm-6">
-                    <label for="description"> <span class="text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span></label>
+                    <label for="description"> <span id="errorDescription" class="text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span></label>
                     <br>
-                    <textarea class="inputfield3" id="description" name="description" type="description" required placeholder="description"></textarea>
+                    <textarea class="inputfield3" id="description" name="description" type="description" required placeholder="description" onkeypress="deletemessageError('errorDescription')"></textarea>
                 </div>
 
 
@@ -72,23 +70,23 @@ include('../elements/header.php');
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="nblimitParticipant"> <span class="text-danger"><?= isset($errors['nblimitParticipant']) ? $errors['nblimitParticipant'] : '' ?></span></label>
+                    <label for="nblimitParticipant"> <span id="errornblimitParticipant" class="text-danger"><?= isset($errors['nblimitParticipant']) ? $errors['nblimitParticipant'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="nblimitParticipant" name="nblimitParticipant" type="number" min="0" max="50" placeholder="nombre limite de participant " required value="<?= $_POST['nblimitParticipant'] ?? '' ?>">
+                    <input class="inputfield3" id="nblimitParticipant" name="nblimitParticipant" type="number" min="0" max="50" placeholder="nombre limite de participant " onkeypress="deletemessageError('errornblimitParticipant')" required value="<?= $_POST['nblimitParticipant'] ?? '' ?>">
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="start"> <span class="text-danger"><?= isset($errors['start']) ? $errors['start'] : '' ?></span></label>
+                    <label for="start"> <span  class="text-danger"><?= isset($errors['start']) ? $errors['start'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3 " id="start" name="start" type="time" placeholder="l'heure de debut" required value="<?= $_POST['start'] ?? '15:00' ?>">
+                    <input class="inputfield3 " id="start" name="start" type="time" placeholder="l'heure de debut"  required value="<?= $_POST['start'] ?? '15:00' ?>">
                 </div>
 
 
 
                 <div class="col-sm-6">
-                    <label for="departement"> <span class="text-danger"><?= isset($errors['departement']) ? $errors['departement'] : '' ?></span></label>
+                    <label for="departement"> <span id="departement" class="text-danger"><?= isset($errors['departement']) ? $errors['departement'] : '' ?></span></label>
                     <br>
-                    <select class="inputfield3" name="departement" type="type">
+                    <select class="inputfield3" id="department" name="departement" type="" onclick="deletemessageError('errorDepartement')" >
 
                         <option value="" selected disabled>Veuillez selectionner un departement</option>
                         <option value="1">Calvados</option>
