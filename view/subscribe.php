@@ -21,38 +21,43 @@ include('../elements/header.php');
             </div>
             <hr>
             <div>
-                <label for="lastname"><span class="text-danger"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span></label>
+                <label for="lastname"><span id="errorLastname" class="text-danger"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2" id="lastname" name="lastname" type="text" placeholder="Nom" required value="<?= $_POST['lastname'] ?? '' ?>"><i class="fa-regular fa-user "></i>
+                <input class="inputfield2" id="lastname" name="lastname" type="text" placeholder="Nom" onkeypress="deletemessageError('errorLastname')" required value="<?= $_POST['lastname'] ?? '' ?>"><i class="fa-regular fa-user "></i>
             </div>
             <div>
-                <label for="firstname"> <span class="text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span></label>
+                <label for="firstname"> <span id="errorFirstname" class="text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2 " id="firstname" name="firstname" type="text" placeholder="Prénom" required value="<?= $_POST['firstname'] ?? '' ?>"><i class="fa-regular fa-user "></i>
+                <input class="inputfield2 " id="firstname" name="firstname" type="text" placeholder="Prénom" onkeypress="deletemessageError('errorFirstname')" required value="<?= $_POST['firstname'] ?? '' ?>"><i class="fa-regular fa-user "></i>
+            </div>
+
+
+            <div>
+                <label for="birthday"><span id="errorBirthday" class="text-danger"><?= isset($errors['birthday']) ? $errors['birthday'] : '' ?></span></label>
+                <br>
+                <input class="inputfield2 " id="birthday" name="birthday" type="date" placeholder="Date de naissance" onkeypress="deletemessageError('errorBirthday')"  required value="<?= $_POST['age'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
             </div>
             <div>
-                <label for="birthday"><span class="text-danger"><?= isset($errors['birthday']) ? $errors['birthday'] : '' ?></span></label>
+                <label for="mail"> <span id="errorMail" class="text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2 " id="birthday" name="birthday" type="date" placeholder="Date de naissance" required value="<?= $_POST['age'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
+                <input class="inputfield2" id="mail" name="mail" type="mail" placeholder="Email " onkeypress="deletemessageError('errorMail')" required value="<?= ($_POST['mail']) ?? '' ?>"><i class="fa-solid fa-envelope"></i>
+            </div>
+
+
+            <div>
+                <label for="password"> <span id="errorPassword" class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
+                <br>
+                <input class="inputfield2" id="password" name="password" type="password" placeholder="Mot de passe " onkeypress="deletemessageError('errorPassword')" required value="<?= $_POST['address'] ?? '' ?>"><i class="fa-solid fa-key"></i>
             </div>
             <div>
-                <label for="mail"> <span class="text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span></label>
+                <label for="confirmPassword"> <span id="errorconfirmPassword" class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2" id="mail" name="mail" type="mail" placeholder="Email " required value="<?= ($_POST['mail']) ?? '' ?>"><i class="fa-solid fa-envelope"></i>
+                <input class="inputfield2" id="confirmPassword" name="confirmPassword" type="password" required onkeypress="deletemessageError('errorconfirmPassword')"  placeholder="Confirmer votre mot de passe " value="<?= $_POST['address'] ?? '' ?>"><i class="fa-solid fa-key"></i>
             </div>
-            <div>
-                <label for="password"> <span class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
-                <br>
-                <input class="inputfield2" id="password" name="password" type="password" placeholder="Mot de passe " required value="<?= $_POST['address'] ?? '' ?>"><i class="fa-solid fa-key"></i>
-            </div>
-            <div>
-                <label for="confirmPassword"> <span class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
-                <br>
-                <input class="inputfield2" id="confirmPassword" name="confirmPassword" type="password" required placeholder="Confirmer votre mot de passe " value="<?= $_POST['address'] ?? '' ?>"><i class="fa-solid fa-key"></i>
-            </div>
+
             <div class="mt-2 pb-2">
-                <label name="cgu" id="cgu"><span class="text-danger"><?= isset($errors['cgu']) ? $errors['cgu'] : '' ?></span></label>
-                <input type="checkbox" name="cgu" id='cgu' value="<?= $_POST['cgu'] ?? '' ?>">J'accepte les conditions général d'utilisation</input>
+                <label name="cgu" id="cgu"><span id="errorCgu" class="text-danger"><?= isset($errors['cgu']) ? $errors['cgu'] : '' ?></span></label>
+                <input type="checkbox" name="cgu" id='cgu' onclick="deletemessageError('errorCgu')" value="<?= $_POST['cgu'] ?? '' ?>">J'accepte les conditions général d'utilisation</input>
 
             </div>
 
@@ -74,5 +79,5 @@ include('../elements/header.php');
 
 
 
-
+<script src="../assets/script.js/myscript.js"></script>
 <?php include('../elements/footer.php') ?>

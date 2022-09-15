@@ -32,8 +32,17 @@ let date = document.getElementById('date');
 let description = document.getElementById('description');
 let nblimitParticipant = document.getElementById('nblimitParticipant');
 let departement = document.getElementById('departement');
+let type = document.getElementById('type');
+let distance = document.getElementById('distance');
 
 
+let lastname = document.getElementById('lastname');
+let firstname = document.getElementById('firstname');
+let birthday = document.getElementById('birthday');
+let mail = document.getElementById('mail');
+let password = document.getElementById('password');
+let confirmPassword = document.getElementById('confirmPassword');
+let cgu = document.getElementById('cgu');
 
 
 
@@ -56,6 +65,38 @@ if(nblimitParticipant.value == ''){
 }
 if(departement.value == ''){
     let departementError = document.getElementById('errorDepartement');
+}
+if(type.value == ''){
+    let typeError = document.getElementById('errorType');
+}
+if(distance.value == ''){
+    let distanceError = document.getElementById('errorDistance');
+}
+
+
+
+
+
+if(lastname.value == ''){
+    let lastnameError = document.getElementById('errorLastname');
+}
+if(firstname.value == ''){
+    let firstnameError = document.getElementById('errorFirstname');
+}
+if(birthday.value == ''){
+    let birthdayError = document.getElementById('errorBirthday');
+}
+if(mail.value == ''){
+    let mailError = document.getElementById('errorMail');
+}
+if(password.value == ''){
+    let passwordError = document.getElementById('errorPassword');
+}
+if(confirmPassword.value == ''){
+    let confirmPasswordError = document.getElementById('errorconfirmPassword');
+}
+if(cgu.value == ''){
+    let cguError = document.getElementById('errorCgu');
 }
 
 

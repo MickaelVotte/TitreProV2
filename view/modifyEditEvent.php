@@ -2,13 +2,18 @@
 <?php
 require_once "../controllers/controller_editEvent.php";
 
+
 include('../elements/top.php');
 include('../elements/header.php');
 
 ?>
 
+
+
+
+
 <div class=" bglogin3 row d-flex justify-content-center m-0 p-0">
-    <form class="col-lg-4 col-sm-12 formulaire3" action="" method="post" novalidate  enctype="multipart/form-data">
+    <form class="col-lg-4 col-sm-12 formulaire3" action="" method="post" enctype="multipart/form-data">
 
 
 
@@ -24,7 +29,7 @@ include('../elements/header.php');
                 <div class="col-6">
                     <label for="image"> <span class="text-danger"><?= isset($errors['image']) ? $errors['image'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="image" name="image" type="file" data placeholder="image"  value="<?= $_POST['image'] ?? '' ?>">
+                    <input class="inputfield3" id="image" name="image" type="file" data placeholder="image" value="<?= $_POST['image'] ?? '' ?>">
                 </div>
             </div>
 
@@ -86,12 +91,12 @@ include('../elements/header.php');
                 <div class="col-sm-6">
                     <label for="type"><span id="type" class="text-danger"><?= isset($errors['type']) ? $errors['type'] : '' ?></span></label>
                     <br>
-                    <select class="inputfield3" id="type" name="type" onclick="deletemessageError('errorType')" >
+                    <select class="inputfield3" id="type" name="type" onclick="deletemessageError('errorType')">
                         <option value="" selected disabled>Veuillez selectionner une catégorie</option>
                         <?php foreach ($arrayCategories as $value) { ?>
-                            <option value="<?=$value['category_id']?>"><?=$value['category_type']?></option>
-                       <?php } ?>
-                </select>
+                            <option value="<?= $value['category_id'] ?>"><?= $value['category_type'] ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
 
@@ -104,21 +109,8 @@ include('../elements/header.php');
                     <select class="inputfield3" id="department" name="departement" onclick="deletemessageError('errorDepartement')">
                         <option value="" selected disabled>Veuillez selectionner un departement</option>
                         <?php foreach ($arrayDepartment as $value) { ?>
-                            <option value="<?= $value['departement_id']?>"><?= $value['departement_name'] ?></option>
+                            <option value="<?= $value['departement_id'] ?>"><?= $value['departement_name'] ?></option>
                         <?php  } ?>
-                    </select>
-                </div>
-
-                <div class="col-sm-6">
-                    <label for=""> <span id="distance" class="text-danger"><?= isset($errors['distance']) ? $errors['distance'] : '' ?></span></label>
-                    <br>
-                    <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
-                    <option value="">Veuillez choisir une distance</option>
-                       <option value="5">5km</option>
-                       <option value="10">10km</option>
-                       <option value="15">15km</option>
-                       <option value="21">21km</option>
-                       <option value="42">42km</option>
                     </select>
                 </div>
 
@@ -139,6 +131,15 @@ include('../elements/header.php');
     </form>
 
 </div>
+
+
+
+
+
+
+
+
+
 
 
 

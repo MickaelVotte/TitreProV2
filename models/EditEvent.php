@@ -9,6 +9,7 @@ class EditEvent extends Database
     private int $_editEvent_limitParticpant;
     private  string $_editEvent_description;
     private string $_editEvent_image;
+    private string $_editEvent_place;
 
 
 
@@ -90,15 +91,26 @@ class EditEvent extends Database
     }
 
 
+    public function getEditEventPlace()
+    {
+        return $this->_editEvent_place;
+    }
+    public function setEditEventPlace(string $place)
+    {
+        $this->_editEvent_place = $place;
+    }
 
 
-        public function createEvent(string $name, string $date, string $start, string $end, int $limitParticipant, string $description, string $image):void
+
+
+
+        public function createEvent(string $name, string $date, string $start, string $end, int $limitParticipant, string $description, string $distance ,string $image, string $place, int $departement, int $type ) :void
         {
             //création d'un instance pdo via la fonction du parent
             $pdo = parent::connectDb();
 
             //j'écris la requete qui va me permettre d'ajouter un client;
-            $sql = "INSERT INTO events (`event_name`, `event_date`, `event_start`, `event_end`, `event_limitmembers`, `event_description`, `event_image`) values (:name, :date, :start, :end, :limitmembers, :description, :image)";
+            $sql = "INSERT INTO events (`event_name`, `event_date`, `event_start`, `event_end`, `event_limitmembers`, `event_description`, `event_distance`,`event_image`, `event_place`, `departement_id_departement`, `category_id_categories`,`user_id_user`) values (:name, :date, :start, :end, :limitmembers, :description, :distance, :image, :place, :departement, :type, :userId)";
 
             ///je prepare la requete que je stock dans query à l'aide dela méthode->prepare()
             //une requete preparee est à priiviligier lorsque nous recuperons des données rentrées par l'utilisateur
@@ -112,6 +124,11 @@ class EditEvent extends Database
             $query->bindValue(':limitmembers', $limitParticipant ,PDO::PARAM_INT);
             $query->bindValue(':description', $description ,PDO::PARAM_STR);
             $query->bindValue(':image', $image ,PDO::PARAM_STR);
+            $query->bindValue(':place', $place ,PDO::PARAM_STR);
+            $query->bindValue(':departement', $departement ,PDO::PARAM_INT);
+            $query->bindValue(':type', $type ,PDO::PARAM_INT);
+            $query->bindValue(':distance', $distance ,PDO::PARAM_STR);
+            $query->bindValue(':userId', $_SESSION['user']['user_id'] ,PDO::PARAM_INT);
 
             //une fois les information recupere, j'execute la requte à l'aide de la méthode->execute()
             $query->execute();

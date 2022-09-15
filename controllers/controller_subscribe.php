@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    if(isset($_POST['age']))
+    if(isset($_POST['birthday']))
     {
         if(empty($_POST['birthday'])){
             $errors['birthday']= 'Champ obligatoire';

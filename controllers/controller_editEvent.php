@@ -6,10 +6,19 @@ require_once '../models/Database.php';
 require_once '../models/User.php';
 require_once '../models/EditEvent.php';
 require_once '../helpers/form.php';
+require_once '../models/Departement.php';
+require_once '../models/Categories.php';
 
 
 
 
+$departmentObj = new departement();
+$arrayDepartment = $departmentObj->getDepartmentNormandie();
+
+
+
+$categoriesObj = new Categories();
+$arrayCategories = $categoriesObj->getCategories();
 
 // 1 - je lance mes tests uniquement lors de la validation du formulaire de type POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -32,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // les extensions autorisé
         'extension' => ['jpeg', 'jpg', 'webp', 'png'],
         // le nom du répertoire qui va accueillir les images
-        'directory' => '../assets/imageDefault/',
+        'directory' => '../assets/imageDefaut/',
         // choix de l'extension lors de l'enregistrement de l'image
         'extend' => 'png'
     ];
@@ -81,10 +90,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['description'])) {
         if (empty($_POST['description'])) {
             $errors['description'] = "Champ obligatoire";
-        } 
-        
+        }
     }
-
+    if (isset($_POST['distance'])) {
+        if (empty($_POST['distance'])) {
+            $errors['distance'] = "Champ obligatoire";
+        }
+    }
 
 
     if ($_FILES['image']['error'] != 4) {
@@ -95,17 +107,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($resultTestImage['permissionToUpload'] === false) {
             $errors['image'] = $resultTestImage['errorMessage'];
         }
-
     }
-
-
-
-
-
 
     if (!isset($_POST['departement'])) {
         $errors['departement'] = 'champ obligatoire';
     }
+
+
+    if (!isset($_POST['type'])) {
+        $errors['type'] = "Champ obligatoire";
+    }
+
+    if (!isset($_POST['distance'])) {
+        $errors['distance'] = "Champ obligatoire";
+    }
+
 
 
     if (count($errors) == 0) {
@@ -115,13 +131,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $date = htmlspecialchars($_POST['date']);
         $nblimitParticipant = intval($_POST['nblimitParticipant']);
         $description = htmlspecialchars($_POST['description']);
-        $image = base64_encode('../assets/imageDefaut/imgdefault.jpg');
+        if ($_FILES['image']['error'] == 4) {
+            $image = base64_encode('../assets/imageDefaut/imgdefault.jpg');
+        } else {
+            $resultToUpload = Form::uploadImage('image', $paramUpload);
+            $image = Form::convertImagetoBase64($paramUpload['directory'] . $resultToUpload['imageName']);
+        }
+
+
+
+        $place = htmlspecialchars($_POST['place']);
+        $departement = intval($_POST['departement']);
+        $type = intval($_POST['type']);
+        $distance = intval($_POST['distance']);
+
+
+
 
 
 
         $eventCreate = new EditEvent();
 
-        $eventCreate->createEvent($name, $date, $start, $end, $nblimitParticipant, $description, $image);
+        $eventCreate->createEvent($name, $date, $start, $end, $nblimitParticipant, $description, $distance, $image, $place, $departement, $type);
 
         header('Location: home.php');
         exit();
