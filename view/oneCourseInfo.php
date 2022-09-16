@@ -4,6 +4,7 @@ require_once "../models/Database.php";
 require_once "../models/Categories.php";
 require_once "../models/Departement.php";
 require_once "../controllers/controller_OneCourseInfo.php";
+require_once "../controllers/controller_modifyOneCourse.php";
 require_once "../controllers/controller_courses.php";
 
 include('../elements/top.php');
@@ -13,9 +14,9 @@ include('../elements/header.php');
 
 
 
-<div class="card">
+<div class="card m-5">
     <div>
-    <img class="card-image img-fluid text-center" src="data:image/png;base64,<?= $OneCourse['event_image'] ?>" alt="">
+        <img class="card-image img-fluid text-center" src="data:image/png;base64,<?= $OneCourse['event_image'] ?>" alt="">
     </div>
     <p>Date: <?= $OneCourse['event_date'] ?></p>
     <p>Type de Course: <?= $OneCourse['category_type'] ?></p>
@@ -27,7 +28,13 @@ include('../elements/header.php');
     <p>Distance: <?= $OneCourse['event_distance'] ?>km</p>
     <p>Lieu: <?= $OneCourse['event_place'] ?></p>
     <p>Departement: <?= $OneCourse['departement_name'] ?></p>
+
 </div>
+
+    <div class="text-center">
+        <a href="./modifyOneCourseInfo.php?eventId=<?=$OneCourse['event_id']?>">Modifier</a>
+    </div>
+
 
 
 
