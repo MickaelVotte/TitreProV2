@@ -33,9 +33,9 @@ include('../elements/top.php');
                 <input class="inputfield2" id="firstname" name="firstname" type="text" placeholder="Prénom " required value="<?= $_POST['firstname'] ?? $infoUser['user_firstname'] ?>"><i class="fa-regular fa-user "></i>
             </div>
             <div>
-                <label for="age"><span class="text-danger"><?= isset($errors['age']) ? $errors['age'] : '' ?></span></label>
+                <label for="birthday"><span class="text-danger"><?= isset($errors['birthday']) ? $errors['birthday'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2" id="age" name="age" required placeholder="Age" type="number" min="18" max="99" value="<?= $_POST['age'] ?? $infoUser['user_age'] ?>"><i class="fa-regular fa-calendar-days"></i>
+                <input class="inputfield2" id="birthday" name="birthday" required  type="date" value="<?= $_POST['birthday'] ?? $infoUser['user_birthday'] ?>"><i class="fa-regular fa-calendar-days"></i>
             </div>
             <div>
                 <label for="mail">Email: <span class="text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span></label>

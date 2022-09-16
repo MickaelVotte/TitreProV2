@@ -68,7 +68,7 @@
 
 .card-image {
     grid-area: image;
-    background: url("../img/firstcard.jpg");
+   width: 100%;
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
     background-size: cover;

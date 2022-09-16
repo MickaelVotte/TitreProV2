@@ -23,7 +23,7 @@ include('../elements/header.php');
             </div>
             <hr>
             <div class="row justify-content-center">
-                <img id="imgPreview" class="col-8 img-fluid imgPreview" src="../assets/imageDefaut/imgdefault.jpg" alt="image_par_defaut_course_crée">
+                <img id="imgPreview" class="col-8 img-fluid imgPreview" src="../assets/imageDefaut/imgdefault.png" alt="image_par_defaut_course_crée">
             </div>
             <div class="row">
                 <div class="col-6">
@@ -85,7 +85,7 @@ include('../elements/header.php');
                 </div>
 
 
-
+    
 
 
                 <div class="col-sm-6">

@@ -9,12 +9,17 @@ require_once '../config.php';
 require_once '../models/Database.php';
 require_once '../models/User.php';
 
+var_dump($_SESSION);
+
+$test = false;
 
 
-$user = new User();
+if ($_SESSION['user']['user_id'] != $_GET['id']) {
+    header('Location: profil.php');
+}
 
 
-$infoUser = $user->getOneCoureur($_GET['id']);
+var_dump($test);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $errors = [];
@@ -47,8 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['birthday'])) {
         if (empty($_POST['birthday'])) {
             $errors['birthday'] = 'Champ obligatoire';
-        } else if ($_POST['age'] < 18) {
-            $errors['birthday'] = "Vous devez etes majeurs pour être inscrit(e)";
+            // } else if ($_POST['birthday'] < 18) {
+            //     $errors['birthday'] = "Vous devez etes majeurs pour être inscrit(e)";
+            // }
         }
     }
 
@@ -67,15 +73,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (count($errors) == 0) {
         $lastname = htmlspecialchars($_POST['lastname']);
         $firstname = htmlspecialchars($_POST['firstname']);
-        $age = htmlspecialchars($_POST['birthday']);
+        $birthday = htmlspecialchars($_POST['birthday']);
         $mail = htmlspecialchars($_POST['mail']);
         $idUser = htmlspecialchars($_POST['idUser']);
 
         $modifycoureurObj = new User();
 
         $modifycoureurObj->updateUser($lastname, $firstname,  $birthday, $mail, $idUser);
-
-
-        header('Location: home.php');
     }
 }
+
+
+$user = new User();
+
+
+$infoUser = $user->getOneCoureur($_GET['id']);

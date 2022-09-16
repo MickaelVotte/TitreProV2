@@ -5,6 +5,7 @@ require_once "../models/Database.php";
 require_once "../models/Categories.php";
 require_once "../models/Departement.php";
 require_once "../controllers/controller_editEvent.php";
+require_once "../controllers/controller_courses.php";
 include('../elements/top.php');
 include('../elements/header.php');
 ?>
@@ -36,12 +37,12 @@ include('../elements/header.php');
 
                 <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
                     <option value="">Veuillez choisir une distance</option>
-                       <option value="">5km</option>
-                       <option value="">10km</option>
-                       <option value="">15km</option>
-                       <option value="">21km</option>
-                       <option value="">42km</option>
-                    </select>
+                    <option value="">5km</option>
+                    <option value="">10km</option>
+                    <option value="">15km</option>
+                    <option value="">21km</option>
+                    <option value="">42km</option>
+                </select>
             </div>
         </div>
 
@@ -65,7 +66,6 @@ include('../elements/header.php');
 
 
 
-
 <div class="text-center mt-5">
     <button> Rechercher</button>
 </div>
@@ -76,29 +76,24 @@ include('../elements/header.php');
 </div>
 
 
-
-
-
-
-
-
 <div>
     <div class="row justify-content-md-center m-0 p-3 mt-5 mb-5">
-        <?php for ($i = 0; $i < 4; $i++) { ?>
+        <?php foreach ($eventArray as $event) { ?>
             <div class="col-lg-3 col-sm-12 mt-5 mb-5">
                 <div class="card">
-                    <div class="card-image"></div>
+                    <img class="card-image img-fluid text-center" src="data:image/png;base64,<?= $event['event_image'] ?>" alt="">
                     <div class="card-title">
-                        <span class="date">Il y a 3 jours</span>
-                        <h3 class="fw-bolder">Marathon</h3>
+                        <span class="date"><?= $event['event_date'] ?></span>
+                        <h3 class="fw-bolder"><?= $event['category_type'] ?></h3>
+                        <span class="date"><?=$event['event_name']?></span>
                     </div>
                     <div class="card-paragraph">
-                        <p>Privbeighb nefkj zfpij z,jfjpzfrejp Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde vero modi consectetur optio voluptas error sit! Ut odit amet dicta excepturi ad quo necessitatibus cupiditate, facilis, eaque ratione in!</p>
+                        <p><?= $event['event_description']?></p>
                     </div>
                     <div class="card-bottom">
+                        <p><?= $event['event_distance']?>km</p>
                         <div class="stat">
-                            <a class="btncard" href="#">En savoir plus</a>
-
+                            <a class="btncard" href="./oneCourseInfo.php?eventId=<?=$event['event_id']?>">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -113,30 +108,6 @@ include('../elements/header.php');
 
 
 
-
-<div class="col-lg-3 col-sm-12 mt-5 mb-5">
-                <div class="card">
-                    <div class="card-image"></div>
-                    <div class="card-title">
-                        <span class="date">date</span>
-                        <h3 class="fw-bolder">Marathon</h3>
-                        <span>distance</span>
-                    </div>
-                    <div class="card-paragraph">
-                        <p>Nom de la course</p>
-                        <p>Privbeighb nefkj zfpij z,jfjpzfrejp Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde vero modi consectetur optio voluptas error sit! </p>
-                    </div>
-                    <div class="card-bottom">
-                        <div class="stat">
-                            <p>heure de départ</p>
-                            <p>heure de fin</p>
-                           <p>nombre de participant</p> 
-                            <a class="btncard" href="#">En savoir plus</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
 

@@ -4,7 +4,7 @@
 require_once '../config.php';
 require_once '../models/Database.php';
 require_once '../models/User.php';
-require_once '../models/EditEvent.php';
+require_once '../models/Events.php';
 require_once '../helpers/form.php';
 require_once '../models/Departement.php';
 require_once '../models/Categories.php';
@@ -132,7 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nblimitParticipant = intval($_POST['nblimitParticipant']);
         $description = htmlspecialchars($_POST['description']);
         if ($_FILES['image']['error'] == 4) {
-            $image = base64_encode('../assets/imageDefaut/imgdefault.jpg');
+
+            $image = base64_encode(file_get_contents('../assets/imageDefaut/imgdefault.png'));
         } else {
             $resultToUpload = Form::uploadImage('image', $paramUpload);
             $image = Form::convertImagetoBase64($paramUpload['directory'] . $resultToUpload['imageName']);
@@ -150,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-        $eventCreate = new EditEvent();
+        $eventCreate = new Events();
 
         $eventCreate->createEvent($name, $date, $start, $end, $nblimitParticipant, $description, $distance, $image, $place, $departement, $type);
 
