@@ -80,20 +80,22 @@ include('../elements/header.php');
     <div class="row justify-content-md-center m-0 p-3 mt-5 mb-5">
         <?php foreach ($eventArray as $event) { ?>
             <div class="col-lg-3 col-sm-12 mt-5 mb-5">
-                <div class="card">
-                    <img class="card-image img-fluid text-center" src="data:image/png;base64,<?= $event['event_image'] ?>" alt="">
-                    <div class="card-title">
+                <div class="box">
+                    <img class="box-image img-fluid" src="data:image/png;base64,<?= $event['event_image'] ?>" alt="">
+                    <div class="box-title">
                         <span class="date"><?= $event['event_date'] ?></span>
                         <h3 class="fw-bolder"><?= $event['category_type'] ?></h3>
-                        <span class="date"><?=$event['event_name']?></span>
+                        <span class="name"><?=$event['event_name']?></span>
                     </div>
-                    <div class="card-paragraph">
+                    <div class="box-paragraph">
                         <p><?= $event['event_description']?></p>
                     </div>
-                    <div class="card-bottom">
+                    <div class="box-distance">
                         <p><?= $event['event_distance']?>km</p>
+                    </div>
+                    <div class="box-bottom">
                         <div class="stat">
-                            <a class="btncard" href="./oneCourseInfo.php?eventId=<?=$event['event_id']?>">En savoir plus</a>
+                            <a class="btnbox" href="./oneCourseInfo.php?eventId=<?=$event['event_id']?>">En savoir plus</a>
                         </div>
                     </div>
                 </div>

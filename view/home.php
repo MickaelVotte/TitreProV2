@@ -34,7 +34,7 @@
         <div class="row d-flex justify-content-evenly m-0 p-3 mt-5 mb-5">
             <div class="card col-lg-4 col-12 m-0 p-0">
                 <div class="card">
-                    <div class="card-image"></div>
+                    <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
                         <span class="date">Il y a 3 jours</span>
                         <h3 class="fw-bolder">Marathon</h3>
@@ -52,7 +52,7 @@
             </div>
             <div class="card col-lg-4 col-12 m-0 p-0">
                 <div class="card">
-                    <div class="card-image"></div>
+                <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
                         <span class="date">Il y a 3 jours</span>
                         <h3 class="fw-bolder">Trial</h3>
@@ -70,7 +70,7 @@
 
             <div class=" card col-lg-4 col-12 m-0 p-0">
                 <div class="card">
-                    <div class="card-image"></div>
+                <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
                         <span class="date">Il y a 3 jours</span>
                         <h3 class="fw-bolder">Évènement</h3>
