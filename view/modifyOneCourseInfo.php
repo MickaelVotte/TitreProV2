@@ -46,17 +46,17 @@ include('../elements/header.php');
                 <div class="col-sm-6 p-0 m-0">
                     <label for="name"><span id='errorName' class="text-danger"><?= isset($errors['name']) ? $errors['name'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="name" name="name" type="text" placeholder="Nom de la course" onkeypress="deletemessageError('errorName')" required value="<?= $_POST['name'] ?? '' ?>">
+                    <input class="inputfield3" id="name" name="name" type="text" placeholder="Nom de la course" onkeypress="deletemessageError('errorName')" required value="<?= $_POST['name'] ?? $modifyCourse['event_name'] ?>">
                 </div>
                 <div class="col-sm-6 p-0 m-0">
                     <label for="place"><span id="errorPlace" class="text-danger"><?= isset($errors['place']) ? $errors['place'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="place" name="place" type="text" placeholder="lieu de la course" onkeypress="deletemessageError('errorPlace')" required value="<?= $_POST['place'] ?? '' ?>">
+                    <input class="inputfield3" id="place" name="place" type="text" placeholder="lieu de la course" onkeypress="deletemessageError('errorPlace')" required value="<?= $_POST['place'] ?? $modifyCourse['event_place'] ?>">
                 </div>
                 <div class="col-sm-6 p-0 m-0">
                     <label for="date"> <span id="errorDate" class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? '' ?>">
+                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? $modifyCourse['event_date'] ?>">
                 </div>
 
 
@@ -66,25 +66,25 @@ include('../elements/header.php');
                 <div class="col-sm-6 p-0 m-0">
                     <label for="description"> <span id="errorDescription" class="text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span></label>
                     <br>
-                    <textarea class="inputfield3" id="description" name="description" type="description" required placeholder="description" onkeypress="deletemessageError('errorDescription')"></textarea>
+                    <textarea class="inputfield3" id="description" name="description" type="description" required placeholder="description" onkeypress="deletemessageError('errorDescription')"><?= $_POST['description'] ?? $modifyCourse['event_description'] ?></textarea>
                 </div>
 
                 <div class="col-sm-6 p-0 m-0">
                     <label class="fw-bold" for="start"> Heure de début <span class="text-danger"><?= isset($errors['start']) ? $errors['start'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3 " id="start" name="start" type="time" placeholder="l'heure de debut" required value="<?= $_POST['start'] ?? '10:00' ?>">
+                    <input class="inputfield3 " id="start" name="start" type="time" placeholder="l'heure de debut" required value="<?= $_POST['start'] ?? $modifyCourse['event_start'] ?>">
                 </div>
 
                 <div class="col-sm-6 p-0 m-0">
                     <label for="nblimitParticipant"> <span id="errornblimitParticipant" class="text-danger"><?= isset($errors['nblimitParticipant']) ? $errors['nblimitParticipant'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="nblimitParticipant" name="nblimitParticipant" type="number" min="0" max="1000" placeholder="nombre limite de participant " onkeypress="deletemessageError('errornblimitParticipant')" required value="<?= $_POST['nblimitParticipant'] ?? '' ?>">
+                    <input class="inputfield3" id="nblimitParticipant" name="nblimitParticipant" type="number" min="0" max="1000" placeholder="nombre limite de participant " onkeypress="deletemessageError('errornblimitParticipant')" required value="<?= $_POST['nblimitParticipant'] ?? $modifyCourse['event_limitmembers'] ?>">
                 </div>
 
                 <div class="col-sm-6 p-0 m-0">
                     <label class="fw-bolder" for="end">Heure de fin:<span class="text-danger"><?= isset($errors['end']) ? $errors['end'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="end" name="end" type="time" placeholder="l'heure de fin " required value="<?= ($_POST['end']) ?? '15:00' ?>">
+                    <input class="inputfield3" id="end" name="end" type="time" placeholder="l'heure de fin " required value="<?= ($_POST['end']) ?? $modifyCourse['event_end'] ?>">
                 </div>
 
 
@@ -97,7 +97,7 @@ include('../elements/header.php');
                     <select class="inputfield3" id="type" name="type" onclick="deletemessageError('errorType')">
                         <option value="" selected disabled>Veuillez selectionner une catégorie</option>
                         <?php foreach ($arrayCategories as $value) { ?>
-                            <option value="<?= $value['category_id'] ?>"><?= $value['category_type'] ?></option>
+                            <option value="<?= $value['category_id'] ?>"<?= $value['category_id'] == $modifyCourse['category_id_categories'] ? 'selected' : ''?>><?=$value['category_type']?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -112,7 +112,7 @@ include('../elements/header.php');
                     <select class="inputfield3" id="department" name="departement" onclick="deletemessageError('errorDepartement')">
                         <option value="" selected disabled>Veuillez selectionner un departement</option>
                         <?php foreach ($arrayDepartment as $value) { ?>
-                            <option value="<?= $value['departement_id'] ?>"><?= $value['departement_name'] ?></option>
+                            <option value="<?= $value['departement_id'] ?>"<?= $value['departement_id'] == $modifyCourse['departement_id_departement'] ? 'selected' :'' ?>><?=$value['departement_name']?></option>
                         <?php  } ?>
                     </select>
                 </div>
@@ -122,12 +122,13 @@ include('../elements/header.php');
 
                 <div class="m-3 me-1 d-flex justify-content-center text-center">
                     <div>
+                         <input type="hidden" name="editEventId" value="<?=$modifyCourse['event_id']?>">
                         <button class="btn-login">Valider</button>
                     </div>
                 </div>
 
                 <div class="textLoginBottom">
-                    <p> <a class="linkBottom" href="./home.php">Retournez à l'accueil</a>
+                    <p> <a class="linkBottom" href="./courses.php">Retournez à la page des courses</a>
                     </p>
                 </div>
             </div>

@@ -183,9 +183,35 @@ class Events extends Database
     }
 
 
-    public function updateOneCourse()
+
+    /**
+     * Modifie la course 
+     * 
+     */
+
+    public function updateOneCourse($name, $date, $start, $end, $limitmembers, $description, $distance, $image, $place, $departementId, $categoryId, $editEventId)
     {
-        
+        $pdo = parent::connectDb();
+        $sql = "UPDATE events SET event_name= :name, event_date= :date, event_start= :start, event_end= :end, event_limitmembers= :limitmembers, event_description= :description, event_distance= :distance ,event_image= :image, event_place= :place, departement_id_departement= :departementId, category_id_categories= :categoryId,
+        WHERE event_id= :editEventId";
+        $query = $pdo->prepare($sql);
+
+
+        $query->bindValue(':name',$name, PDO::PARAM_STR);
+        $query->bindValue(':date',$date, PDO::PARAM_STR);
+        $query->bindValue(':start', $start,  PDO::PARAM_STR);
+        $query->bindValue(':end', $end,  PDO::PARAM_STR);
+        $query->bindValue(':limitmembers', $limitmembers,  PDO::PARAM_STR);
+        $query->bindValue(':description', $description, PDO::PARAM_STR);
+        $query->bindValue(':distance', $distance, PDO::PARAM_STR);
+        $query->bindValue(':image', $image, PDO::PARAM_STR);
+        $query->bindValue(':place', $place, PDO::PARAM_STR);
+        $query->bindValue(':departementId', $departementId, PDO::PARAM_INT);
+        $query->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+        $query->bindValue(':editEventId', $editEventId,  PDO::PARAM_INT);
+
+        $query->execute();
+
     }
 
 }

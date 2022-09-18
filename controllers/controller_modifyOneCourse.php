@@ -131,8 +131,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       $start = htmlspecialchars($_POST['start']);
       $end = htmlspecialchars($_POST['end']);
       $date = htmlspecialchars($_POST['date']);
-      $nblimitParticipant = intval($_POST['nblimitParticipant']);
+      $limitmembers = intval($_POST['nblimitParticipant']);
       $description = htmlspecialchars($_POST['description']);
+      $distance = intval($_POST['distance']);
+    
       if ($_FILES['image']['error'] == 4) {
 
           $image = base64_encode(file_get_contents('../assets/imageDefaut/imgdefault.png'));
@@ -144,9 +146,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
       $place = htmlspecialchars($_POST['place']);
-      $departement = intval($_POST['departement']);
-      $type = intval($_POST['type']);
-      $distance = intval($_POST['distance']);
+      $departementId = intval($_POST['departement']);
+      $categoryId = intval($_POST['type']);
+      $editEventId = htmlspecialchars($_POST['editEventId']);
+
+
+
+
+      $modifyCourseObj = new Events();
+
+      $modifyCourseObj->updateOneCourse($name, $date, $start, $end, $limitmembers, $description, $distance, $image, $place, $departementId, $categoryId, $editEventId);
 
     }
   }
+
+  $modifyOneCourse = new Events();
+
+  $modifyCourse = $modifyOneCourse->getOneCourse($_GET['eventId']);
