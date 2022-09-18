@@ -9,7 +9,7 @@ require_once '../config.php';
 require_once '../models/Database.php';
 require_once '../models/User.php';
 
-var_dump($_SESSION);
+
 
 $test = false;
 
@@ -19,7 +19,7 @@ if ($_SESSION['user']['user_id'] != $_GET['id']) {
 }
 
 
-var_dump($test);
+
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $errors = [];

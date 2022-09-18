@@ -181,4 +181,11 @@ class Events extends Database
         $result = $query->fetch();
         return $result;
     }
+
+
+    public function updateOneCourse()
+    {
+        
+    }
+
 }

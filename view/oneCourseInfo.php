@@ -24,7 +24,7 @@ include('../elements/header.php');
 
         <div>
             <div class="text-center text-white fs-2 fw-bolder title-cardInfo ">
-                Information sur course: <br><?= $OneCourse['event_name'] ?>
+                Information sur la course: <br><?= $OneCourse['event_name'] ?>
             </div>
         </div>
 
@@ -105,7 +105,7 @@ include('../elements/header.php');
                     <p class=" cardInfo-title m-0">Créateur de la course:</p>
                     <p> <?= $OneCourse['user_firstname'] ?> <?= $OneCourse['user_lastname'] ?></p>
                 </div>
-    <hr class="mt-3 p-3">
+                <hr class="mt-3 p-3">
             </div>
 
 
@@ -120,18 +120,22 @@ include('../elements/header.php');
                     <p>Running Race</p>
                 </div>
                 <div class="col-sm-4 col-lg-7 m-0 p-0 mb-3 d-flex justify-content-center">
-                    
-                    <a class="cardInfo-modify" href="./modifyOneCourseInfo.php?eventId=<?= $OneCourse['event_id'] ?>">Modifier</a>
+
+                    <?php
+                    if ($_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
+                        <a class="cardInfo-modify " href="./modifyOneCourseInfo.php?eventId=<?= $OneCourse['event_id'] ?>">Modifier</a>
+                   <?php }?>
+
                     <a class="cardInfo-modify" href="./participateCourse.php">Participer</a>
                 </div>
 
             </div>
 
-                <div class="row">
-                    <div class="text-center">
-                        <a class="linkBottom"  href="./courses.php">Retour à la page des courses</a>
-                    </div>
+            <div class="row">
+                <div class="text-center">
+                    <a class="linkBottom" href="./courses.php">Retour à la page des courses</a>
                 </div>
+            </div>
 
         </div>
 
