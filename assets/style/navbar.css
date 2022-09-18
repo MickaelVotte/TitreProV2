@@ -9,8 +9,9 @@
 }
 
 .navbarCss{
-    background: rgb(64,112,244);
-    background: linear-gradient(149deg, rgba(64,112,244,1) 6%, rgba(232,131,155,1) 88%);
+    background-color: rgb(17, 25, 33);
+    color: #fff;
+   
 }
 
 .banner-image {

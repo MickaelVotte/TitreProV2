@@ -12,91 +12,133 @@ include('../elements/header.php');
 
 ?>
 
-<div class=" d-flex justify-content-center row m-0 p-0 mt-5 mb-5 ">
-    <div class="mt-2 mb-2 d-flex justify-content-center col-sm-12 col-lg-4 m-0 p-0 ">
-        <img class="cardInfo-image img-fluid text-center" src="data:image/png;base64,<?= $OneCourse['event_image'] ?>" alt="">
+
+
+
+
+
+<div class="bglogin4">
+
+
+    <div class="container-cardInfo">
+
+        <div>
+            <div class="text-center text-white fs-2 fw-bolder title-cardInfo ">
+                Information sur course: <br><?= $OneCourse['event_name'] ?>
+            </div>
+        </div>
+
+
+
+        <div class=" d-flex justify-content-center row m-0 p-0 mt-5 mb-5 cardInfo-border">
+            <div class=" col-sm-12 col-lg-5 m-0 p-0 p-2 ">
+                <img class="cardInfo-image img-fluid text-center" src="data:image/png;base64,<?= $OneCourse['event_image'] ?>" alt="image_de_la_course">
+            </div>
+
+
+            <div class="mb-2 col-sm-12 col-lg-7 p-2 ps-3 cardInfo-textBorder">
+
+                <div class="row ">
+                    <div class="col-6">
+                        <p class="cardInfo-title m-0">Nom de la course:</p>
+                        <p> <?= $OneCourse['event_name'] ?></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="cardInfo-title m-0">Date: </p>
+                        <p><?= $OneCourse['event_date'] ?></p>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Type de Course:</p>
+                        <p> <?= $OneCourse['category_type'] ?></p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Description: </p>
+                        <p><?= $OneCourse['event_description'] ?></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Nombre de participant:</p>
+                        <p> <?= $OneCourse['event_limitmembers'] ?></p>
+
+                    </div>
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Distance: </p>
+                        <p><?= $OneCourse['event_distance'] ?>km</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Lieu:</p>
+                        <p> <?= $OneCourse['event_place'] ?></p>
+
+                    </div>
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Departement:</p>
+                        <p> <?= $OneCourse['departement_name'] ?></p>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Heure de départ: </p>
+                        <p> <?= $OneCourse['event_start'] ?></p>
+                    </div>
+                    <div class="col-6">
+                        <p class=" cardInfo-title m-0">Heure de fin:</p>
+                        <p> <?= $OneCourse['event_end'] ?></p>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <p class=" cardInfo-title m-0">Créateur de la course:</p>
+                    <p> <?= $OneCourse['user_firstname'] ?> <?= $OneCourse['user_lastname'] ?></p>
+                </div>
+    <hr class="mt-3 p-3">
+            </div>
+
+
+
+
+
+
+
+            <div class="row  text-center ">
+
+                <div class="col-sm-4 col-lg-5 m-0 p-0 mb-3 fw-bolder fs-3 d-flex justify-content-center ">
+                    <p>Running Race</p>
+                </div>
+                <div class="col-sm-4 col-lg-7 m-0 p-0 mb-3 d-flex justify-content-center">
+                    
+                    <a class="cardInfo-modify" href="./modifyOneCourseInfo.php?eventId=<?= $OneCourse['event_id'] ?>">Modifier</a>
+                    <a class="cardInfo-modify" href="./participateCourse.php">Participer</a>
+                </div>
+
+            </div>
+
+                <div class="row">
+                    <div class="text-center">
+                        <a class="linkBottom"  href="./courses.php">Retour à la page des courses</a>
+                    </div>
+                </div>
+
+        </div>
+
+
     </div>
 
-
-    <div class="ms-3 mt-2 mb-2 col-sm-12 col-lg-4 border border-primary">
-
-        <div class="row ">
-            <div class="col-6">
-                <p>Nom de la course: <br> <?= $OneCourse['event_name'] ?></p>
-            </div>
-            <div class="col-6">
-                <p>Date: <br><?= $OneCourse['event_date'] ?></p>
-
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <p>Type de Course: <br><?= $OneCourse['category_type'] ?></p>
-            </div>
-            <div class="col-6">
-                <p>Description: <br><?= $OneCourse['event_description'] ?></p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <p>Heure de départ: <br><?= $OneCourse['event_start'] ?></p>
-
-            </div>
-            <div class="col-6">
-                <p>Heure de fin: <br><?= $OneCourse['event_end'] ?></p>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p>Nombre de participant: <br><?= $OneCourse['event_limitmembers'] ?></p>
-
-            </div>
-            <div class="col-6">
-                <p>Distance: <br><?= $OneCourse['event_distance'] ?>km</p>
-
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-6">
-                <p>Lieu: <br><?= $OneCourse['event_place'] ?></p>
-
-            </div>
-            <div class="col-6">
-                <p>Departement: <br><?= $OneCourse['departement_name'] ?></p>
-
-            </div>
-        </div>
-
-
-
-
-
-
-
-    </div>
-
-
 </div>
-
-
-
-
-<div class="text-center">
-    <a href="./modifyOneCourseInfo.php?eventId=<?= $OneCourse['event_id'] ?>">Modifier</a>
-</div>
-
-
-
-
-
-
 
 
 

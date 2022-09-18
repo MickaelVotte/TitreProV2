@@ -12,27 +12,27 @@ include('../elements/top.php')
     <nav class="navbar navbar-expand-lg navbarCss">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">Running Race</a>
+            <a class="navbar-brand text-white" href="#">Running Race</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../view/home.php">Accueil</a>
+                        <a class="nav-link active text-white" aria-current="page" href="../view/home.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../view/courses.php">Courses</a>
+                        <a class="nav-link active text-white" href="../view/courses.php">Courses</a>
                     </li>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../view/event.php">Organiser un évènement</a>
+                        <a class="nav-link active text-white" href="../view/event.php">Organiser un évènement</a>
                     </li>
                     <?php } else { ?>
                         <li><a href=""></a></li>
                         <?php } ?>
                     <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             paramètres
                         </a>
                         <ul class="dropdown-menu">

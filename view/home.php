@@ -37,14 +37,16 @@
                     <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
                         <span class="date">Il y a 3 jours</span>
-                        <h3 class="fw-bolder">Marathon</h3>
+                        <h3 class="fw-bolder">Course à pied</h3>
                     </div>
                     <div class="card-paragraph">
-                        <p>Privbeighb nefkj zfpij z,jfjpzfrejp Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde vero modi consectetur optio voluptas error sit! Ut odit amet dicta excepturi ad quo necessitatibus cupiditate, facilis, eaque ratione in!</p>
+                        <p>Participer à une course de course à pied près de chez vous. Nous regouper les courses de la region Normandie en plusieurs categories.
+                            Selon la distance, le department.
+                        </p>
                     </div>
                     <div class="card-bottom">
                         <div class="stat">
-                            <a class="btncard" href="#">En savoir plus</a>
+                            <a class="btncard" href="./courses.php">En savoir plus</a>
 
                         </div>
                     </div>
