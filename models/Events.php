@@ -20,7 +20,7 @@ class Events extends Database
     }
     public function setEditEventId(int $id)
     {
-        $this->_doctor_id = $id;
+        $this->_editEvent_id = $id;
     }
 
 
@@ -31,7 +31,7 @@ class Events extends Database
     }
     public function setEditEventName(string $name)
     {
-        $this->_doctor_name = $name;
+        $this->_editEvent_name = $name;
     }
 
 
@@ -41,7 +41,7 @@ class Events extends Database
     }
     public function setEditEventDate(string $date)
     {
-        $this->_doctor_date = $date;
+        $this->_editEvent_date = $date;
     }
 
 
@@ -51,7 +51,7 @@ class Events extends Database
     }
     public function setEditEventStart(string $start)
     {
-        $this->_doctor_start = $start;
+        $this->_editEvent_start = $start;
     }
 
     public function getEditEventEnd()
@@ -60,7 +60,7 @@ class Events extends Database
     }
     public function setEditEventEnd(string $end)
     {
-        $this->_doctor_end = $end;
+        $this->__editEvent_end = $end;
     }
 
     public function getEditEventLimitParticipant()
@@ -192,7 +192,7 @@ class Events extends Database
     public function updateOneCourse($name, $date, $start, $end, $limitmembers, $description, $distance, $image, $place, $departementId, $categoryId, $editEventId)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE events SET event_name= :name, event_date= :date, event_start= :start, event_end= :end, event_limitmembers= :limitmembers, event_description= :description, event_distance= :distance ,event_image= :image, event_place= :place, departement_id_departement= :departementId, category_id_categories= :categoryId,
+        $sql = "UPDATE events SET event_name= :name, event_date= :date, event_start= :start, event_end= :end, event_limitmembers= :limitmembers, event_description= :description, event_distance= :distance ,event_image= :image, event_place= :place, departement_id_departement= :departementId, category_id_categories= :categoryId 
         WHERE event_id= :editEventId";
         $query = $pdo->prepare($sql);
 
@@ -210,8 +210,24 @@ class Events extends Database
         $query->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
         $query->bindValue(':editEventId', $editEventId,  PDO::PARAM_INT);
 
-        $query->execute();
+       $query->execute();
+
+       
 
     }
+
+
+
+    public function deleteOneCourse($id):void
+    {
+        $pdo = parent::connectDb();
+
+        $sql = "DELETE FROM events WHERE";
+    }
+
+
+
+
+
 
 }

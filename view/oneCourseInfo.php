@@ -74,6 +74,16 @@ include('../elements/header.php');
 
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <p class=" cardInfo2-title m-0">Nombre d'inscrits:</p>
+                        <p><?= $Participate['nbParticipant'] ?></p>
+
+                    </div>
+                </div>
+
+
                 <div class="row">
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Lieu:</p>
@@ -114,33 +124,93 @@ include('../elements/header.php');
 
 
 
-            <div class="row  text-center ">
+            <div class="row  text-center m-0 p-0 ">
 
-                <div class="col-sm-4 col-lg-5 m-0 p-0 mb-3 fw-bolder fs-3 d-flex justify-content-center ">
-                    <p>Running Race</p>
-                </div>
-                <div class="col-sm-4 col-lg-7 m-0 p-0 mb-3 d-flex justify-content-center">
+                <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
 
                     <?php
-                    if ($_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
+                    if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
                         <a class="cardInfo-modify " href="./modifyOneCourseInfo.php?eventId=<?= $OneCourse['event_id'] ?>">Modifier</a>
-                   <?php }?>
-
-                    <a class="cardInfo-modify" href="./participateCourse.php">Participer</a>
+                    <?php } ?>
                 </div>
 
-            </div>
 
-            <div class="row">
-                <div class="text-center">
-                    <a class="linkBottom" href="./courses.php">Retour à la page des courses</a>
+                <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
+                    <!-- Button trigger modal -->
+                    <a href="./participateCourse.php?eventId=<?= $OneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Participer
+                    </a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Voulez vous participer à cette course?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
+                                <a href="./oneCourseInfo.php?action=participate&eventId=<?= $OneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
+                    <button class="cardInfo-modify2 ">Supprimer</button>
+                </div>
+
+
+                <div class="row m-0 p-0">
+                    <div class="text-center mt-3">
+                        <a class="linkBottom" href="./courses.php">Retour à la page des courses</a>
+                    </div>
                 </div>
             </div>
 
         </div>
 
+    </div>
+
+
+
+    <div class="container-cardInfo bg-white">
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Valider</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+            </tbody>
+        </table>
+
 
     </div>
+
+
+
+
+
+</div>
+
+
+</div>
 
 </div>
 

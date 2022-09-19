@@ -117,7 +117,18 @@ include('../elements/header.php');
                     </select>
                 </div>
 
-
+                <div class="col-sm-6">
+                    <label for=""> <span id="distance" class="text-danger"><?= isset($errors['distance']) ? $errors['distance'] : '' ?></span></label>
+                    <br>
+                    <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
+                    <option value="">Veuillez choisir une distance</option>
+                       <option value="5"<?=$modifyCourse['event_distance'] == '5' ? 'selected' : ''?>>5km</option>
+                       <option value="10" <?=$modifyCourse['event_distance'] == '10' ? 'selected' : ''?>>10km</option>
+                       <option value="15" <?=$modifyCourse['event_distance'] == '15' ? 'selected' : ''?>>15km</option>
+                       <option value="21" <?=$modifyCourse['event_distance'] == '21' ? 'selected' : ''?>>21km</option>
+                       <option value="42" <?=$modifyCourse['event_distance'] == '42' ? 'selected' : ''?>>42km</option>
+                    </select>
+                </div>
 
 
                 <div class="m-3 me-1 d-flex justify-content-center text-center">

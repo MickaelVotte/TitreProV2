@@ -20,11 +20,6 @@ $arrayCategories = $categoriesObj->getCategories();
 
 
 
-if ($_SESSION['user']['user_id'] == $OneCourse['user_id_user']) {
-  echo "TU AS LE DROIT";
-}else{
-    echo "TU N'AS PAS LE DROIT";
-}
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $errors = [];
@@ -159,6 +154,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     }
   }
+
+ 
 
   $modifyOneCourse = new Events();
 
