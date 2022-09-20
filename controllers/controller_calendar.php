@@ -107,7 +107,7 @@ $arraySpecialDays = getSpecialDays($year);
 
 // nous allons créer une fonction pour créer une case dans le calendrier 
 // la fonction prend en compte trois paramètres : firstCaseTimestamp, le numéro de la case , le mois , le tableau de jours spéciaux
-function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
+function createCase($firstCaseTimestamp, $caseNumber, $month)
 {
     // nous allons calculer le timestamp de la case pour cela, on utilise la fonction strtotime 
     // strtotime (date('Y-m-d')) pour obtenir la date US Année / Mois / Jour, on rajoute la journée en fonction de la case d'où le -1
@@ -115,16 +115,16 @@ function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
 
     // Nous allons faire des conditions pour modifier les cases selon leurs timestamps.
     // si le timestamps est dans le tableau 
-    if (array_key_exists($timestamp, $arraySpecialDays)) {
-        return '<div class ="border border-dark text-center bg-warning case">' . date('j', $timestamp) . '<br>' . $arraySpecialDays[$timestamp] . '</div>';
+    // if (array_key_exists($timestamp, $arraySpecialDays)) {
+    //     return '<div class =" text-center bg-warning rounded case">' . date('j', $timestamp) . '<br>' . $arraySpecialDays[$timestamp] . '</div>';
     // si le timestamps est égale au jour j
-    } elseif (date('Y-m-d', $timestamp) == date('Y-m-d')) {
-        return '<div class ="border border-dark text-center bg-info case">' . date('j', $timestamp) . '</div>';
+    if (date('Y-m-d', $timestamp) == date('Y-m-d')) {
+        return '<a class =" text-center jourj rounded case">' . date('j', $timestamp) . '</a>';
     // si le timestamps est égale au mois en cours 
     } elseif (date('n', $timestamp) == $month) {
-        return '<div class ="border border-dark text-center case">' . date('j', $timestamp) . '</div>';
+        return '<a  class ="jstest text-center monthNow rounded case">' . date('j', $timestamp) . '</a>';
     // sinon la case est grisée 
     } else {
-        return '<div class ="border border-dark text-center bg-secondary case">' . date('j', $timestamp) . '</div>';
+        return '<a   class =" text-center dayNextMonth rounded case">' . date('j', $timestamp) . '</a>';
     }
 }

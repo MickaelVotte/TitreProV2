@@ -138,6 +138,6 @@
     <div class="banner-image3 w-100 d-flex justify-content-center align-items-center">
    
    </div>
-
-    <?php include('../elements/footer.php') ?>
 </body>
+ 
+    <?php include('../elements/footer.php') ?>
