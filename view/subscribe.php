@@ -12,7 +12,7 @@ include('../elements/header.php');
 
 
 <div class=" bglogin row d-flex justify-content-center m-0 p-0">
-    <form class="col-lg-4 col-sm-12 formulaire2" action="" method="post">
+    <form class="col-lg-4 col-sm-12 formulaire2" action="" novalidate method="post">
 
 
         <div class="form-control text-center  shadow p-0 mb-5 bg-body rounded ">
@@ -33,9 +33,20 @@ include('../elements/header.php');
 
 
             <div>
+                <label for="pseudo"> <span id="errorPseudo" class="text-danger"><?= isset($errors['pseudo']) ? $errors['pseudo'] : '' ?></span></label>
+                <br>
+                <input class="inputfield2 " id="pseudo" name="pseudo" type="text" placeholder="Pseudo" onkeypress="deletemessageError('errorPseudo')" required value="<?= $_POST['pseudo'] ?? '' ?>"><i class="fa-regular fa-user "></i>
+            </div>
+
+
+
+
+
+
+            <div>
                 <label for="birthday"><span id="errorBirthday" class="text-danger"><?= isset($errors['birthday']) ? $errors['birthday'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2 " id="birthday" name="birthday" type="date" placeholder="Date de naissance" onkeypress="deletemessageError('errorBirthday')"  required value="<?= $_POST['age'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
+                <input class="inputfield2 " id="birthday" name="birthday" type="date" placeholder="Date de naissance" onkeypress="deletemessageError('errorBirthday')" required value="<?= $_POST['birthday'] ?? '' ?>"><i class="fa-regular fa-calendar-days"></i>
             </div>
             <div>
                 <label for="mail"> <span id="errorMail" class="text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span></label>
@@ -52,7 +63,7 @@ include('../elements/header.php');
             <div>
                 <label for="confirmPassword"> <span id="errorconfirmPassword" class="text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span></label>
                 <br>
-                <input class="inputfield2" id="confirmPassword" name="confirmPassword" type="password" required onkeypress="deletemessageError('errorconfirmPassword')"  placeholder="Confirmer votre mot de passe " value="<?= $_POST['address'] ?? '' ?>"><i class="fa-solid fa-key"></i>
+                <input class="inputfield2" id="confirmPassword" name="confirmPassword" type="password" required onkeypress="deletemessageError('errorconfirmPassword')" placeholder="Confirmer votre mot de passe " value="<?= $_POST['address'] ?? '' ?>"><i class="fa-solid fa-key"></i>
             </div>
 
             <div class="mt-2 pb-2">
@@ -75,7 +86,6 @@ include('../elements/header.php');
     </form>
 
 </div>
-
 
 
 

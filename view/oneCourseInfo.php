@@ -6,6 +6,7 @@ require_once "../models/Departement.php";
 require_once "../controllers/controller_OneCourseInfo.php";
 require_once "../controllers/controller_modifyOneCourse.php";
 require_once "../controllers/controller_courses.php";
+require_once "../controllers/controller_OneCourseInfo.php";
 
 include('../elements/top.php');
 include('../elements/header.php');
@@ -24,7 +25,7 @@ include('../elements/header.php');
 
         <div>
             <div class="text-center text-white fs-2 fw-bolder title-cardInfo ">
-                Information sur la course: <br><?= $OneCourse['event_name'] ?>
+                Information sur la course: <br><?= $oneCourse['event_name'] ?>
             </div>
         </div>
 
@@ -32,7 +33,7 @@ include('../elements/header.php');
 
         <div class=" d-flex justify-content-center row m-0 p-0 mt-5 mb-5 cardInfo-border">
             <div class=" col-sm-12 col-lg-5 m-0 p-0 p-2 ">
-                <img class="cardInfo-image img-fluid text-center" src="data:image/png;base64,<?= $OneCourse['event_image'] ?>" alt="image_de_la_course">
+                <img class="cardInfo-image img-fluid text-center" src="data:image/png;base64,<?= $oneCourse['event_image'] ?>" alt="image_de_la_course">
             </div>
 
 
@@ -41,11 +42,11 @@ include('../elements/header.php');
                 <div class="row ">
                     <div class="col-6">
                         <p class="cardInfo-title m-0">Nom de la course:</p>
-                        <p> <?= $OneCourse['event_name'] ?></p>
+                        <p> <?= $oneCourse['event_name'] ?></p>
                     </div>
                     <div class="col-6">
                         <p class="cardInfo-title m-0">Date: </p>
-                        <p><?= $OneCourse['event_date'] ?></p>
+                        <p><?= $oneCourse['event_date'] ?></p>
 
                     </div>
 
@@ -54,23 +55,23 @@ include('../elements/header.php');
                 <div class="row">
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Type de Course:</p>
-                        <p> <?= $OneCourse['category_type'] ?></p>
+                        <p> <?= $oneCourse['category_type'] ?></p>
                     </div>
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Description: </p>
-                        <p><?= $OneCourse['event_description'] ?></p>
+                        <p><?= $oneCourse['event_description'] ?></p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Nombre de participant:</p>
-                        <p> <?= $OneCourse['event_limitmembers'] ?></p>
+                        <p> <?= $oneCourse['event_limitmembers'] ?></p>
 
                     </div>
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Distance: </p>
-                        <p><?= $OneCourse['event_distance'] ?>km</p>
+                        <p><?= $oneCourse['event_distance'] ?>km</p>
 
                     </div>
                 </div>
@@ -78,7 +79,7 @@ include('../elements/header.php');
                 <div class="row">
                     <div class="col-6">
                         <p class=" cardInfo2-title m-0">Nombre d'inscrits:</p>
-                        <p><?= $Participate['nbParticipant'] ?></p>
+                        <p><?= $participate['nbParticipant'] ?></p>
 
                     </div>
                 </div>
@@ -87,12 +88,12 @@ include('../elements/header.php');
                 <div class="row">
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Lieu:</p>
-                        <p> <?= $OneCourse['event_place'] ?></p>
+                        <p> <?= $oneCourse['event_place'] ?></p>
 
                     </div>
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Departement:</p>
-                        <p> <?= $OneCourse['departement_name'] ?></p>
+                        <p> <?= $oneCourse['departement_name'] ?></p>
 
                     </div>
                 </div>
@@ -103,25 +104,20 @@ include('../elements/header.php');
                 <div class="row">
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Heure de départ: </p>
-                        <p> <?= $OneCourse['event_start'] ?></p>
+                        <p> <?= $oneCourse['event_start'] ?></p>
                     </div>
                     <div class="col-6">
                         <p class=" cardInfo-title m-0">Heure de fin:</p>
-                        <p> <?= $OneCourse['event_end'] ?></p>
+                        <p> <?= $oneCourse['event_end'] ?></p>
                     </div>
                 </div>
 
                 <div class="mb-2">
                     <p class=" cardInfo-title m-0">Créateur de la course:</p>
-                    <p> <?= $OneCourse['user_firstname'] ?> <?= $OneCourse['user_lastname'] ?></p>
+                    <p> <?= $oneCourse['user_firstname'] ?> <?= $oneCourse['user_lastname'] ?></p>
                 </div>
                 <hr class="mt-3 p-3">
             </div>
-
-
-
-
-
 
 
             <div class="row  text-center m-0 p-0 ">
@@ -129,19 +125,22 @@ include('../elements/header.php');
                 <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
 
                     <?php
-                    if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
-                        <a class="cardInfo-modify " href="./modifyOneCourseInfo.php?eventId=<?= $OneCourse['event_id'] ?>">Modifier</a>
+                    if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $oneCourse['user_id_user']) { ?>
+                        <a class="cardInfo-modify " href="./modifyOneCourseInfo.php?eventId=<?= $oneCourse['event_id'] ?>">Modifier</a>
                     <?php } ?>
                 </div>
 
 
                 <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
-                    <!-- Button trigger modal -->
-                    <a href="./participateCourse.php?eventId=<?= $OneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <!------------------- Button trigger modal ------------------>
+                    <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Participer
                     </a>
                 </div>
-                <!-- Modal -->
+
+                <!------------------ Modal -------------------->
+
+
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -154,19 +153,48 @@ include('../elements/header.php');
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
-                                <a href="./oneCourseInfo.php?action=participate&eventId=<?= $OneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
+                                <a href="./oneCourseInfo.php?action=participate&eventId=<?= $oneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
+
+
+
+
                 <?php
-                if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
-                <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
-                    <button class="cardInfo-modify2 ">Supprimer</button>
-                </div>
+                if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $oneCourse['user_id_user']) { ?>
+                    <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="cardInfo-modify2" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                            supprimer
+                        </button>
+                    </div>
                 <?php } ?>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2">Supprimer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Voulez vous supprimer la course?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
+                                <a href="./participateCourse.php?action=delete&eventId=<?= $_GET['eventId'] ?>&idUser=<?= $_SESSION['user']['user_id'] ?>" type="button" class="btn btn-success">Oui</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
 
 
@@ -183,39 +211,46 @@ include('../elements/header.php');
 
 
     <?php
-    if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
-    <div class="container-cardInfo bg-white">
+    if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $oneCourse['user_id_user']) { ?>
+
+        <div class="container-cardInfo bg-white rounded">
 
 
-        <table class="table text-center">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Valider</th>
-                    <th scope="col"></th>
-                    
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td><?=$OneCourse['user_id_user']?></td>
-                    <td>Otto</td>
-
-                    <td><button class="btn btn-success">Oui</button>
-                    <button class="btn btn-danger">Non</button></td>
-
-                </tr>
-            </tbody>
-        </table>
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Pseudo</th>
+                        <th scope="col">Valider</th>
+                        <th scope="col">km Valider</th>
 
 
-    </div>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($allparticipants as $participant) { ?>
 
-  <?php } ?>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><?= $participant['user_pseudo'] ?></td>
+                            <td><a href="./oneCourseInfo.php?action=validateParticipation&userId<?= $participant['user_id'] ?>" class="btn btn-success">Oui</a>
+                                <button class="btn btn-danger">Non</button>
+                            </td>
+                            <td><a href="./oneCourseInfo.php?action=validateKm&userId<?= $participant['user_id'] ?>" class="btn btn-success">Oui</a>
+                                <button class="btn btn-danger">Non</button>
+                            </td>
+
+
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+
+
+
+        </div>
+
+    <?php } ?>
 
 
 
@@ -228,6 +263,22 @@ include('../elements/header.php');
 
 
 
+
+<script>
+    <?php if (isset($_SESSION['swal']) && $_SESSION['swal'] == true) { ?>
+        Swal.fire({
+                title: 'Félicitations ',
+                text: 'vous êtes bien inscrit à la course!',
+                icon: 'success',
+                confirmButtonText: 'C\'est parti'
+
+            }
+
+        )
+
+    <?php $_SESSION['swal'] = false;
+    } ?>
+</script>
 
 
 

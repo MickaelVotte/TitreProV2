@@ -38,6 +38,7 @@ let distance = document.getElementById('distance');
 
 let lastname = document.getElementById('lastname');
 let firstname = document.getElementById('firstname');
+let pseudo = document.getElementById('pseudo');
 let birthday = document.getElementById('birthday');
 let mail = document.getElementById('mail');
 let password = document.getElementById('password');
@@ -82,6 +83,9 @@ if(lastname.value == ''){
 }
 if(firstname.value == ''){
     let firstnameError = document.getElementById('errorFirstname');
+}
+if(firstname.value == ''){
+    let pseudoError = document.getElementById('errorPseudo');
 }
 if(birthday.value == ''){
     let birthdayError = document.getElementById('errorBirthday');

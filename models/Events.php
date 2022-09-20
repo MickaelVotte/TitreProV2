@@ -222,7 +222,13 @@ class Events extends Database
     {
         $pdo = parent::connectDb();
 
-        $sql = "DELETE FROM events WHERE";
+        $sql = "DELETE FROM events WHERE `event_id`=:id";
+
+        $query = $pdo->prepare($sql);
+        
+        //je lis la valeur du parametre (ex: id) un marqueur nominatif :id à l'aide de la méthode-> bindValue();
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->execute();
     }
 
 

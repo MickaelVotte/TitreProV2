@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     $regexName = "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,30}$/";
-
+    $regexPesudo = "/[a-zA-Z,-,_,0-9]/";
     $regexPhoneNumber = "/^[0-9]{10}+$/";
 
 
@@ -48,6 +48,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $errors['firstname'] = 'Format invalide, ex. DUPONT';
         }
     }
+
+
+    if (isset($_POST['pseudo'])) {
+        if (empty($_POST['pseudo'])) {
+            $errors['pseudo'] = 'Champ obligatoire';
+             //la fonction preg_match pour valider le format
+        } else if (!preg_match($regexPesudo, $_POST['pseudo'])) {
+            $errors['pseudo'] = 'Format invalide, ex. DUPONT';
+        }
+    }
+
 
     if (isset($_POST['birthday'])) {
         if (empty($_POST['birthday'])) {
@@ -73,13 +84,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (count($errors) == 0) {
         $lastname = htmlspecialchars($_POST['lastname']);
         $firstname = htmlspecialchars($_POST['firstname']);
+        $pseudo = htmlspecialchars($_POST['pseudo']);
         $birthday = htmlspecialchars($_POST['birthday']);
         $mail = htmlspecialchars($_POST['mail']);
         $idUser = htmlspecialchars($_POST['idUser']);
 
         $modifycoureurObj = new User();
 
-        $modifycoureurObj->updateUser($lastname, $firstname,  $birthday, $mail, $idUser);
+        $modifycoureurObj->updateUser($lastname, $firstname, $pseudo ,$birthday, $mail, $idUser);
     }
 }
 

@@ -33,6 +33,12 @@ include('../elements/top.php');
                 <input class="inputfield2" id="firstname" name="firstname" type="text" placeholder="Prénom " required value="<?= $_POST['firstname'] ?? $infoUser['user_firstname'] ?>"><i class="fa-regular fa-user "></i>
             </div>
             <div>
+                <label for="pseudo"><span class="text-danger"><?= isset($errors['pseudo']) ? $errors['pseudo'] : '' ?></span></label>
+                <br>
+                <input class="inputfield2" id="pseudo" name="pseudo" type="text" placeholder="Pseudo " required value="<?= $_POST['pseudo'] ?? $infoUser['user_pseudo'] ?>"><i class="fa-regular fa-user "></i>
+            </div>
+
+            <div>
                 <label for="birthday"><span class="text-danger"><?= isset($errors['birthday']) ? $errors['birthday'] : '' ?></span></label>
                 <br>
                 <input class="inputfield2" id="birthday" name="birthday" required  type="date" value="<?= $_POST['birthday'] ?? $infoUser['user_birthday'] ?>"><i class="fa-regular fa-calendar-days"></i>

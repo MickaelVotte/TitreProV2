@@ -69,7 +69,7 @@ public function inscriptionRace(int $idUser,int $idEvent)
     $query->bindValue(':idEvent', $idEvent, PDO::PARAM_STR);
 
     $query->execute();
-
+  
 }
 
 
@@ -78,7 +78,7 @@ public function inscriptionRace(int $idUser,int $idEvent)
  * permet de compter le nombre de participant à la course
  */
 
-public function countParticpant(int $idEvent)
+public function countParticipant(int $idEvent)
 {
     $pdo = parent::connectDb();
 
@@ -98,14 +98,33 @@ public function countParticpant(int $idEvent)
 
 
 
+/**
+ * fonction qui permet d'afficher toutes les personnes inscrit à une course
+ * return un tableau
+ */
+
+ public function getParticipantRace($idEvent):array
+{
+    $pdo = parent::connectDb();
+    
+    $sql="SELECT user_pseudo, user_id FROM inscription_race 
+    inner join user on user_id_user = user_id
+    WHERE event_id_events= :idEvent
+    ";
+
+    $query = $pdo->prepare($sql);
+
+    $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+     $query->execute();
+
+    $result = $query->fetchAll();
+
+    return $result;
+
+   
 }
 
 
 
-
-
-
-
-
-
-?>
+}

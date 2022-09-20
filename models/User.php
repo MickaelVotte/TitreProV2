@@ -138,6 +138,37 @@ class User extends DataBase
             return false;
         }
     }
+    public function checkIfPseudoExists(string $pseudo)
+    {
+        //création d'une instance pdo via la fonction du parent 
+        $pdo = parent::connectDb();
+        //j'écris la requête me permettant d'aller chercher le mail dans la table users
+        //je mets en place un marqueur nominatif :mail
+        $sql = "SELECT `user_pseudo` FROM `user` WHERE `user_pseudo` = :pseudo";
+
+
+        //je prépare la requête que je stock dans $query à l'aide de la méthode -> prepare()
+        $query = $pdo->prepare($sql);
+
+        //je lie la valeur du paramètre $mail au nominatif :mail à l'aide de la méthode->bindValue
+        $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+
+        //une fois le mail récupéré, j'execute la requête à l'aide de la méthode->execute()
+        $query->execute();
+        //je stock dans $result les données récupèrées à l'aide de la méthode->fetchAll()
+        //afin de ne pas avoir d'erreur lorsque qu'on nous allons compter le tableau
+        $result = $query->fetchAll();
+
+        //je fais un test pour savoir si $result est vide
+        if (count($result) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
 
 
 
@@ -147,17 +178,18 @@ class User extends DataBase
      * focntion qui permettant d'ajouter un utilisateur dans la bdd
      * @param string $firstname prenom de l'utilisateur
      * @param string $lastname nom de l'utilisateur
+     * @param string $pseudo nom de pseudo
      * @param string $age age de l'utilisateur
      * @param string $mail email de l'utilisateur
      * @param string $password mot de passe de l'utilisateur
      */
-    public function addUser(string $firstname, string $lastname, string $birthday, string $mail, string $password): void
+    public function addUser(string $firstname, string $lastname, string $pseudo ,string $birthday, string $mail, string $password): void
     {
         //création d'une instance pdo via la fonction du parent
         $pdo = parent::connectDb();
 
         //j'écris  la requete qui va permettre d'ajouter un user;
-        $sql = "INSERT INTO user (`user_firstname`, `user_lastname`, `user_birthday`,`user_mail`, `user_password`) VALUES (:firstname, :lastname, :birthday, :mail, :password)";
+        $sql = "INSERT INTO user (`user_firstname`, `user_lastname`, `user_pseudo` ,`user_birthday`,`user_mail`, `user_password`) VALUES (:firstname, :lastname, :pseudo, :birthday, :mail, :password)";
 
 
         //je prepare la requete que je stock dans query à l'aide de la méthode->prepare()
@@ -165,6 +197,7 @@ class User extends DataBase
 
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+        $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
         $query->bindValue(':birthday', $birthday, PDO::PARAM_STR);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->bindValue(':password', $password, PDO::PARAM_STR);
@@ -213,21 +246,23 @@ class User extends DataBase
      * fonction qui permet de modifier l'utilisateur de la bdd
      * @param string $lastname nom de l'utilisateur
      * @param string $firstname prenon de l'utilisateur
+     * @param string $pseudo de l'utilisateur
      * @param string $age age de l'utilisateur
      * @param string $mail email de l'utilisateur
      * @param string $idUser l'id de l'utilisateur
      */
 
-    public function updateUser($lastname, $firstname, $birthday, $mail, $idUser)
+    public function updateUser($lastname, $firstname, $pseudo, $birthday, $mail, $idUser)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE user SET user_firstname = :firstname, user_lastname = :lastname, user_birthday = :birthday, user_mail = :mail
+        $sql = "UPDATE user SET user_firstname = :firstname, user_lastname = :lastname, user_pseudo = :pseudo, user_birthday = :birthday, user_mail = :mail
         WHERE user_id = :id ";
 
         $query = $pdo->prepare($sql);
 
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+        $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
         $query->bindValue(':birthday', $birthday, PDO::PARAM_STR);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->bindValue(':id', $idUser, PDO::PARAM_INT);

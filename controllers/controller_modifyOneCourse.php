@@ -155,8 +155,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
   }
 
- 
-
   $modifyOneCourse = new Events();
 
   $modifyCourse = $modifyOneCourse->getOneCourse($_GET['eventId']);
+
+  
