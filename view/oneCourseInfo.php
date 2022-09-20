@@ -160,9 +160,14 @@ include('../elements/header.php');
                     </div>
                 </div>
 
+
+                <?php
+                if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
                 <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
                     <button class="cardInfo-modify2 ">Supprimer</button>
                 </div>
+                <?php } ?>
+
 
 
                 <div class="row m-0 p-0">
@@ -177,25 +182,32 @@ include('../elements/header.php');
     </div>
 
 
-
+    <?php
+    if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $OneCourse['user_id_user']) { ?>
     <div class="container-cardInfo bg-white">
 
 
-        <table class="table">
+        <table class="table text-center">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prenom</th>
                     <th scope="col">Valider</th>
+                    <th scope="col"></th>
+                    
+
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
+                    <td><?=$OneCourse['user_id_user']?></td>
                     <td>Otto</td>
-                    <td>@mdo</td>
+
+                    <td><button class="btn btn-success">Oui</button>
+                    <button class="btn btn-danger">Non</button></td>
+
                 </tr>
             </tbody>
         </table>
@@ -203,7 +215,7 @@ include('../elements/header.php');
 
     </div>
 
-
+  <?php } ?>
 
 
 

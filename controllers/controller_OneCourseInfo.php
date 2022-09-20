@@ -22,3 +22,5 @@ if(isset($_GET['action']) && isset($_GET['eventId']));
         $inscriptionObj->inscriptionRace($_SESSION['user']['user_id'], $_GET['eventId']);
     }
 }
+
+

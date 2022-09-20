@@ -15,7 +15,7 @@
 
     <ul class="visite">
         <li class="blog">Courses</li>
-        <li> <a  class="footerlink"href="#">Marathon</a> </li>
+        <li> <a  class="footerlink"href="">Marathon</a> </li>
         <li> <a  class="footerlink"href="#">Trial</a></li>
         <li> <a  class="footerlink"href="#">Evènement créer</a></li>
     </ul>
@@ -24,7 +24,7 @@
     <ul class="politique">
         <li class="pdc">En savoir plus</li>
         <li> <a  class="footerlink"href="#">Politiques de confidentialités</a></li>
-        <li> <a  class="footerlink"href="#">Mention légales</a></li>
+        <li> <a  class="footerlink"href="../view/mentionLegales.php">Mention légales</a></li>
         <li> <a  class="footerlink"href="#">©2022 Running&Race</a></li>
 
     </ul>
