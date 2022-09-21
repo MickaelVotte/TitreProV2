@@ -8,14 +8,12 @@ $allEvent = new Events();
 
 //je crée une varible $eventArray qui va contenir tous les events dans un array
 $eventArray = $allEvent->getAllEvent();
-
-
-
-
-
-
-
-
-
-
 ?>
+
+
+
+
+
+
+
+

@@ -147,15 +147,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $distance = intval($_POST['distance']);
 
 
-
-
-
-
         $eventCreate = new Events();
 
         $eventCreate->createEvent($name, $date, $start, $end, $nblimitParticipant, $description, $distance, $image, $place, $departement, $type);
 
-        header('Location: home.php');
+
+        // creation d'une variable de session swal
+        $_SESSION['swal'] = [
+            'icon' => 'success',
+            'title' => 'Enregistrement',
+            'text' => 'La patient a bien été enregistré'
+        ];
+
+
+        header('Location: ./courses.php');
         exit();
     }
 }

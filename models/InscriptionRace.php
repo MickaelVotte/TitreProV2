@@ -127,4 +127,48 @@ public function countParticipant(int $idEvent)
 
 
 
+
+/**
+ * fonction qui permet de savoir si l'user est inscription ou non à la course
+ * @param idEvent recuperre l'id de l'event
+ * @param idUser recuperre l'id du user
+ * return un tableau
+ */
+function checkInscription( int $idEvent, int $idUser)
+{
+        //création d'une instance pdo via la fonction du parent 
+        $pdo = parent::connectDb();
+        //j'écris la requête me permettant d'aller chercher le mail dans la table users
+        //je mets en place un marqueur nominatif :mail
+        $sql = "SELECT * FROM `inscription_race` WHERE `user_id_user` = :idUser and `event_id_events` =:idEvent";
+
+
+        //je prépare la requête que je stock dans $query à l'aide de la méthode -> prepare()
+        $query = $pdo->prepare($sql);
+
+        //je lie la valeur du paramètre $mail au nominatif :mail à l'aide de la méthode->bindValue
+        $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+        $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+
+        
+        $query->execute();
+        //je stock dans $result les données récupèrées à l'aide de la méthode->fetchAll()
+        //afin de ne pas avoir d'erreur lorsque qu'on nous allons compter le tableau
+        $result = $query->fetchAll();
+
+        //je fais un test pour savoir si $result: si vide il n'est pas inscrit donc false
+        if (count($result) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+
 }

@@ -8,9 +8,10 @@ require_once '../models/InscriptionRace.php';
 
 
 
-
+//j'instancie un objet selon la classe Inscription afin d'utiliser les methodes 
 $inscriptionObj = new Inscription();
 
+//j'instancie un objet selon la classe Events afin d'utiliser les methodes 
 $oneInfo = new Events();
 
 if (isset($_GET['action']) && isset($_GET['eventId'])) {
@@ -27,12 +28,22 @@ if (isset($_GET['action']) && isset($_GET['eventId'])) {
         header('Location: ./oneCourseInfo.php');
         exit;
     }
+    
 }
 
 
-
+//permet de recuperer toutes les infos de la course
 $oneCourse = $oneInfo->getOneCourse($_GET['eventId']);
 
+
+//permet de recuperer le nombre de personne inscrit sur une course
 $participate = $inscriptionObj->countParticipant($_GET['eventId']);
 
+//permet d'obtenir tous les participant de la course sous forme de tableau afin de les afficher sur une liste
 $allparticipants = $inscriptionObj->getParticipantRace($_GET['eventId']);
+
+//permet de savoir si l'uilisateur est le proprietaire de la course
+$alreadyParticipate = $inscriptionObj->checkInscription($_GET['eventId'], $_SESSION['user']['user_id']);
+
+
+var_dump($alreadyParticipate);

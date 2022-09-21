@@ -120,7 +120,7 @@
                 <!-- Nous réalisons une boucle pour afficher les jours de la semaine -->
                 <?php
                 foreach ($days as $key => $value) { ?>
-                    <div class="text-center text-light bg-dark"><?= $value ?></div>
+                    <div class="text-center week-days"><?= $value ?></div>
                 <?php } ?>
 
 

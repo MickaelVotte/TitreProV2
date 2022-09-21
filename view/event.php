@@ -16,6 +16,10 @@ require_once "../controllers/controller_calendar.php";
     <div class="titleAccueil hrLigne">Créer un évènement</div>
 </div>
 
+<div class="d-flex justify-content-center m-5">
+    <a class="btn-login3" href="../view/editEvent.php">Créer un évènement</a>
+</div>
+
 
 
 
@@ -38,7 +42,7 @@ require_once "../controllers/controller_calendar.php";
             <!-- Nous réalisons une boucle pour afficher les jours de la semaine -->
             <?php
             foreach ($days as $key => $value) { ?>
-                <div class="text-center  rounded"><?= $value ?></div>
+                <div class="text-center  week-days"><?= $value ?></div>
             <?php } ?>
 
 
@@ -53,10 +57,6 @@ require_once "../controllers/controller_calendar.php";
 
 
 
-</div>
-
-<div class="d-flex justify-content-center m-5">
-    <a class="btn btn-primary" href="../view/editEvent.php">Créer un évènement</a>
 </div>
 
 
