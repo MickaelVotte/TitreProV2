@@ -17,7 +17,11 @@ $oneInfo = new Events();
 if (isset($_GET['action']) && isset($_GET['eventId'])) {
     if ($_GET['action'] == 'participate') {
         $inscriptionObj->inscriptionRace($_SESSION['user']['user_id'], $_GET['eventId']);
-        $_SESSION['swal'] = true;
+        $_SESSION['swal'] = [
+            'icon' => 'success',
+            'title' => 'Inscription',
+            'text' => 'Vous avez bien été inscrit à la course'
+        ];
         header('Location: ./oneCourseInfo.php?eventId=' . $_GET['eventId']);
         exit;
     }
@@ -28,7 +32,20 @@ if (isset($_GET['action']) && isset($_GET['eventId'])) {
         header('Location: ./oneCourseInfo.php');
         exit;
     }
+    if ($_GET['action'] == 'unsubscribe') {
+        $inscriptionObj->deleteParticipant($_SESSION['user']['user_id'],$_GET['eventId']);
+        
+        $_SESSION['swal'] = [
+            'icon' => 'success',
+            'title' => 'Désinscription',
+            'text' => 'Vous avez bien été désinscrit à la course'
+        ];
+        header('Location: ./oneCourseInfo.php?eventId=' . $_GET['eventId']);
+        
+        exit;
+    }
     
+  
 }
 
 

@@ -8,7 +8,7 @@ include('../elements/header.php');
 ?>
 
 <div class=" bglogin3 row d-flex justify-content-center m-0 p-0">
-    <form class="col-lg-4 col-sm-12 formulaire3" action="" method="post" novalidate  enctype="multipart/form-data">
+    <form class="col-lg-4 col-sm-12 formulaire3" action="" method="post"  enctype="multipart/form-data">
 
 
 

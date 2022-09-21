@@ -132,7 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nblimitParticipant = intval($_POST['nblimitParticipant']);
         $description = htmlspecialchars($_POST['description']);
         if ($_FILES['image']['error'] == 4) {
-
             $image = base64_encode(file_get_contents('../assets/imageDefaut/imgdefault.png'));
         } else {
             $resultToUpload = Form::uploadImage('image', $paramUpload);

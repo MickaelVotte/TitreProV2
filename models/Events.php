@@ -186,7 +186,17 @@ class Events extends Database
 
     /**
      * Modifie la course 
-     * 
+     * @param string $name le nom de la course
+     * @param string $date la date de la course
+     * @param string $start l'heure de la course
+     * @param string $end l'heure de la course
+     * @param int $limitmemebers nombre de personne pount s'inscrire à la course
+     * @param string $description description de la course
+     * @param string $image en base 64 
+     * @param string $place le lieu de la course
+     *  @param int $departementId correspond a l'id du department 
+     * @param int $categoryId correspond à l'id de la categorie de la course(event,courseà pied ,trial)
+     * @param int $editEvent correspond à l'id de la course
      */
 
     public function updateOneCourse($name, $date, $start, $end, $limitmembers, $description, $distance, $image, $place, $departementId, $categoryId, $editEventId)
@@ -217,6 +227,11 @@ class Events extends Database
     }
 
 
+
+    /**
+     * permet de supprimer une course
+     * @param $id correspond à l'id de la course
+     */
 
     public function deleteOneCourse($id):void
     {

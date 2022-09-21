@@ -79,8 +79,8 @@ include('../elements/header.php');
                 <div class="row">
                     <div class="col-6">
                         <p class=" cardInfo2-title m-0">Nombre d'inscrits:</p>
+                        <!-- //permet de mettre à jour le nombre de participant -->
                         <p><?= $participate['nbParticipant'] ?></p>
-
                     </div>
                 </div>
 
@@ -138,17 +138,17 @@ include('../elements/header.php');
                     <!-- bouton se desinscrire -->
                     <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
 
-                        <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#unsubscribe">
                             se désinscrire
                         </a>
                     </div>
 
-                    <!------------------ Modal -------------------->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!------------------ Modal confirmation de la desincriptiion-------------------->
+                    <div class="modal fade" id="unsubscribe" tabindex="-1" aria-labelledby="unsubscribe" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title"><?= $oneCourse['event_name'] ?></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -156,7 +156,7 @@ include('../elements/header.php');
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
-                                    <a href="./oneCourseInfo.php?action=participate&eventId=<?= $oneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
+                                    <a href="./oneCourseInfo.php?action=unsubscribe&eventId=<?= $oneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
                                 </div>
                             </div>
                         </div>
@@ -166,18 +166,18 @@ include('../elements/header.php');
                 <?php } else { ?>
                     <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
                         <!-- bouton participer -->
-                        <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#subscribe">
                             Participer
                         </a>
                     </div>
 
 
                     <!-- modal pour confirmer la participation -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="subscribe" tabindex="-1" aria-labelledby="subscribe" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title"><?= $oneCourse['event_name'] ?></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -289,24 +289,17 @@ include('../elements/header.php');
 </div>
 
 
-
-
-<script>
-    <?php if (isset($_SESSION['swal']) && $_SESSION['swal'] == true) { ?>
+<?php if (isset($_SESSION['swal'])) { ?>
+    <script>
         Swal.fire({
-                title: 'Félicitations ',
-                text: 'vous êtes bien inscrit à la course!',
-                icon: 'success',
-                confirmButtonText: 'C\'est parti'
-
-            }
-
-        )
-
-    <?php $_SESSION['swal'] = false;
-    } ?>
-</script>
-
+            icon: '<?= $_SESSION['swal']['icon'] ?>',
+            title: '<?= $_SESSION['swal']['title'] ?>',
+            text: '<?= $_SESSION['swal']['text'] ?>'
+        })
+    </script>
+<?php
+    unset($_SESSION['swal']);
+} ?>
 
 
 <?php include('../elements/footer.php') ?>

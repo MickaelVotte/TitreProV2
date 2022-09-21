@@ -82,7 +82,7 @@ public function countParticipant(int $idEvent)
 {
     $pdo = parent::connectDb();
 
-    $sql="SELECT COUNT(inscription_validate) as nbParticipant FROM inscription_race WHERE inscription_validate=true AND event_id_events= :idEvent";
+    $sql="SELECT COUNT(inscription_validate) as nbParticipant FROM inscription_race WHERE  event_id_events= :idEvent";
 
     $query = $pdo->prepare($sql);
 
@@ -100,6 +100,7 @@ public function countParticipant(int $idEvent)
 
 /**
  * fonction qui permet d'afficher toutes les personnes inscrit à une course
+ * @param idEvent 
  * return un tableau
  */
 
@@ -166,8 +167,25 @@ function checkInscription( int $idEvent, int $idUser)
 
 
 
+/**
+ * permet de suppruimer un participant d'une course
+ */
+public function deleteParticipant( int $idUser, int $idEvent)
+{
+    
+        $pdo = parent::connectDb();
 
+        $sql = "DELETE FROM inscription_race WHERE user_id_user= :idUser and event_id_events= :idEvent";
 
+        $query = $pdo->prepare($sql);
+
+        //je lis la valeur du parametre (ex: id) un marqueur nominatif :id à l'aide de la méthode-> bindValue();
+        $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+        $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+        $query->execute();
+    
+}
 
 
 
