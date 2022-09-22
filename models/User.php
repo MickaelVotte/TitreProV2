@@ -183,7 +183,7 @@ class User extends DataBase
      * @param string $mail email de l'utilisateur
      * @param string $password mot de passe de l'utilisateur
      */
-    public function addUser(string $firstname, string $lastname, string $pseudo ,string $birthday, string $mail, string $password): void
+    public function addUser(string $firstname, string $lastname, string $pseudo, string $birthday, string $mail, string $password): void
     {
         //création d'une instance pdo via la fonction du parent
         $pdo = parent::connectDb();
@@ -344,31 +344,43 @@ class User extends DataBase
         $sql = "UPDATE user SET user_password= :password WHERE token_value = :tokenValue";
         $query = $pdo->prepare($sql);
 
-        $query->bindValue(':tokenValue', $tokenValue, PDO::PARAM_STR );
-        $query->bindValue(':password', $password, PDO::PARAM_STR );
+        $query->bindValue(':tokenValue', $tokenValue, PDO::PARAM_STR);
+        $query->bindValue(':password', $password, PDO::PARAM_STR);
 
         $query->execute();
-       
-
     }
 
-/**
+    /**
      * fonction qui permet de supprimer l'utilisateur de la bdd 
+     * 
      * 
      */
 
-    public function deleteUser($id)
+    public function deleteUser($userId)
     {
+        //requete qui permet changer l'etat de la course passant de 1 à 0 et changer le proprio de la course(anonyme proprio);
+
         $pdo = parent::connectDb();
+
+        $sqlA = "UPDATE events SET event_validate = 0, user_id_user = 23 WHERE user_id_user = :userId";
+
+        $queryA = $pdo->prepare($sqlA);
+
+        $queryA->bindValue(':userId', $userId, PDO::PARAM_INT);
+
+        $queryA->execute();
+
+    
+
+
+        // fonction qui permet de supprimer l'utilisateur de la bdd 
 
         $sql = "DELETE FROM user WHERE user_id = :id";
 
         $query = $pdo->prepare($sql);
 
         //je lis la valeur du parametre (ex: id) un marqueur nominatif :id à l'aide de la méthode-> bindValue();
-        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->bindValue(':id', $userId, PDO::PARAM_INT);
         $query->execute();
     }
-
-
 }

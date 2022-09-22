@@ -47,9 +47,7 @@ include('../elements/header.php');
                     <div class="col-6">
                         <p class="cardInfo-title m-0">Date: </p>
                         <p><?= $oneCourse['event_date'] ?></p>
-
                     </div>
-
                 </div>
 
                 <div class="row">
@@ -244,6 +242,13 @@ include('../elements/header.php');
 
 
 
+
+
+          
+<!-- 
+   
+        <p>Pour partciper au course n'hésitez pas à vous s'inscrire</p>
+        <a href="./subscribe.php">S'inscrire</a>             
                 <div class="row m-0 p-0">
                     <div class="text-center mt-3">
                         <a class="linkBottom" href="./courses.php">Retour à la page des courses</a>
@@ -252,62 +257,47 @@ include('../elements/header.php');
             </div>
         </div>
 
-    </div>
+    </div> -->
+
+
+
+
 
 
     <?php
     if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $oneCourse['user_id_user']) { ?>
-
         <div>
             <p class="title-cardInfo text-center text-white fs-2 fw-bolder">Valider les kilometres des participants</p>
         </div>
 
-
         <div class="container-cardInfo bg-white rounded">
-
-
-
-
-
             <table class="table text-center">
                 <thead>
                     <tr>
-
                         <th scope="col">Pseudo</th>
                         <th scope="col">km Valider</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($allparticipants as $participant) { ?>
-
                         <tr>
-
                             <td><?= $participant['user_pseudo'] ?></td>
                             <td><a href="./oneCourseInfo.php?action=validateKm&userId<?= $participant['user_id'] ?>" class="btn btn-success">Oui</a>
                                 <button class="btn btn-danger">Non</button>
                             </td>
-
-
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
 
-
-
         </div>
-
     <?php } ?>
-
-
-
 </div>
 
 
 </div>
 
 </div>
-
 
 <?php if (isset($_SESSION['swal'])) { ?>
     <script>

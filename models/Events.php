@@ -159,8 +159,9 @@ class Events extends Database
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM events 
-        inner join categories on category_id=category_id_categories
-        inner join departement on departement_id=departement_id_departement ";
+        inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+        where event_validate = 1";
 
         $query = $pdo->query($sql);
 
@@ -187,6 +188,7 @@ class Events extends Database
         inner join user on user_id=user_id_user
         WHERE `event_id` = :id
          ';
+
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $id, PDO::PARAM_STR);
