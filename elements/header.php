@@ -1,6 +1,7 @@
 <?php
 
-include('../elements/top.php')
+include('../elements/top.php');
+
 
 ?>
 
@@ -33,7 +34,7 @@ include('../elements/top.php')
                         <?php } ?>
                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            paramètres
+                        <?= isset($_SESSION['user']) ? $_SESSION['user']['user_firstname'] : "Options"  ?>
                         </a>
                         <ul class="dropdown-menu">
                             <?php if (isset($_SESSION['user'])) { ?>       
@@ -48,6 +49,8 @@ include('../elements/top.php')
 
                         </ul>
                     </li>
+
+                </li>
                 </ul>
             </div>
         </div>

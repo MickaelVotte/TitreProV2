@@ -181,12 +181,12 @@ class Events extends Database
         //creation d'une instance pdo via la function du parent
         $pdo = parent::connectDb();
 
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
          inner join categories on category_id=category_id_categories
         inner join departement on departement_id=departement_id_departement
         inner join user on user_id=user_id_user
         WHERE `event_id` = :id
-         ";
+         ';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $id, PDO::PARAM_STR);

@@ -14,7 +14,7 @@ include('../elements/header.php');
 ?>
 
 
-<?= var_dump($_SESSION, $_GET) ?>
+
 
 
 
@@ -138,13 +138,17 @@ include('../elements/header.php');
 
 
 
-                        <!-- //je verifie si l'utilisateur est le créateur pour afficher le bouton participation -->
+                <!-- //je verifie si l'utilisateur est le créateur pour afficher le bouton participation -->
                 <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] != $oneCourse['user_id_user']) { ?>
 
+                <!-- //permet de savoir si le nombre de personne inscrite est egale a la limite de participant -->
+                    <?php if ($oneCourse['event_limitmembers']  === $participate['nbParticipant'] && ! $alreadyParticipate) { ?>
+                        <p>Course complet</p>
+                 
 
 
                     <!-- je fais une condition qui modifier l'etat du bouton: participer/desinscrire -->
-                    <?php if (isset($alreadyParticipate) && $alreadyParticipate) { ?>
+                    <?php }else if (isset($alreadyParticipate) && $alreadyParticipate) { ?>
 
                         <!-- bouton se desinscrire -->
                         <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
@@ -174,8 +178,8 @@ include('../elements/header.php');
                         </div>
 
 
-                    <?php
-                    } else { ?>
+                   
+                   <?php  } else { ?>
                         <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
                             <!-- bouton participer -->
                             <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#subscribe">
