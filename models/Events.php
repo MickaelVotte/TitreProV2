@@ -132,6 +132,19 @@ class Events extends Database
 
         //une fois les information recupere, j'execute la requte à l'aide de la méthode->execute()
         $query->execute();
+
+        //je recupere l'id de la course
+        $idCourse = $pdo->lastInsertId();
+    
+        $sql2 = "INSERT INTO inscription_race (`user_id_user`, `event_id_events`) values (:userId, :idEvent)";
+
+        $query2=$pdo->prepare($sql2);
+
+        $query2->bindValue(':userId', $_SESSION['user']['user_id'], PDO::PARAM_INT);
+        $query2->bindValue(':idEvent', $idCourse, PDO::PARAM_INT);
+
+        $query2->execute();
+
     }
 
 
@@ -207,8 +220,8 @@ class Events extends Database
         $query = $pdo->prepare($sql);
 
 
-        $query->bindValue(':name',$name, PDO::PARAM_STR);
-        $query->bindValue(':date',$date, PDO::PARAM_STR);
+        $query->bindValue(':name', $name, PDO::PARAM_STR);
+        $query->bindValue(':date', $date, PDO::PARAM_STR);
         $query->bindValue(':start', $start,  PDO::PARAM_STR);
         $query->bindValue(':end', $end,  PDO::PARAM_STR);
         $query->bindValue(':limitmembers', $limitmembers,  PDO::PARAM_STR);
@@ -220,10 +233,7 @@ class Events extends Database
         $query->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
         $query->bindValue(':editEventId', $editEventId,  PDO::PARAM_INT);
 
-       $query->execute();
-
-       
-
+        $query->execute();
     }
 
 
@@ -233,22 +243,16 @@ class Events extends Database
      * @param $id correspond à l'id de la course
      */
 
-    public function deleteOneCourse($id):void
+    public function deleteOneCourse($id): void
     {
         $pdo = parent::connectDb();
 
         $sql = "DELETE FROM events WHERE `event_id`=:id";
 
         $query = $pdo->prepare($sql);
-        
+
         //je lis la valeur du parametre (ex: id) un marqueur nominatif :id à l'aide de la méthode-> bindValue();
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         $query->execute();
     }
-
-
-
-
-
-
 }

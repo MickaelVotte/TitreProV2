@@ -60,7 +60,7 @@
                         <h3 class="fw-bolder">Trial</h3>
                     </div>
                     <div class="card-paragraph">
-                        <p>Privbeighb nefkj zfpij z,jfjpzfrejp Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde vero modi consectetur optio voluptas error sit! Ut odit amet dicta excepturi ad quo necessitatibus cupiditate, facilis, eaque ratione in!</p>
+                        <p>Participer à une course de trial près de chez vous. Nous regrouper les courses de trail de la région Normandie.</p>
                     </div>
                     <div class="card-bottom">
                         <div class="stat">

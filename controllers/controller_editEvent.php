@@ -150,12 +150,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $eventCreate->createEvent($name, $date, $start, $end, $nblimitParticipant, $description, $distance, $image, $place, $departement, $type);
 
+        
 
         // creation d'une variable de session swal
         $_SESSION['swal'] = [
             'icon' => 'success',
             'title' => 'Enregistrement',
-            'text' => 'La patient a bien été enregistré'
+            'text' => 'La course à bien été enregistré'
         ];
 
 

@@ -14,7 +14,7 @@ include('../elements/header.php');
 ?>
 
 
-
+<?= var_dump($_SESSION, $_GET) ?>
 
 
 
@@ -126,72 +126,84 @@ include('../elements/header.php');
             <div class="row  text-center m-0 p-0 ">
 
                 <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
-
                     <?php
+                    // je verifie si l'utisateur est le createur de la course pour afficher le bouton modifier
                     if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $oneCourse['user_id_user']) { ?>
                         <a class="cardInfo-modify " href="./modifyOneCourseInfo.php?eventId=<?= $oneCourse['event_id'] ?>">Modifier</a>
                     <?php } ?>
                 </div>
-                <!-- je fais une condition qui modifier l'etat du bouton: participer/desinscrire -->
-                <?php if ($alreadyParticipate) { ?>
 
-                    <!-- bouton se desinscrire -->
-                    <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
 
-                        <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#unsubscribe">
-                            se désinscrire
-                        </a>
-                    </div>
 
-                    <!------------------ Modal confirmation de la desincriptiion-------------------->
-                    <div class="modal fade" id="unsubscribe" tabindex="-1" aria-labelledby="unsubscribe" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title"><?= $oneCourse['event_name'] ?></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Voulez vous vous retirer de la course?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
-                                    <a href="./oneCourseInfo.php?action=unsubscribe&eventId=<?= $oneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
+
+
+
+                        <!-- //je verifie si l'utilisateur est le créateur pour afficher le bouton participation -->
+                <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] != $oneCourse['user_id_user']) { ?>
+
+
+
+                    <!-- je fais une condition qui modifier l'etat du bouton: participer/desinscrire -->
+                    <?php if (isset($alreadyParticipate) && $alreadyParticipate) { ?>
+
+                        <!-- bouton se desinscrire -->
+                        <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
+
+                            <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#unsubscribe">
+                                se désinscrire
+                            </a>
+                        </div>
+
+                        <!------------------ Modal confirmation de la desincriptiion-------------------->
+                        <div class="modal fade" id="unsubscribe" tabindex="-1" aria-labelledby="unsubscribe" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><?= $oneCourse['event_name'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Voulez vous vous retirer de la course?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
+                                        <a href="./oneCourseInfo.php?action=unsubscribe&eventId=<?= $oneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
-                <?php } else { ?>
-                    <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
-                        <!-- bouton participer -->
-                        <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#subscribe">
-                            Participer
-                        </a>
-                    </div>
+                    <?php
+                    } else { ?>
+                        <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
+                            <!-- bouton participer -->
+                            <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#subscribe">
+                                Participer
+                            </a>
+                        </div>
 
 
-                    <!-- modal pour confirmer la participation -->
-                    <div class="modal fade" id="subscribe" tabindex="-1" aria-labelledby="subscribe" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title"><?= $oneCourse['event_name'] ?></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Voulez vous participer à cette course?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
-                                    <a href="./oneCourseInfo.php?action=participate&eventId=<?= $oneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
+                        <!-- modal pour confirmer la participation à la course -->
+                        <div class="modal fade" id="subscribe" tabindex="-1" aria-labelledby="subscribe" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><?= $oneCourse['event_name'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Voulez vous participer à cette course?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Non</button>
+                                        <a href="./oneCourseInfo.php?action=participate&eventId=<?= $oneCourse['event_id'] ?>" type="button" class="btn btn-success">Oui</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 <?php } ?>
-
 
                 <?php
                 // je fais une condition pour savoir si l'utilisateur est le proprio de la course si oui il pourra la supprimer
@@ -242,15 +254,22 @@ include('../elements/header.php');
     <?php
     if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $oneCourse['user_id_user']) { ?>
 
+        <div>
+            <p class="title-cardInfo text-center text-white fs-2 fw-bolder">Valider les kilometres des participants</p>
+        </div>
+
+
         <div class="container-cardInfo bg-white rounded">
+
+
+
 
 
             <table class="table text-center">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+
                         <th scope="col">Pseudo</th>
-                        <th scope="col">Valider</th>
                         <th scope="col">km Valider</th>
                     </tr>
                 </thead>
@@ -258,11 +277,8 @@ include('../elements/header.php');
                     <?php foreach ($allparticipants as $participant) { ?>
 
                         <tr>
-                            <th scope="row">1</th>
+
                             <td><?= $participant['user_pseudo'] ?></td>
-                            <td><a href="./oneCourseInfo.php?action=validateParticipation&userId<?= $participant['user_id'] ?>" class="btn btn-success">Oui</a>
-                                <button class="btn btn-danger">Non</button>
-                            </td>
                             <td><a href="./oneCourseInfo.php?action=validateKm&userId<?= $participant['user_id'] ?>" class="btn btn-success">Oui</a>
                                 <button class="btn btn-danger">Non</button>
                             </td>
