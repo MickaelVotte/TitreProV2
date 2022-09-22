@@ -9,7 +9,7 @@
 
 
 .bglogin{
-background: rgba(0, 0, 0, 0.2)  url("../img/login.jpg");
+background: rgba(0, 0, 0, 0.2)  url("../img/rr.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 background-position:center;
@@ -49,6 +49,26 @@ background: linear-gradient(135deg, rgba(64,112,244,0.8802871490393032) 13%, rgb
     padding: 0;
     width: 65%;
 }
+.formulaire4{
+    margin: 7rem 15rem;
+    position: relative;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #fff;
+   
+   
+}
+.formulaire5{
+    margin: 15rem 8em;
+    position: relative;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #fff;
+   
+   
+}
 
 
 @media screen and (max-width: 900px) {
@@ -56,7 +76,17 @@ background: linear-gradient(135deg, rgba(64,112,244,0.8802871490393032) 13%, rgb
      width: 100%;
     }
 }
+@media screen and (max-width: 900px) {
+    .formulaire4{
+     margin: 0;
+    }
+}
 
+@media screen and (max-width: 900px) {
+    .formulaire5{
+     margin: 10rem 1rem;
+}
+}
 
 
 .titleNameLogin{
@@ -259,15 +289,6 @@ i{
 
 /**********LOGOUT************/
 
-.logoutBox
-{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    border-radius: 0.75rem;
-    box-shadow: 2p 2px 10px rgba(0, 0, 0, 0.2);
-    height: 20rem;
-}
 
 .btn-login3
 {   

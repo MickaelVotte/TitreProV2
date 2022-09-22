@@ -1,5 +1,5 @@
 .banner-image2 {
-    background: rgba(0, 0, 0, 0.2) url('../img/imglogin.jpg');
+    background: rgba(0, 0, 0, 0.2) url('../img/running2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,10 +15,35 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 25rem;
+    height: 28rem;
     background-blend-mode: darken;
 
 }
+.banner-image4 {
+    background: rgba(0, 0, 0, 0.2) url('../img/rr.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 28rem;
+    background-blend-mode: darken;
+
+}
+.banner-image5 {
+    background: rgba(0, 0, 0, 0.2) url('../img/backgroundhome.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 20rem;
+    background-blend-mode: darken;
+    margin-bottom: 5rem;
+
+}
+
+
+
+
 
 
 .box {

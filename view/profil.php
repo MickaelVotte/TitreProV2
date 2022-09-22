@@ -15,11 +15,13 @@ include('../elements/header.php');
 
 
 <section class="sectionProfil row m-0 p-0 d-flex justify-content-evenly">
-    <div class="text-center m-5 titleLogin">
-        <p>Mon compte</p>
-        <div class="progress hr2">
-  <div class="progress-bar " role="progressbar" aria-label="Danger example" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
+
+
+    <div class="banner-image5">
+        <div class="text-center m-5 titleLogin text-white fs-1">
+            <p>Mon compte</p>
+          
+        </div>
     </div>
 
 
@@ -41,7 +43,7 @@ include('../elements/header.php');
             <span class="textProfil">Course Inscrit</span>
             <span class="num" data-val="400">000</span>
             <div class="text-center m-0 p-0">
-               <p>voir les courses</p> 
+                <p>voir les courses</p>
             </div>
         </div>
 
@@ -50,13 +52,13 @@ include('../elements/header.php');
             <span class="textProfil">Profil</span>
             <span class="num" data-val="400">000</span>
             <div class="text-center m-0 p-0">
-                  <p><a class="linkProfil"  href="../view/modifySubcribe.php?id=<?= $_SESSION['user']['user_id'] ?>">Modifier votre compte</a></p>
+                <p><a class="linkProfil" href="../view/modifySubcribe.php?id=<?= $_SESSION['user']['user_id'] ?>">Modifier votre compte</a></p>
             </div>
-          
+
             <div class="text-center m-0 p-0">
-                  <p><a class="linkProfil" href="./closeAccount.php">supprimer votre compte</a></p>
+                <p><a class="linkProfil" href="./closeAccount.php">supprimer votre compte</a></p>
             </div>
-          
+
         </div>
 
 

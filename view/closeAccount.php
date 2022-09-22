@@ -9,16 +9,17 @@ include('../elements/header.php');
 
 ?>
 
-<div class="row m-0 p-0">
+<div class="row m-0 p-0 bglogin3">
 
-    <div class="col-12">
-        <div class="text-center mt-5 m-0 p-0">
-            <a href="./home.php">Retournez à la page d'aacueil</a>
-        </div>
+    <div class="col-12 ">
+        <div class="formulaire4">
+            <div class="text-center mt-5 m-0 p-0">
+                <a class="textLoginBottom" href="./home.php">Retournez à la page d'accueil</a>
+            </div>
 
-        <div class="formulaire">
+
             <div class="titleLogin">
-                <p class="text-center">Supprimer votre compte</p>
+                <p class="text-center fs-5">cliquer sur le bouton ci-dessous pour supprimer votre compte</p>
             </div>
 
             <div class="d-flex justify-content-center mt-5 text-center">
@@ -41,8 +42,7 @@ include('../elements/header.php');
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                <a
-                                href="./closeAccount.php?action=delete&idUser=<?=$_SESSION['user']['user_id']?>"class="btn btn-primary">supprimer</a>
+                                <a href="./closeAccount.php?action=delete&idUser=<?= $_SESSION['user']['user_id'] ?>" class="btn btn-primary">supprimer</a>
                             </div>
                         </div>
                     </div>

@@ -9,16 +9,17 @@ require_once "../controllers/controller_calendar.php";
 
 
 
+<div class="banner-image4">
+    <div class="text-center m-5 p-0">
+        <div class="titleAccueil text-white hrLigne">Créer un évènement</div>
+    </div>
 
-
-
-<div class="text-center m-5 p-0">
-    <div class="titleAccueil hrLigne">Créer un évènement</div>
+    <div class="d-flex justify-content-center m-5">
+        <a class="btn-login3" href="../view/editEvent.php">Créer un évènement</a>
+    </div>
 </div>
 
-<div class="d-flex justify-content-center m-5">
-    <a class="btn-login3" href="../view/editEvent.php">Créer un évènement</a>
-</div>
+
 
 
 

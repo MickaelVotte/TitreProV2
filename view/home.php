@@ -64,7 +64,7 @@
                     </div>
                     <div class="card-bottom">
                         <div class="stat">
-                            <a class="btncard" href="#">En savoir plus</a>
+                            <a class="btncard" href="./courses.php">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="card-bottom">
                         <div class="stat">
-                            <a class="btncard" href="#">En savoir plus</a>
+                            <a class="btncard" href="./courses.php">En savoir plus</a>
                         </div>
                     </div>
                 </div>

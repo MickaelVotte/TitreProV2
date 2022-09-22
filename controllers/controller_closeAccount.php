@@ -6,10 +6,6 @@ require_once '../models/User.php';
 
 
 
-var_dump($_SESSION);
-var_dump($_GET);
-
-
 if (isset($_GET['action']) && isset($_GET['idUser']) && $_GET['action'] == 'delete') {
     $deleteUser = new User();
 
