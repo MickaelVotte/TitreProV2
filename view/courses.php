@@ -4,10 +4,12 @@
 require_once "../models/Database.php";
 require_once "../models/Categories.php";
 require_once "../models/Departement.php";
-require_once "../controllers/controller_editEvent.php";
 require_once "../controllers/controller_courses.php";
+
 include('../elements/top.php');
 include('../elements/header.php');
+
+
 ?>
 
 
@@ -101,8 +103,8 @@ include('../elements/header.php');
                 <div class="box">
                     <img class="box-image img-fluid" src="data:image/png;base64,<?= $event['event_image'] ?>" alt="">
                     <div class="box-title">
-                        <span class="date"><?= $event['event_date'] ?></span>
-                        <h3 class="fw-bolder"><?= $event['category_type'] ?></h3>
+                        <span class="date"><?=$event['event_date'] ?></span>
+                        <h3 class="fw-bolder <?= $badgeColorArray[$event['category_type']] ?>"><?=$event['category_type']?></h3>
                         <span class="name"><?= $event['event_name'] ?></span>
                     </div>
                     <div class="box-paragraph">
@@ -117,7 +119,8 @@ include('../elements/header.php');
                         </div>
                     </div>
                 </div>
-            </div>
+  
+                </div>
 
 
         <?php } ?>

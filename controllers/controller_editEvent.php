@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //regex image
     $paramUpload = [
         // Taille max de l'image
-        'size' => 4000000,
+        'size' => 6000000,
         // les extensions autorisé
         'extension' => ['jpeg', 'jpg', 'webp', 'png'],
         // le nom du répertoire qui va accueillir les images

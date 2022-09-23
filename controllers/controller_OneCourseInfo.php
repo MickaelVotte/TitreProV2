@@ -33,9 +33,14 @@ if (isset($_GET['action']) && isset($_GET['eventId'])) {
     }
     if ($_GET['action'] == 'delete') {
         $oneInfo->deleteOneCourse($_GET['eventId']);
-
-        $_SESSION['swal'] = true;
-        header('Location: ./oneCourseInfo.php');
+        $_SESSION['swal'] = [
+            'icon' => 'success',
+            'title' => 'Suppression',
+            'text' => 'Vous avez bien supprimé la course'
+        ];
+       
+        header('Location: ./courses.php');
+        
         exit;
     }
     if ($_GET['action'] == 'unsubscribe') {

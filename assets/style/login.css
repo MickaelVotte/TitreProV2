@@ -60,12 +60,13 @@ background: linear-gradient(135deg, rgba(64,112,244,0.8802871490393032) 13%, rgb
    
 }
 .formulaire5{
-    margin: 15rem 8em;
+    margin: 15rem 10em;
     position: relative;
     padding: 1rem;
     border-radius: 0.75rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: #fff;
+    
    
    
 }
@@ -276,6 +277,29 @@ i{
 
 .btn-login:hover{
     background-color: rgb(255, 7, 110);
+
+}
+.btn-login2{
+    letter-spacing: 1px;
+    border: none;
+    background-color: #4070f4;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor:pointer;
+    height: 2.7rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+.btn-login2:hover{
+    background-color: rgb(255, 7, 110);
+    color: white;
 
 }
 

@@ -1,0 +1,19 @@
+<?php
+
+
+require_once '../config.php';
+require_once '../models/Database.php';
+require_once '../models/Events.php';
+require_once '../models/InscriptionRace.php';
+
+
+
+
+
+//j'instancie un nouvel objet $colorObj selon la classe Events
+$colorObj = new Events();
+
+//je crée une variable $allColorArray qui va contenir tous les type de courses dans un array
+$allColorArray = $colorObj->getAllEvent();
+//mise en place d'un tableau associatif pour définir le type de course selon une couleurs
+

@@ -11,6 +11,7 @@ require_once "../controllers/controller_OneCourseInfo.php";
 include('../elements/top.php');
 include('../elements/header.php');
 
+
 ?>
 
 
@@ -139,14 +140,14 @@ include('../elements/header.php');
                 <!-- //je verifie si l'utilisateur est le créateur pour afficher le bouton participation -->
                 <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] != $oneCourse['user_id_user']) { ?>
 
-                <!-- //permet de savoir si le nombre de personne inscrite est egale a la limite de participant -->
-                    <?php if ($oneCourse['event_limitmembers']  === $participate['nbParticipant'] && ! $alreadyParticipate) { ?>
+                    <!-- //permet de savoir si le nombre de personne inscrite est egale a la limite de participant -->
+                    <?php if ($oneCourse['event_limitmembers']  === $participate['nbParticipant'] && !$alreadyParticipate) { ?>
                         <p>Course complet</p>
-                 
 
 
-                    <!-- je fais une condition qui modifier l'etat du bouton: participer/desinscrire -->
-                    <?php }else if (isset($alreadyParticipate) && $alreadyParticipate) { ?>
+
+                        <!-- je fais une condition qui modifier l'etat du bouton: participer/desinscrire -->
+                    <?php } else if (isset($alreadyParticipate) && $alreadyParticipate) { ?>
 
                         <!-- bouton se desinscrire -->
                         <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
@@ -176,8 +177,8 @@ include('../elements/header.php');
                         </div>
 
 
-                   
-                   <?php  } else { ?>
+
+                    <?php  } else { ?>
                         <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center ">
                             <!-- bouton participer -->
                             <a href="./participateCourse.php?eventId=<?= $oneCourse['event_id'] ?>" type="button" class="cardInfo-modify" data-bs-toggle="modal" data-bs-target="#subscribe">
@@ -244,20 +245,33 @@ include('../elements/header.php');
 
 
 
-          
-<!-- 
-   
-        <p>Pour partciper au course n'hésitez pas à vous s'inscrire</p>
-        <a href="./subscribe.php">S'inscrire</a>             
-                <div class="row m-0 p-0">
-                    <div class="text-center mt-3">
-                        <a class="linkBottom" href="./courses.php">Retour à la page des courses</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </div> -->
+
+                <?php if (!isset($_SESSION['user'])) { ?>
+
+                    <div class="row m-0 p-0 justify-content-center">
+                        <p class="fs-6 pb-3 fw-bolder">Pour partciper à la course n'hésitez pas à vous s'inscrire <br> en cliquant sur le bouton ci-dessous </p>
+
+                        <div class="  m-0 p-0 col-lg-3  col-sm-8 text-center">
+                            <a class="btn-login2" href="./subscribe.php">S'inscrire</a>
+
+                        </div>
+                        <div class="text-center mt-3 p-2">
+                            <a class="" href="./courses.php">Retour à la page des courses</a>
+                        </div>
+                    </div>
+
+                <?php } ?>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
 
 
 

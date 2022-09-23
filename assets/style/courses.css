@@ -270,6 +270,7 @@
     width: 100%;
     color: rgb(255, 255, 255);
     background-color: rgb(176, 173, 173);
+    cursor: pointer;
 
 }
 
@@ -345,3 +346,20 @@
 
 }
 
+/************** couleur selon leur type ***************/
+
+
+.colorBgCardMarathon
+{
+color: #17b824;
+}
+
+.colorBgCardEvent
+{
+color: rgb(196, 171, 30);
+}
+
+.colorBgCardTrial
+{
+    color:  #4070f4;
+}

@@ -17,7 +17,6 @@ include('../elements/header.php');
                 <a class="textLoginBottom" href="./home.php">Retournez à la page d'accueil</a>
             </div>
 
-
             <div class="titleLogin">
                 <p class="text-center fs-5">cliquer sur le bouton ci-dessous pour supprimer votre compte</p>
             </div>
