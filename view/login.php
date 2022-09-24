@@ -10,7 +10,7 @@ include('../elements/header.php');
 ?>
 
 
-<section class=" bglogin row d-flex justify-content-center text-center m-0 p-0">
+<div class=" bglogin row d-flex justify-content-center text-center m-0 p-0">
 
     <div class="text-center text-white titleNameLogin">
         Running Race
@@ -59,7 +59,7 @@ include('../elements/header.php');
 
 
 
-</section>
+</div>
 
 
 

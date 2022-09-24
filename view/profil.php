@@ -14,7 +14,7 @@ include('../elements/header.php');
 ?>
 
 
-<section class="sectionProfil row m-0 p-0 d-flex justify-content-evenly">
+<div class="sectionProfil row m-0 p-0 d-flex justify-content-evenly">
 
 
     <div class="banner-image5">
@@ -64,7 +64,7 @@ include('../elements/header.php');
 
     </div>
 
-</section>
+</div>
 
 
 

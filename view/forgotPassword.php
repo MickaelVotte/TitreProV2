@@ -7,7 +7,7 @@ require_once  '../controllers/controller_forgotPassword.php';
 
 
 
-<section class=" bglogin2 row d-flex justify-content-center text-center m-0 p-0">
+<div class=" bglogin2 row d-flex justify-content-center text-center m-0 p-0">
     <div class="text-center titleNameLogin text-white">
     <p>Mot de passe oublié</p>
 </div>
@@ -39,7 +39,7 @@ require_once  '../controllers/controller_forgotPassword.php';
 </div>
 
 </div>
-</section>
+
 
 
 

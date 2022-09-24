@@ -54,6 +54,7 @@
     text-align: center;
     transition: 0.5s ease;
     cursor: pointer;
+    background-color: #e5ecff;
 }
 
 .box:hover {
@@ -84,7 +85,7 @@
 
 .box-title .name {
     margin-top: 0.75rem;
-    color: rgb(255, 7, 110);
+    color: #252525;
     font-size: 1rem;
     font-weight: 800;
 }
@@ -93,9 +94,10 @@
 
 .box-paragraph {
     margin: 0.7rem auto;
-    color: black;
+    color: #252525;
     padding: 0.90rem;
     text-align: justify;
+    letter-spacing: 0.05em;
 
 }
 
@@ -362,4 +364,15 @@ color: rgb(196, 171, 30);
 .colorBgCardTrial
 {
     color:  #4070f4;
+}
+
+
+
+
+/***********titre course Normandie************/
+
+
+.titleCourse
+{
+    margin-top: 7rem;
 }

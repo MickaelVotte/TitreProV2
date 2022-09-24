@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/4cb0c25a26.js" crossorigin="anonymous"></script>
 
-<!-- //cdn sweet alert -->
+    <!-- //cdn sweet alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- CDN librairie AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- CDN librairie  AOS  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- //feuille ce style -->
     <link rel="stylesheet" href="../assets/style/footer.css">
@@ -20,9 +27,11 @@
     <link rel="stylesheet" href="../assets/style/home.css">
     <link rel="stylesheet" href="../assets/style/courses.css">
     <link rel="stylesheet" href="../assets/style/calendar.css">
-    
+
 </head>
-<body class="d-flex flex-column min-vh-100 m-0 p-0" >
-    
-</body>
+
+<body class="d-flex flex-column min-vh-100 m-0 p-0">
+
+
+
 </html>
