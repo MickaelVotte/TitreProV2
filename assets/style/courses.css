@@ -30,12 +30,12 @@
 
 }
 .banner-image5 {
-    background: rgba(0, 0, 0, 0.2) url('../img/backgroundhome.jpg');
+    background: rgba(0, 0, 0, 0.3) url('../img/running2Profil.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 20rem;
+    height: 25rem;
     background-blend-mode: darken;
     margin-bottom: 5rem;
 

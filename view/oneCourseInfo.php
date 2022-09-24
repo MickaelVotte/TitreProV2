@@ -142,7 +142,7 @@ include('../elements/header.php');
 
                     <!-- //permet de savoir si le nombre de personne inscrite est egale a la limite de participant -->
                     <?php if ($oneCourse['event_limitmembers']  === $participate['nbParticipant'] && !$alreadyParticipate) { ?>
-                        <p>Course complet</p>
+                        <p class="fw-bolder">Course complet</p>
 
 
 

@@ -190,6 +190,31 @@ html{
         margin-left: 2em;
     }
 }
+@media screen and (min-width:600px) {
+
+    .comments2:before,
+    .comments2:after {
+        content: '';
+        width: 20%;
+        border-bottom: #242D3C solid 2px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .comments2:before {
+        margin-left: -100%;
+        margin-right: 2em
+    }
+}
+
+@media screen and (min-width:600px) {
+    .comments2:after {
+        margin-right: -100%;
+        margin-left: 2em;
+    }
+}
 
 
 
@@ -233,4 +258,6 @@ html{
     font-size: 2rem;
     color: #252525;
 }
+
+
 

@@ -100,8 +100,9 @@ include('../elements/header.php');
 
 
 <div>
-    <div data-aos=fade-up data-aos-offset="220" data-aos-delay="50" data-aos-duration="1000"  data-aos-easing="ease-in-out" class="row justify-content-md-center m-0 p-3 mt-5 mb-5">
+    <div data-aos=fade-up data-aos-offset="250" data-aos-delay="50" data-aos-duration="1000"  data-aos-easing="ease-in-out" class="row justify-content-md-center m-0 p-3 mt-5 mb-5">
         <?php foreach ($eventArray as $event) { ?>
+            
             <div class="col-lg-3 col-sm-12 mt-5 mb-5">
                 <div class="box">
                     <img class="box-image img-fluid" src="data:image/png;base64,<?= $event['event_image'] ?>" alt="">

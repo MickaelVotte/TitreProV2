@@ -18,7 +18,7 @@ include('../elements/header.php');
 
 
     <div class="banner-image5">
-        <div class="text-center m-5 titleLogin text-white fs-1">
+        <div class="text-center  titleLogin text-white fs-1">
             <p>Mon compte</p>
           
         </div>

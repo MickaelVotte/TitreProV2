@@ -109,23 +109,14 @@ background: linear-gradient(135deg, rgba(64,112,244,0.8802871490393032) 13%, rgb
     font-size: 2rem;
     position: relative;
     content: '';
+    top: 25%;
     padding: 0;
     margin: 0 ;
     margin-bottom: 2rem;
     margin-top: 2rem;
     
 }
-.titleLogin{
-    font-weight: 600;
-    font-size: 2rem;
-    position: relative;
-    content: '';
-    padding: 0;
-    margin: 0 ;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    
-}
+
 
 
 hr{

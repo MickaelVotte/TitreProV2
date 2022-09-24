@@ -14,9 +14,9 @@ include('../elements/header.php');
 
         <div class="form-control text-center  shadow p-0 mb-5 bg-body rounded ">
             <div class="text-center titleLogin">
-                <p>Créer une course</p>
+                <p class="comments2">Créer une course</p>
             </div>
-            <hr>
+            
             <div class="row justify-content-center">
                 <img id="imgPreview" class="col-8 img-fluid imgPreview" src="../assets/imageDefaut/imgdefault.png" alt="image_par_defaut_course_crée">
             </div>
@@ -125,7 +125,7 @@ include('../elements/header.php');
 
 
 
-                <div class="m-3 d-flex justify-content-center text-center">
+                <div class="mt-3 p-0 m-0 d-flex justify-content-center text-center">
                     <div>
                         <button class="btn-login">Valider</button>
                     </div>
