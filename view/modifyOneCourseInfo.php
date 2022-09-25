@@ -117,7 +117,7 @@ include('../elements/header.php');
                     </select>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-6  p-0 m-0">
                     <label for=""> <span id="distance" class="text-danger"><?= isset($errors['distance']) ? $errors['distance'] : '' ?></span></label>
                     <br>
                     <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
@@ -131,7 +131,7 @@ include('../elements/header.php');
                 </div>
 
 
-                <div class="m-3 me-1 d-flex justify-content-center text-center">
+                <div class="m-0 mt-3 me-1 d-flex justify-content-center text-center">
                     <div>
                          <input type="hidden" name="editEventId" value="<?=$modifyCourse['event_id']?>">
                         <button class="btn-login">Valider</button>

@@ -19,6 +19,15 @@
     background-blend-mode: darken;
 
 }
+
+
+
+@media screen and (max-width:750px) {
+    .banner-image3 {
+    height: 20rem;
+    }
+}
+
 .banner-image4 {
     background: rgba(0, 0, 0, 0.2) url('../img/rr.jpg');
     background-position: center;

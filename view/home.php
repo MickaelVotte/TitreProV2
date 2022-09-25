@@ -37,14 +37,14 @@
 
 
 
-    <div class="containerHome ">
+    <div class="containerHome">
 
         <section  data-aos="fade-right" data-aos-offset="200" data-aos-delay="250" data-aos-duration="1000"  data-aos-easing="ease-in-out"    class="hidden row d-flex justify-content-evenly m-0 p-3 mt-5 mb-5">
-            <div class="card col-lg-4 col-12 m-0 p-0">
+            <div class="card col-lg-4 col-12 m-3 p-0">
                 <div class="card">
                     <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
-                        <span class="date">Il y a 3 jours</span>
+                        <span class="date">Categorie</span>
                         <h3 class="fw-bolder">Course à pied</h3>
                     </div>
                     <div class="card-paragraph">
@@ -60,11 +60,11 @@
                     </div>
                 </div>
             </div>
-            <div class="card col-lg-4 col-12 m-0 p-0">
+            <div class="card col-lg-4 col-12 m-3 p-0">
                 <div class="card">
                 <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
-                        <span class="date">Il y a 3 jours</span>
+                        <span class="date">Categorie</span>
                         <h3 class="fw-bolder">Trial</h3>
                     </div>
                     <div class="card-paragraph">
@@ -78,11 +78,11 @@
                 </div>
             </div>
 
-            <div class=" card col-lg-4 col-12 m-0 p-0">
+            <div class=" card col-lg-4 col-12 m-3 p-0">
                 <div class="card">
                 <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
-                        <span class="date">Il y a 3 jours</span>
+                        <span class="date">Categorie</span>
                         <h3 class="fw-bolder">Évènement</h3>
                     </div>
                     <div class="card-paragraph">

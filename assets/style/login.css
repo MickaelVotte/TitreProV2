@@ -136,6 +136,15 @@ label{
 }
 
 
+@media screen and (max-width:750px) {
+  .divInput
+{
+    margin-right: -3rem;
+}
+
+}
+
+
 .input2{
     margin-bottom: 1rem;
 }

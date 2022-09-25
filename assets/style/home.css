@@ -17,6 +17,22 @@ html{
 
 }
 
+@media screen and (max-width:750px) {
+    .containerHome {
+    padding: 0;
+    }
+}
+
+
+/********************Scrolling horizontal****************/
+
+
+
+
+
+
+
+/**************************HR******************************/
 
     .hrLigne:before .hrLigne:after {
         content: 'O';
@@ -46,8 +62,11 @@ html{
 
 
 
+
+
 .card {
 
+    
     height: 36rem;
     width: 20rem;
     border-radius: 1rem;
@@ -138,6 +157,16 @@ html{
     cursor: pointer;
 
 }
+
+
+@media screen and (max-width:750px) {
+    .card:hover {
+    transform: scale(1.02);
+    }
+}
+
+
+
 
 .btncard {
     margin-top: 5rem;

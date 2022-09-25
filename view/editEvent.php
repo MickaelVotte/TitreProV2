@@ -21,7 +21,7 @@ include('../elements/header.php');
                 <img id="imgPreview" class="col-8 img-fluid imgPreview" src="../assets/imageDefaut/imgdefault.png" alt="image_par_defaut_course_crée">
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6 col-sm-12">
                     <label for="image"> <span class="text-danger"><?= isset($errors['image']) ? $errors['image'] : '' ?></span></label>
                     <br>
                     <input class="inputfield3" id="image" name="image" type="file" data placeholder="image"  value="<?= $_POST['image'] ?? '' ?>">
