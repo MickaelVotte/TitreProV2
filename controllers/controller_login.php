@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['login'])) {
 
         if (empty($_POST['login'])) {
-            $errors['login'] = "champ obligatoire";
+            $errors['login'] = "*Champ obligatoire";
         }
     }
 
 
     if (isset($_POST['password'])) {
         if (empty($_POST['password'])) {
-            $errors['password'] = "champ obigatoire";
+            $errors['password'] = "*Champ obigatoire";
         }
     }
 
@@ -45,10 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 unset($_SESSION['user']['token_date']);
                 header('Location: home.php');
             } else {
-                $errors['connection'] = "Identifiant ou Mot de passe incorrect";
+                $errors['connection'] = "*Identifiant ou Mot de passe incorrect";
             }
         } else {
-            $errors['connection'] = "Identifiant ou Mot de passe incorrect";
+            $errors['connection'] = "*Identifiant ou Mot de passe incorrect";
         }
     }
 }

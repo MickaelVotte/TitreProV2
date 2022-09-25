@@ -12,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['newPassword'])) {
         if ($_POST['newPassword'] == '') {
-            $errors['newPassword'] = "Champ obligatoire";
+            $errors['newPassword'] = "*Champ obligatoire";
         } else if ($_POST['newConfirmPassword'] == '' && $_POST['newConfirmPassword'] != '') {
-            $errors['newConfirmPassword'] = "chanmp obligatoire";
+            $errors['newConfirmPassword'] = "*Chanmp obligatoire";
         } else if ($_POST['newConfirmPassword'] != $_POST['newPassword']) {
-            $errors['newPassword'] = "Les  mots de passe sont différents";
+            $errors['newPassword'] = "*Les  mots de passe sont différents";
         }
 
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $token = $_GET['token'];
                 $testObj->updatePassword($token, $password);
             } else {
-                $errors['newPassword'] = "Le lien n'est plus valide";
+                $errors['newPassword'] = "*Le lien n'est plus valide";
             }
         }
         

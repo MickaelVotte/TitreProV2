@@ -1,0 +1,6 @@
+# permet de ne pas naviguer dans les dossiers
+Options All -Indexes
+
+
+# permet de rediriger l'utilidsateur vers une page erreur 
+ErrorDocument 404 /page404.php

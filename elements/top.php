@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../assets/style/home.css">
     <link rel="stylesheet" href="../assets/style/courses.css">
     <link rel="stylesheet" href="../assets/style/calendar.css">
+    <link rel="stylesheet" href="../assets/style/erreur.css">
 
 </head>
 

@@ -1,0 +1,9 @@
+
+
+.bglogin5 {
+    background: rgba(0, 0, 0, 0.2) url("../img/error404.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: darken;
+}

@@ -51,50 +51,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['name'])) {
         if (empty($_POST['name'])) {
-            $errors['name'] = 'Champ obligatoire';
+            $errors['name'] = '*Champ obligatoire';
             //la fonction preg_match pour valider le format
         } elseif (!preg_match($regexName, $_POST['name'])) {
-            $errors['name'] = 'Format invalide, ex. La course à Béa';
+            $errors['name'] = '*Format invalide, ex. La course à Béa';
         }
     }
 
     if (isset($_POST['place'])) {
         if (empty($_POST['place'])) {
-            $errors['place'] = 'Champ obligatoire';
+            $errors['place'] = '*Champ obligatoire';
             //la fonction preg_match pour valider le format
-        } elseif (!preg_match($regexName, $_POST['name'])) {
-            $errors['place'] = 'Format invalide, ex. Le Havre';
+        } elseif (!preg_match($regexName, $_POST['place'])) {
+            $errors['place'] = '*Format invalide, ex. Le Havre';
         }
     }
 
     if (isset($_POST['date'])) {
         if (empty($_POST['date']))
-            $errors['date'] = 'Champ obligatoire';
+            $errors['date'] = '*Champ obligatoire';
     }
 
     if (isset($_POST['start'])) {
         if (empty($_POST['start']))
-            $errors['start'] = 'champ obligatoire';
+            $errors['start'] = '*Champ obligatoire';
     }
 
     if (isset($_POST['end'])) {
         if (empty($_POST['end']))
-            $errors['end'] = 'champ obligatoire';
+            $errors['end'] = '*Champ obligatoire';
     }
 
     if (isset($_POST['nblimitParticipant'])) {
         if (empty($_POST['nblimitParticipant']))
-            $errors['nblimitParticipant'] = 'champ obligatoire';
+            $errors['nblimitParticipant'] = '*Champ obligatoire';
     }
 
     if (isset($_POST['description'])) {
         if (empty($_POST['description'])) {
-            $errors['description'] = "Champ obligatoire";
+            $errors['description'] = "*Champ obligatoire";
         }
     }
     if (isset($_POST['distance'])) {
         if (empty($_POST['distance'])) {
-            $errors['distance'] = "Champ obligatoire";
+            $errors['distance'] = "*Champ obligatoire";
         }
     }
 
@@ -110,16 +110,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (!isset($_POST['departement'])) {
-        $errors['departement'] = 'champ obligatoire';
+        $errors['departement'] = '*Champ obligatoire';
     }
 
 
     if (!isset($_POST['type'])) {
-        $errors['type'] = "Champ obligatoire";
+        $errors['type'] = "*Champ obligatoire";
     }
 
     if (!isset($_POST['distance'])) {
-        $errors['distance'] = "Champ obligatoire";
+        $errors['distance'] = "*Champ obligatoire";
     }
 
 
