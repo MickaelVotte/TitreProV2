@@ -8,7 +8,7 @@ require_once "../controllers/controller_courses.php";
 
 include('../elements/top.php');
 include('../elements/header.php');
-
+ 
 
 ?>
 
@@ -130,7 +130,6 @@ include('../elements/header.php');
         <?php } ?>
     </div>
 </div>
-
 
 
 <?php if (isset($_SESSION['swal'])) { ?>

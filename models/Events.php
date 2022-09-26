@@ -261,7 +261,20 @@ class Events extends Database
 
 
 
-    
+    /***
+     * fonction qui permet d'archiver les courses
+     * @param $idEvent l'id de la course à archiver
+     */
+    public function archiveEvent($idEvent)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE events SET event_visible= 0 WHERE event_id= :idEvent"; 
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+        $query->execute();
+
+    }
+
 
 
 }

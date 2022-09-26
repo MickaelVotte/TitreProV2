@@ -370,9 +370,6 @@ class User extends DataBase
 
         $queryA->execute();
 
-    
-
-
         // fonction qui permet de supprimer l'utilisateur de la bdd 
 
         $sql = "DELETE FROM user WHERE user_id = :id";

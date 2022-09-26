@@ -15,7 +15,7 @@ $inscriptionObj = new Inscription();
 $oneInfo = new Events();
 
 if (isset($_GET['action']) && isset($_GET['eventId'])) {
-   
+
     if ($_GET['action'] == 'participate') {
         if (isset($_SESSION['user'])) {
             $inscriptionObj->inscriptionRace($_SESSION['user']['user_id'], $_GET['eventId']);
@@ -31,16 +31,26 @@ if (isset($_GET['action']) && isset($_GET['eventId'])) {
             exit;
         }
     }
+
     if ($_GET['action'] == 'delete') {
-        $oneInfo->deleteOneCourse($_GET['eventId']);
+
+        //je verifie si il y des courses valider (km valider)
+        if ($inscriptionObj->checkValidateParticipation($_GET['eventId'])) {
+            //si oui j'archive la course pour conserver les donnees
+            $oneInfo->archiveEvent($_GET['eventId']);
+        } else {
+            //Si non je supprime la course
+            $oneInfo->deleteOneCourse($_GET['eventId']);
+        };
+
         $_SESSION['swal'] = [
             'icon' => 'success',
             'title' => 'Suppression',
             'text' => 'Vous avez bien supprimé la course'
         ];
-       
+
         header('Location: ./courses.php');
-        
+
         exit;
     }
     if ($_GET['action'] == 'unsubscribe') {
@@ -55,7 +65,6 @@ if (isset($_GET['action']) && isset($_GET['eventId'])) {
 
         exit;
     }
-
 }
 
 
