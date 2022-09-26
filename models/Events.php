@@ -161,7 +161,7 @@ class Events extends Database
         $sql = "SELECT * FROM events 
         inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-        where event_validate = 1";
+        where event_visible = 1";
 
         $query = $pdo->query($sql);
 

@@ -362,7 +362,7 @@ class User extends DataBase
 
         $pdo = parent::connectDb();
 
-        $sqlA = "UPDATE events SET event_validate = 0, user_id_user = 23 WHERE user_id_user = :userId";
+        $sqlA = "UPDATE events SET event_visible = 0, user_id_user = 23 WHERE user_id_user = :userId";
 
         $queryA = $pdo->prepare($sqlA);
 

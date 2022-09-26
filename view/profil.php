@@ -34,7 +34,7 @@ include('../elements/header.php');
             <span class="textProfil">Course crée</span>
             <span class="num" data-val="400">000</span>
             <div class="text-center m-0 p-0">
-                <p>Voir les coourses crées</p>
+                <p><a class="linkProfil" href="../view/courseCreeProfil.php?id=<?= $_SESSION['user']['user_id'] ?>">Historique des courses crée</a></p>
             </div>
         </div>
 
@@ -43,7 +43,9 @@ include('../elements/header.php');
             <span class="textProfil">Course Inscrit</span>
             <span class="num" data-val="400">000</span>
             <div class="text-center m-0 p-0">
-                <p>voir les courses</p>
+            <div class="text-center m-0 p-0">
+                <p><a class="linkProfil" href="../view/courseInscritProfil.php?id=<?= $_SESSION['user']['user_id'] ?>">Historique des courses inscrites</a></p>
+            </div>
             </div>
         </div>
 

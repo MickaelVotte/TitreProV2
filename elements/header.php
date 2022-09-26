@@ -10,6 +10,8 @@ include('../elements/top.php');
 <header>
 
 
+
+
     <nav class="navbar navbar-expand-lg navbarCss">
         <div class="container-fluid">
 
@@ -17,7 +19,7 @@ include('../elements/top.php');
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                 <div class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="../view/home.php">Accueil</a>
@@ -51,6 +53,15 @@ include('../elements/top.php');
                             <a class="nav-link active text-white" href="../view/login.php">Connexion</a>
                         </li>
                     <?php } ?>
+                    <?php if (isset($_SESSION['user']['user_firstname']) == 4) { ?>
+                        <li class="nav-link">
+                            <a class="nav-link active text-white" href="../view/admin.php">Admin</a>
+                        </li>
+                        <?php } else { ?>
+                        <li><a href=""></a></li>
+                    <?php } ?>
+                 
+
 
                 </div>
             </div>
