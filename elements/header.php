@@ -37,9 +37,6 @@ include('../elements/top.php');
                  
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="../view/login.php">Connexion</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active text-white" href="../view/logout.php">Deconnexion</a>
                         </li>
                         <li class="nav-item">

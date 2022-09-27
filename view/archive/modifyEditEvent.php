@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php
 require_once "../controllers/controller_editEvent.php";
+require_once '../controllers/controller_OneCourseInfo.php';
 
 
 include('../elements/top.php');
@@ -19,7 +20,7 @@ include('../elements/header.php');
 
         <div class="form-control text-center  shadow p-0 m-0 bg-body rounded ">
             <div class="text-center titleLogin">
-                <p>Créer une course</p>
+                <p>Créer une 5555course</p>
             </div>
             <hr>
             <div class="row justify-content-center">

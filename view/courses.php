@@ -8,13 +8,13 @@ require_once "../controllers/controller_courses.php";
 
 include('../elements/top.php');
 include('../elements/header.php');
- 
+
 
 ?>
 
 
 <div id="progress">
- <span id="progress-value"><i class=" GoToTop fa-solid fa-arrow-up"></i></i></span>
+    <span id="progress-value"><i class=" GoToTop fa-solid fa-arrow-up"></i></i></span>
 </div>
 
 
@@ -100,19 +100,20 @@ include('../elements/header.php');
 
 
 <div>
-    <div data-aos=fade-up data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"  data-aos-easing="ease-in-out" class="row justify-content-md-center m-0 p-3 mt-5 mb-5">
+    <div data-aos=fade-up data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" class="row justify-content-md-center m-0 p-3 mt-5 mb-5">
         <?php foreach ($eventArray as $event) { ?>
-            
+
             <div class="col-lg-3 col-sm-12 mt-5 mb-5">
                 <div class="box">
                     <img class="box-image img-fluid" src="data:image/png;base64,<?= $event['event_image'] ?>" alt="">
                     <div class="box-title">
-                        <span class="date"><?=$event['event_date'] ?></span>
-                        <h3 class="fw-bolder <?= $badgeColorArray[$event['category_type']] ?>"><?=$event['category_type']?></h3>
+                        <span class="date"><?= $event['event_date'] ?></span>
+                        <h3 class="fw-bolder <?= $badgeColorArray[$event['category_type']] ?>"><?= $event['category_type'] ?></h3>
                         <span class="name"><?= $event['event_name'] ?></span>
                     </div>
-                    <div class="box-paragraph">
+                    <div class="box-paragraph" id="myDescription">
                         <p><?= $event['event_description'] ?></p>
+                        <p id="result"></p>
                     </div>
                     <div class="box-distance">
                         <p><?= $event['event_distance'] ?>km</p>
@@ -123,13 +124,19 @@ include('../elements/header.php');
                         </div>
                     </div>
                 </div>
-  
-                </div>
+
+            </div>
 
 
         <?php } ?>
     </div>
 </div>
+
+
+
+
+
+
 
 
 <?php if (isset($_SESSION['swal'])) { ?>

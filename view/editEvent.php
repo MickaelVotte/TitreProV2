@@ -57,8 +57,10 @@ include('../elements/header.php');
 
                 <div class="col-sm-6">
                     <label for="description"> <span id="errorDescription" class="text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span></label>
+                    
                     <br>
-                    <textarea class="inputfield3" id="description" name="description" type="description" required placeholder="description" onkeypress="deletemessageError('errorDescription')"></textarea>
+                    <textarea class="inputfield3 textArea" id="description" name="description" type="description" required placeholder="description" onkeypress="deletemessageError('errorDescription')"></textarea>
+                    
                 </div>
 
                 <div class="col-sm-6">

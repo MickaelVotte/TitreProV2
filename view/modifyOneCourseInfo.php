@@ -88,7 +88,7 @@ include('../elements/header.php');
                 </div>
 
 
-    
+
 
 
                 <div class="col-sm-6 p-0 m-0">
@@ -97,7 +97,7 @@ include('../elements/header.php');
                     <select class="inputfield3" id="type" name="type" onclick="deletemessageError('errorType')">
                         <option value="" selected disabled>Veuillez selectionner une catégorie</option>
                         <?php foreach ($arrayCategories as $value) { ?>
-                            <option value="<?= $value['category_id'] ?>"<?= $value['category_id'] == $modifyCourse['category_id_categories'] ? 'selected' : ''?>><?=$value['category_type']?></option>
+                            <option value="<?= $value['category_id'] ?>" <?= $value['category_id'] == $modifyCourse['category_id_categories'] ? 'selected' : '' ?>><?= $value['category_type'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -112,7 +112,7 @@ include('../elements/header.php');
                     <select class="inputfield3" id="department" name="departement" onclick="deletemessageError('errorDepartement')">
                         <option value="" selected disabled>Veuillez selectionner un departement</option>
                         <?php foreach ($arrayDepartment as $value) { ?>
-                            <option value="<?= $value['departement_id'] ?>"<?= $value['departement_id'] == $modifyCourse['departement_id_departement'] ? 'selected' :'' ?>><?=$value['departement_name']?></option>
+                            <option value="<?= $value['departement_id'] ?>" <?= $value['departement_id'] == $modifyCourse['departement_id_departement'] ? 'selected' : '' ?>><?= $value['departement_name'] ?></option>
                         <?php  } ?>
                     </select>
                 </div>
@@ -121,19 +121,19 @@ include('../elements/header.php');
                     <label for=""> <span id="distance" class="text-danger"><?= isset($errors['distance']) ? $errors['distance'] : '' ?></span></label>
                     <br>
                     <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
-                    <option value="">Veuillez choisir une distance</option>
-                       <option value="5"<?=$modifyCourse['event_distance'] == '5' ? 'selected' : ''?>>5km</option>
-                       <option value="10" <?=$modifyCourse['event_distance'] == '10' ? 'selected' : ''?>>10km</option>
-                       <option value="15" <?=$modifyCourse['event_distance'] == '15' ? 'selected' : ''?>>15km</option>
-                       <option value="21" <?=$modifyCourse['event_distance'] == '21' ? 'selected' : ''?>>21km</option>
-                       <option value="42" <?=$modifyCourse['event_distance'] == '42' ? 'selected' : ''?>>42km</option>
+                        <option value="">Veuillez choisir une distance</option>
+                        <option value="5" <?= $modifyCourse['event_distance'] == '5' ? 'selected' : '' ?>>5km</option>
+                        <option value="10" <?= $modifyCourse['event_distance'] == '10' ? 'selected' : '' ?>>10km</option>
+                        <option value="15" <?= $modifyCourse['event_distance'] == '15' ? 'selected' : '' ?>>15km</option>
+                        <option value="21" <?= $modifyCourse['event_distance'] == '21' ? 'selected' : '' ?>>21km</option>
+                        <option value="42" <?= $modifyCourse['event_distance'] == '42' ? 'selected' : '' ?>>42km</option>
                     </select>
                 </div>
 
 
                 <div class="m-0 mt-3 me-1 d-flex justify-content-center text-center">
                     <div>
-                         <input type="hidden" name="editEventId" value="<?=$modifyCourse['event_id']?>">
+                        <input type="hidden" name="editEventId" value="<?= $modifyCourse['event_id'] ?>">
                         <button class="btn-login">Valider</button>
                     </div>
                 </div>
@@ -148,6 +148,16 @@ include('../elements/header.php');
 </div>
 
 
+
+<?php if (isset($swal)) { ?>
+    <script>
+        Swal.fire({
+            icon: '<?= $swal['icon'] ?>',
+            title: '<?= $swal['title'] ?>',
+            text: '<?= $swal['text'] ?>'
+        })
+    </script>
+<?php } ?>
 
 
 
