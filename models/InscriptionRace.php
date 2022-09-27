@@ -106,7 +106,7 @@ class Inscription extends DataBase
     {
         $pdo = parent::connectDb();
 
-        $sql = "SELECT user_pseudo, user_id FROM inscription_race 
+        $sql = "SELECT user_pseudo, inscription_id, inscription_validate, user_id FROM inscription_race 
     inner join user on user_id_user = user_id
     WHERE event_id_events= :idEvent
     ";
@@ -183,36 +183,64 @@ class Inscription extends DataBase
     }
 
 
-
+/**
+ * cette méthode permet de verifier la participation desz users
+ * @param int $idEvent l'id de l'event
+ */
 
     public function checkValidateParticipation(int $idEvent)
     {
         var_dump($idEvent);
         //création d'une instance pdo via la fonction du parent 
         $pdo = parent::connectDb();
-        //j'écris la requête me permettant d'aller verifier si  dans la table users
-        //je mets en place un marqueur nominatif :mail
         $sql = "SELECT * FROM `inscription_race` WHERE `event_id_events`= :idEvent AND `inscription_validate` = 1";
-
-
         //je prépare la requête que je stock dans $query à l'aide de la méthode -> prepare()
         $query = $pdo->prepare($sql);
-
         //je lie la valeur du paramètre $mail au nominatif :mail à l'aide de la méthode->bindValue
         $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
-
-        //une fois le mail récupéré, j'execute la requête à l'aide de la méthode->execute()
         $query->execute();
         //je stock dans $result les données récupèrées à l'aide de la méthode->fetchAll()
         //afin de ne pas avoir d'erreur lorsque qu'on nous allons compter le tableau
         $result = $query->fetchAll();
-
         //je fais un test pour savoir si $result est vide
         if (count($result) != 0) {
             return true;
         } else {
             return false;
         }
+    }
+
+
+    public function validateParticipation(int $idPartcipation, int $value)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE inscription_race SET inscription_validate =:value WHERE inscription_id = :idPartcipation";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idPartcipation', $idPartcipation, PDO::PARAM_INT);
+        $query->bindValue(':value', $value, PDO::PARAM_INT);
+
+        $query->execute();
+
+    }
+
+
+
+
+
+
+    public function getAllUserParticipation(int $idUser)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT inscription_id, inscription_validate, event_id, user_id , event_name, event_distance, event_date, category_type FROM inscription_race
+        inner join user on user_id_user = user_id
+        inner join events on event_id_events = event_id
+        inner join categories on category_id_categories = category_id
+        WHERE inscription_race.user_id_user= :idUser";
+         $query = $pdo->prepare($sql);
+         $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+         $query->execute();
+         $result = $query->fetchAll();
+         return $result;
     }
 
 

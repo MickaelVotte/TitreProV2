@@ -380,4 +380,10 @@ class User extends DataBase
         $query->bindValue(':id', $userId, PDO::PARAM_INT);
         $query->execute();
     }
+
+
+
+
+
+
 }

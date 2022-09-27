@@ -65,7 +65,18 @@ if (isset($_GET['action']) && isset($_GET['eventId'])) {
 
         exit;
     }
-   
+    if ($_GET['action'] == 'validate') {
+        $inscriptionObj->validateParticipation($_GET['idParticipation'], 1);
+        $_SESSION['swal'] = [
+            'icon' => 'success',
+            'title' => 'Validation',
+            'text' => 'Vous avez bien valider la distance parcouru'
+        ];
+        header('Location: ./oneCourseInfo.php?eventId=' . $_GET['eventId']);
+
+        exit;
+    }
+    
 }
 
 
