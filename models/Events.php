@@ -277,4 +277,44 @@ class Events extends Database
 
 
 
+
+
+
+
+    /**
+     * permet de recuperer toutes les courses créer par les users
+     * @param idUser id du createur de la course
+     * @return array tableau associatif
+     */
+
+    public function getUserEvent($idUser): array
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM events 
+        inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+        where event_visible = 1 and user_id_user=:idUser";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idUser', $idUser, pdo::PARAM_INT);
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

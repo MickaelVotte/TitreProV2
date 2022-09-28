@@ -49,10 +49,7 @@ include('../elements/header.php');
             <span class="num" data-val="400"></span>
             <div class="text-center m-0 p-0">
                 <p><a class="linkProfil" href="../view/modifySubcribe.php?id=<?= $_SESSION['user']['user_id'] ?>">Modifier votre compte</a></p>
-            
                 <p><a class="linkProfil" href="../view/courseInscritProfil.php?id=<?= $_SESSION['user']['user_id'] ?>">Historique des courses</a></p>
-
-            
                 <p><a class="linkProfil text-danger" href="./closeAccount.php">supprimer votre compte</a></p>
             </div>
 
