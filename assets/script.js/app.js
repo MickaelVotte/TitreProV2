@@ -32,4 +32,3 @@ window.onload = calcScrollValue;
 
 
 
-

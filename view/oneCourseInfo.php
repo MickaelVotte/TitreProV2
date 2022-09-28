@@ -213,7 +213,7 @@ include('../elements/header.php');
                 if (isset($_SESSION['user']) && $_SESSION['user']['user_id'] == $oneCourse['user_id_user']) { ?>
                     <!-- bouton supprimer -->
                     <div class="col-lg-4 col-sm-12 m-0 p-0 mb-3 d-flex justify-content-center">
-                        <button type="button" class="cardInfo-modify2" data-bs-toggle="modal" data-bs-target="delete">
+                        <button type="button" class="cardInfo-modify2" data-bs-toggle="modal" data-bs-target="#delete">
                             supprimer
                         </button>
                     </div>
@@ -295,26 +295,27 @@ include('../elements/header.php');
                 </thead>
                 <tbody class="text-center">
                     <?php foreach ($allparticipants as $participant) { ?>
+
+
                         <tr>
                             <td><?= $participant['inscription_id'] ?></td>
                             <td><?= $participant['user_pseudo'] ?></td>
                             <td>
                                 <!-- bouton valider la distance -->
-                              
 
-                                    <?php if ($participant['inscription_validate'] == 1) { ?>
-                                        <p class="text-success">km validés</p>
-                                    <?php } else { ?>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="validateKm">
-                                            Valider
-                                        </button>
-                                    <?php } ?>
 
-                                
+                                <?php if ($participant['inscription_validate'] == 1) { ?>
+                                    <p class="text-success">km validés</p>
+                                <?php } else { ?>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#validateKm-<?= $participant['inscription_id'] ?>">
+                                        Valider
+                                    </button>
+                                <?php } ?>
                             </td>
 
-                            <!-- modal de confirmation pour supprimer la course -->
-                            <div class="modal fade" id="validateKm" tabindex="-1" aria-labelledby="validateKm" aria-hidden="true">
+                            <!-- modal de confirmation pour valider les km la course -->
+
+                            <div class="modal fade" id="validateKm-<?= $participant['inscription_id'] ?>" tabindex="-1" aria-labelledby="validateKm" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">

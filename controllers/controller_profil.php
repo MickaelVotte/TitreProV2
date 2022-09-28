@@ -10,6 +10,9 @@ require_once '../models/Events.php';
 
 $inscriptionObj = new Inscription();
 
-$historique = $inscriptionObj->getAllUserParticipation($_SESSION['user']['user_id']);
+
+$totalKm= $inscriptionObj->getSumKmValidate($_SESSION['user']['user_id']);
+
+$totalEvent= $inscriptionObj->getCountEvent($_SESSION['user']['user_id']);
 
 

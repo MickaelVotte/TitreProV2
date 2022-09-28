@@ -183,10 +183,10 @@ class Inscription extends DataBase
     }
 
 
-/**
- * cette méthode permet de verifier la participation desz users
- * @param int $idEvent l'id de l'event
- */
+    /**
+     * cette méthode permet de verifier la participation desz users
+     * @param int $idEvent l'id de l'event
+     */
 
     public function checkValidateParticipation(int $idEvent)
     {
@@ -211,6 +211,14 @@ class Inscription extends DataBase
     }
 
 
+
+    /**
+     * permet de valider la participation de l'utilisateur à une course
+     * @param int $idParticipation l'id de l'utilisateur inscrit à la course
+     * @param int $value  correspond à la valeur qui permet de valider la course 0 pas valider 1 valider
+     * 
+     */
+
     public function validateParticipation(int $idPartcipation, int $value)
     {
         $pdo = parent::connectDb();
@@ -220,13 +228,15 @@ class Inscription extends DataBase
         $query->bindValue(':value', $value, PDO::PARAM_INT);
 
         $query->execute();
-
     }
 
 
 
 
-
+/***
+ * permet d'afficher tout les users qui participe à une course
+ * @param int $idUser correspond à l'id des utilisateur qui sont inscrit à la course
+ */
 
     public function getAllUserParticipation(int $idUser)
     {
@@ -236,14 +246,47 @@ class Inscription extends DataBase
         inner join events on event_id_events = event_id
         inner join categories on category_id_categories = category_id
         WHERE inscription_race.user_id_user= :idUser";
-         $query = $pdo->prepare($sql);
-         $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
-         $query->execute();
-         $result = $query->fetchAll();
-         return $result;
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
     }
 
 
 
+/**
+ * methode qui permet de faire la somme des kilometres valider par le proprio de la course envers les personnes inscrites à sa course
+ * @param $idUser correspond à l'id de l'utilisateur 
+ */
+
+    public function getSumKmValidate($idUser)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT SUM(event_distance) as totalKm from events
+         inner join user on user_id=user_id_user
+         WHERE user_id=:idUser";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
+        
+    }
+
+    public function getCountEvent($idUser)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT COUNT(user_id_user) as totalEvent from events
+        where user_id_user=:idUser and event_visible=1";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
+        
+    }
 
 }
