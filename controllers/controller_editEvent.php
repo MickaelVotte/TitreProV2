@@ -68,8 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (isset($_POST['date'])) {
-        if (empty($_POST['date']))
+        if (empty($_POST['date'])){
             $errors['date'] = '*Champ obligatoire';
+
+        } elseif($_POST['date']){
+
+        }
+       
+
     }
 
     if (isset($_POST['start'])) {

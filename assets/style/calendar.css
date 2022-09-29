@@ -44,9 +44,7 @@
 @media screen and (max-width:750px) {
   .week-days
 {
- background-color:rgb(194, 0, 0);
-  color: #fff;
-
+    
 }
 }
   
@@ -107,4 +105,9 @@
 
     cursor: pointer;
     
+}
+
+.courseCaseCalendar
+{
+    font-size: 0.6em;
 }

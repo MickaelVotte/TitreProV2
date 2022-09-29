@@ -1,6 +1,6 @@
 <?php session_start() ?>
-<?php require_once '../controllers/controller_calendar.php';
-
+<?php   require_once '../controllers/controller_calendar.php';
+        require_once '../controllers/controller_home.php';
 ?>
 
 
@@ -10,13 +10,14 @@
 <?php include('../elements/header.php');
 
 ?>
+
 <body>
 
 
 
-<div id="progress">
- <span id="progress-value"><i class=" GoToTop fa-solid fa-arrow-up"></i></i></span>
-</div>
+    <div id="progress">
+        <span id="progress-value"><i class=" GoToTop fa-solid fa-arrow-up"></i></i></span>
+    </div>
 
 
 
@@ -33,18 +34,18 @@
 
 
 
-    <div class="text-center mt-5 p-0"  >
-        <div class="titleAccueil hrLigne comments m-0 p-0" >Page d'Accueil</div>
+    <div class="text-center mt-5 p-0">
+        <div class="titleAccueil hrLigne comments m-0 p-0">Page d'Accueil</div>
     </div>
 
 
 
     <div class="containerHome">
 
-        <section  data-aos="fade-right" data-aos-offset="200" data-aos-delay="200" data-aos-duration="1000"  data-aos-easing="ease-in-out"    class="hidden row d-flex justify-content-evenly m-0 p-3 mt-5 mb-5">
+        <section data-aos="fade-right" data-aos-offset="200" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" class="hidden row d-flex justify-content-evenly m-0 p-3 mt-5 mb-5">
             <div class="card col-lg-4 col-12 m-3 p-0">
                 <div class="card">
-                    <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
+                    <img src="../assets/img/trail.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
                         <span class="date">Categorie</span>
                         <h3 class="fw-bolder">Course à pied</h3>
@@ -56,25 +57,25 @@
                     </div>
                     <div class="card-bottom">
                         <div class="stat">
-                            <a class="btncard" href="./courses.php">En savoir plus</a>
-
+                            <a class="btncard" href="./courses.php?eventType=1">En savoir plus></a>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="card col-lg-4 col-12 m-3 p-0">
                 <div class="card">
-                <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
+                    <img src="../assets/img/courseaPied.jpg" alt="" class="card-image"></img>
                     <div class="card-title">
                         <span class="date">Categorie</span>
-                        <h3 class="fw-bolder">Trial</h3>
+                        <h3 class="fw-bolder">Trail</h3>
                     </div>
                     <div class="card-paragraph">
                         <p>Participer à une course de trial près de chez vous. Nous regrouper les courses de trail de la région Normandie.</p>
                     </div>
                     <div class="card-bottom">
                         <div class="stat">
-                            <a class="btncard" href="./courses.php">En savoir plus</a>
+                            <a class="btncard" href="./courses.php?eventType=2">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +83,7 @@
 
             <div class=" card col-lg-4 col-12 m-3 p-0">
                 <div class="card">
-                <img src="../assets/img/firstcard.jpg" alt="" class="card-image"></img>
+                    <img src="../assets/img/event.jpg" alt="" class="card-image m-0 p-0"></img>
                     <div class="card-title">
                         <span class="date">Categorie</span>
                         <h3 class="fw-bolder">Évènement</h3>
@@ -92,7 +93,7 @@
                     </div>
                     <div class="card-bottom">
                         <div class="stat">
-                            <a class="btncard" href="./courses.php">En savoir plus</a>
+                            <a class="btncard" href="./courses.php?eventType=3">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -100,14 +101,14 @@
 
 
 
-        </div>
-</section>
+    </div>
+    </section>
 
 
 
     <div class="banner-image2 w-100 d-flex justify-content-center align-items-center">
-   
-</div>
+
+    </div>
 
 
 
@@ -124,7 +125,7 @@
             <h2><a class="btn" href="home.php?"><i class=" logoCalendar bi bi-chevron-double-left me-2"></i></a><?= $year ?><a class="btn" href="home.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year + 1 ?>"><i class=" logoCalendar bi bi-chevron-double-right ms-2"></i></a></h2>
             <h2><a class="btn" href="home.php?<?= isset($_GET['year']) ? 'year=' . $_GET['year'] . '&' : '' ?>month=<?= $monthNumber == 1 ? 12 : $monthNumber - 1 ?>"><i class=" logoCalendar bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn" href="home.php?<?= isset($_GET['year']) ? 'year=' . $_GET['year'] . '&' : '' ?>month=<?= $monthNumber == 12 ? 1 : $monthNumber + 1 ?>"><i class="logoCalendar bi bi-chevron-right ms-1"></i></a></h2>
         </div>
-        <div data-aos=fade-up data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"  data-aos-easing="ease-in-out" class="row justify-content-center p-0 mt-3 mx-0">
+        <div data-aos=fade-up data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" class="row justify-content-center p-0 mt-3 mx-0">
             <div class="col-10 calendar p-0 m-0">
 
                 <!-- Nous réalisons une boucle pour afficher les jours de la semaine -->
@@ -146,9 +147,9 @@
 
 
     <div class="banner-image3 w-100 d-flex justify-content-center align-items-center">
-   
-   </div>
+
+    </div>
 
 
- 
+
     <?php include('../elements/footer.php') ?>

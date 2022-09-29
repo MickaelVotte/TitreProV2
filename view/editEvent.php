@@ -1,6 +1,10 @@
 <?php session_start(); ?>
 <?php
 require_once "../controllers/controller_editEvent.php";
+  require_once '../controllers/controller_calendar.php';
+  require_once '../controllers/controller_home.php';
+
+
 
 include('../elements/top.php');
 include('../elements/header.php');

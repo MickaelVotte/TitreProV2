@@ -1,4 +1,7 @@
 <?php
+require_once "../config.php";
+require_once "../models/Database.php";
+require_once "../models/Events.php";
 
 $days = [
     1 => 'Lundi',
@@ -40,6 +43,11 @@ if (isset($_GET['month'])) {
     $monthNumber = date('n'); // n = 6  
 };
 
+
+$eventObj = new Events();
+$getEventCalendar = $eventObj->getMonthEventCalendar($monthNumber);
+
+
 // nous récuperons le mois en toute lettres à l'aide du tableau $months et l'index $monthNumber
 $monthLetters = $months[$monthNumber];
 // On utilise cal_days_in_month pour calculer le nombre de jours dans le mois (cal_gregorian, mois, année)
@@ -64,7 +72,8 @@ $firstCaseTimestamp = strtotime("$year-$monthNumber-1" . ' - ' . ($firstDayinMon
  * @param int $year ex. 1979
  * @return array structure 'mm-dd' => 'jour férié'
  */
-function getSpecialDays($year)
+
+function getSpecialDays($year, $getEventCalendar)
 {
     // On definie le jour de pâque selon l'année choisie : on se base sur le 21 Mars
     $base = new DateTime("$year-03-21");
@@ -73,6 +82,9 @@ function getSpecialDays($year)
     $easterDay = $base->add(new DateInterval("P{$days}D"))->format('Y-n-d');
 
     $specialDays = [
+
+
+
         // On définie les jours fériés fixe : les classiquess 8 jours 
         // format de la clé : timestamp, la clé permettra d'obtenir le jour férié respectif
         strtotime("$year-1-1") => '1er janvier',
@@ -96,18 +108,26 @@ function getSpecialDays($year)
         strtotime("$year-02-21") => 'Valentin <i class=" logoCalendar bi bi-balloon"></i>',
         strtotime("$year-12-21") => 'Alex <i class=" logoCalendar bi bi-balloon"></i>',
         strtotime("$year-12-20") => 'Micka <i class=" logoCalendar bi bi-balloon"></i>',
-        strtotime("$year-04-10") => 'Stella <i class=" logoCalendar bi bi-balloon-heart"></i>',
+        strtotime("$year-04-10") => 'Stella <i class=" logoCalendar bi bi-balloon-heart"></i>'
+
+
     ];
+
+
+    foreach ($getEventCalendar as $value) {
+        $specialDays += [strtotime($value['event_date']) => '<a class="badge bg-light text-dark text-truncate text-decoration-none courseCaseCalendar" href="oneCourseInfo.php?eventId=' . $value["event_id"] . '" >' . strtoLower($value['event_name']) . '</a>'];
+    };
 
     return $specialDays;
 }
 
 // a l'aide de la fonction getSpecialDays nous definissons un array $arraySpecialDays contenant le timstamp de tous les jours fériés
-$arraySpecialDays = getSpecialDays($year);
+$arraySpecialDays = getSpecialDays($year, $getEventCalendar);
+
 
 // nous allons créer une fonction pour créer une case dans le calendrier 
 // la fonction prend en compte trois paramètres : firstCaseTimestamp, le numéro de la case , le mois , le tableau de jours spéciaux
-function createCase($firstCaseTimestamp, $caseNumber, $month)
+function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
 {
     // nous allons calculer le timestamp de la case pour cela, on utilise la fonction strtotime 
     // strtotime (date('Y-m-d')) pour obtenir la date US Année / Mois / Jour, on rajoute la journée en fonction de la case d'où le -1
@@ -115,16 +135,16 @@ function createCase($firstCaseTimestamp, $caseNumber, $month)
 
     // Nous allons faire des conditions pour modifier les cases selon leurs timestamps.
     // si le timestamps est dans le tableau 
-    // if (array_key_exists($timestamp, $arraySpecialDays)) {
-    //     return '<div class =" text-center bg-warning rounded case">' . date('j', $timestamp) . '<br>' . $arraySpecialDays[$timestamp] . '</div>';
-    // si le timestamps est égale au jour j
-    if (date('Y-m-d', $timestamp) == date('Y-m-d')) {
+    if (array_key_exists($timestamp, $arraySpecialDays)) {
+        return '<div class =" text-center bg-warning rounded case">' . date('j', $timestamp) . '<br>' . $arraySpecialDays[$timestamp] . '</div>';
+        //si le timestamps est égale au jour j
+    } elseif (date('Y-m-d', $timestamp) == date('Y-m-d')) {
         return '<a class =" text-center jourj rounded case">' . date('j', $timestamp) . '</a>';
-    // si le timestamps est égale au mois en cours 
+        // si le timestamps est égale au mois en cours 
     } elseif (date('n', $timestamp) == $month) {
-        return '<a  class ="jstest text-center monthNow rounded case">' . date('j', $timestamp) . '</a>';
-    // sinon la case est grisée 
+        return '<a class ="jstest text-center monthNow rounded case">' . date('j', $timestamp) . '</a>';
+        // sinon la case est grisée 
     } else {
-        return '<a   class =" text-center dayNextMonth rounded case">' . date('j', $timestamp) . '</a>';
+        return '<a class =" text-center dayNextMonth rounded case">' . date('j', $timestamp) . '</a>';
     }
 }
