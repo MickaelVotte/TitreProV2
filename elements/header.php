@@ -1,7 +1,7 @@
 <?php
 
 include('../elements/top.php');
-
+var_dump($_SESSION);
 
 ?>
 
@@ -50,7 +50,10 @@ include('../elements/top.php');
                             <a class="nav-link active text-white" href="../view/login.php">Connexion</a>
                         </li>
                     <?php } ?>
-                    <?php if (isset($_SESSION['user']['user_firstname']) == 4) { ?>
+                  
+                    <?php 
+                     
+                    if (isset($_SESSION['user']) && $_SESSION['user']['role_id_role'] == 4) { ?>
                         <li class="nav-link">
                             <a class="nav-link active text-white" href="../view/admin.php">Admin</a>
                         </li>

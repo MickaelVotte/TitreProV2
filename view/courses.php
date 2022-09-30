@@ -3,12 +3,12 @@
 
 
 require_once "../controllers/controller_courses.php";
- 
+
 
 
 include('../elements/top.php');
 include('../elements/header.php');
- 
+
 ?>
 
 
@@ -23,7 +23,7 @@ include('../elements/header.php');
             Running Race
         </div>
         <form class="text-center d-flex justify-content-center" action="" method="get">
-            
+
             <div class="text-center selectFormCss">
                 <div class="row justify-content-md-center m-0 p-0 bodyCourses">
                     <div class="col-lg-3 col-sm-12 m-0 p-0">
@@ -37,7 +37,7 @@ include('../elements/header.php');
                     <div class="col-lg-3 col-sm-12 m-0 p-0 ">
                         <div class="dropdown m-0 p-0">
                             <select class="inputField4" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
-                                <option value="">Veuillez choisir une distance</option>
+                                <option value="" selected disabled>Veuillez choisir une distance</option>
                                 <option value="5">5km</option>
                                 <option value="10">10km</option>
                                 <option value="15">15km</option>
@@ -104,14 +104,18 @@ include('../elements/header.php');
                     </div>
                     <div class="box-bottom">
                         <div class="stat">
-                            <a class="btnbox" href="./oneCourseInfo.php?eventId=<?= $event['event_id'] ?>">En savoir plus</a>
+                            <?php if ($event['user_id_user'] == 1) { ?>
+                                <a class="btnbox" href="<?= $event['event_link'] ?>">En savoir plus</a>
+                            <?php  } else { ?>
+                                <a class="btnbox" href="./oneCourseInfo.php?eventId=<?= $event['event_id'] ?>">En savoir plus</a>
+
+                            <?php } ?>
+
                         </div>
                     </div>
                 </div>
 
             </div>
-
-
         <?php } ?>
     </div>
 </div>

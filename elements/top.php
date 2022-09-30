@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="../assets/style/courses.css">
     <link rel="stylesheet" href="../assets/style/calendar.css">
     <link rel="stylesheet" href="../assets/style/erreur.css">
-
 </head>
 
 <body class="d-flex flex-column min-vh-100 m-0 p-0">

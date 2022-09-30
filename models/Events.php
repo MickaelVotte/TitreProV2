@@ -160,7 +160,7 @@ class Events extends Database
         $sql = 'SELECT * FROM events 
         inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-        where event_visible = 1 and event_date >= "'. date("Y-m-d").'"';
+        where event_visible = 1 and event_date >= "' . date("Y-m-d") . '"';
 
         $query = $pdo->query($sql);
 
@@ -303,9 +303,10 @@ class Events extends Database
     }
 
 
-
-
-    public function getFilterSearch(int $idDepartement, int $idDistance, int $idCategorie)
+    /**
+     * filtre les infos avec les 3 champs selectionners
+     */
+    public function getFilterSearchDepartementDistanceType(int $idDepartement, int $idDistance, int $idCategorie)
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM events 
@@ -316,13 +317,130 @@ class Events extends Database
         $query = $pdo->prepare($sql);
         $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
         $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
-        $query->bindValue(':idCategories', $idCategorie, pdo::PARAM_INT);
+        $query->bindValue(':idCategorie', $idCategorie, pdo::PARAM_INT);
 
         $query->execute();
         $result = $query->fetchAll();
 
         return $result;
     }
+
+
+
+    /**
+     * filtre les infos avec les 2 champs selectionners deparetment et distance
+     */
+    public function getFilterSearchDepartementDistance(int $idDepartement, int $idDistance)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM events 
+         inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+         where departement_id =:idDepartement  and event_distance =:idDistance ";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
+        $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
+
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+
+
+    public function getFilterSearchDepartementType(int $idDepartement, int $idType)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM events 
+         inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+         where departement_id =:idDepartement  and category_id_categories =:idType ";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
+        $query->bindValue(':idType', $idType, pdo::PARAM_INT);
+
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+    public function getFilterSearchDistanceType(int $idDistance, int $idType)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM events 
+         inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+         where event_distance =:idDistance  and category_id_categories =:idType ";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
+        $query->bindValue(':idType', $idType, pdo::PARAM_INT);
+
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+    public function getFilterSearchDistance(int $idDistance)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM events 
+         inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+         where event_distance =:idDistance ";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+    public function getFilterSearchType(int $idType)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM events 
+         inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+         where category_id=:idType";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idType', $idType, pdo::PARAM_INT);
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+    public function getFilterSearchDepartement(int $idDepartement)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM events 
+         inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+         where  departement_id_departement= :idDepartement ";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+
 
 
 
@@ -342,45 +460,19 @@ class Events extends Database
     }
 
 
-    // public function getFilter2Search(int $idDepartement, int $idDistance)
-    // {
-    //     $pdo = parent::connectDb();
-    //     $sql = "SELECT * FROM events 
-    //     inner join categories on category_id=category_id_categories 
-    //     inner join departement on departement_id=departement_id_departement 
-    //     where departement_id =:idDepartement  and event_distance =:idDistance ";
-
-    //     $query = $pdo->prepare($sql);
-    //     $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
-    //     $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
-
-
-    //     $query->execute();
-    //     $result = $query->fetchAll();
-
-    //     return $result;
-    // }
-
-
-
-
-
     public function getMonthEventCalendar($month)
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM events
         where MONTH(event_date)=:month
         order by event_date ASC";
-       
-       $query = $pdo->prepare($sql);
-       $query->bindValue(':month', $month, pdo::PARAM_STR);
-       $query->execute();
-       $result = $query->fetchAll();
-       return $result;
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':month', $month, pdo::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
     }
-
-
-
 
 
 
