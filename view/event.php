@@ -1,8 +1,9 @@
 <?php session_start(); ?>
 <?php
+require_once "../controllers/controller_calendar.php";
+
 include('../elements/top.php');
 include('../elements/header.php');
-require_once "../controllers/controller_calendar.php";
 ?>
 
 

@@ -118,7 +118,6 @@ class User extends DataBase
         //je mets en place un marqueur nominatif :mail
         $sql = "SELECT `user_mail` FROM `user` WHERE `user_mail` = :mail";
 
-
         //je prépare la requête que je stock dans $query à l'aide de la méthode -> prepare()
         $query = $pdo->prepare($sql);
 
@@ -138,6 +137,9 @@ class User extends DataBase
             return false;
         }
     }
+
+
+
     public function checkIfPseudoExists(string $pseudo)
     {
         //création d'une instance pdo via la fonction du parent 
@@ -166,10 +168,6 @@ class User extends DataBase
             return false;
         }
     }
-
-
-
-
 
 
 
@@ -224,7 +222,7 @@ class User extends DataBase
     }
 
     /**
-     * fonction qui de recuperer les information d'un utilisateur de la bdd
+     * fonction qui permet de recuperer les information d'un utilisateur de la bdd
      * @param array retourne un tableau associatif
      */
 
@@ -239,6 +237,21 @@ class User extends DataBase
         $result = $query->fetch();
         return $result;
     }
+
+
+
+    public function getAllCoureur(): array
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM user";
+        $query = $pdo->query($sql);
+        $result = $query->fetchAll();
+        return $result;
+    }
+
+
+
+
 
 
 
@@ -352,7 +365,7 @@ class User extends DataBase
 
     /**
      * fonction qui permet de supprimer l'utilisateur de la bdd 
-     * 
+     * @param int $userId correspond à l'id de l'utilisateur
      * 
      */
 
@@ -370,6 +383,12 @@ class User extends DataBase
 
         $queryA->execute();
 
+
+        /**
+         * fonction qui permet de supprimer l'utilisateur de la bdd 
+         * @param int $userId correspond à l'id de l'utilisateur
+         * 
+         */
         // fonction qui permet de supprimer l'utilisateur de la bdd 
 
         $sql = "DELETE FROM user WHERE user_id = :id";
@@ -380,10 +399,4 @@ class User extends DataBase
         $query->bindValue(':id', $userId, PDO::PARAM_INT);
         $query->execute();
     }
-
-
-
-
-
-
 }

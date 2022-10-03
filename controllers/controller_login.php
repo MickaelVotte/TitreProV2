@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user'] = $userInfos;
                 // unset() permet de supprimer les infos qu'on ne souhaite pas voir dans la variable de session
                 unset($_SESSION['user']['user_password']);
-                unset($_SESSION['user']['role_id_role']);
                 unset($_SESSION['user']['token_value']);
                 unset($_SESSION['user']['token_date']);
                 header('Location: home.php');

@@ -107,7 +107,7 @@ include('../elements/header.php');
                             <?php if ($event['user_id_user'] == 1) { ?>
                                 <a class="btnbox" href="<?= $event['event_link'] ?>">En savoir plus</a>
                             <?php  } else { ?>
-                                <a class="btnbox" href="./oneCourseInfo.php?eventId=<?= $event['event_id'] ?>">En savoir plus</a>
+                                <a class="btnbox" href="./oneCourseInfo.php?eventId=<?= $event['event_id']?>">En savoir plus</a>
 
                             <?php } ?>
 

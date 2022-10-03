@@ -80,6 +80,8 @@ if (isset($_GET['action']) && isset($_GET['eventId'])) {
 }
 
 
+
+
 //permet de recuperer toutes les infos de la course
 $oneCourse = $oneInfo->getOneCourse($_GET['eventId']);
 

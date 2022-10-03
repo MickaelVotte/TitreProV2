@@ -10,14 +10,11 @@ if (isset($_GET['action']) && isset($_GET['idUser']) && $_GET['action'] == 'dele
     $deleteUser = new User();
 
     $deleteUser->deleteUser($_GET['idUser']);
-    echo "coucou";
-
-
-    
-    //on unset et destroy les variables de session
+  //on unset et destroy les variables de session
     session_unset();
     session_destroy();
 
-
     header('Location: home.php');
 }
+
+  

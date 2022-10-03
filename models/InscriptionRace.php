@@ -263,9 +263,9 @@ class Inscription extends DataBase
     public function getSumKmValidate($idUser)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT SUM(event_distance) as totalKm from events
-         inner join user on user_id=user_id_user
-         WHERE user_id=:idUser";
+        $sql = "SELECT SUM(event_distance) AS totalKm FROM events
+        INNER JOIN inscription_race ON  event_id_events = event_id
+         WHERE inscription_race.user_id_user=:idUser AND inscription_validate=1";
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
