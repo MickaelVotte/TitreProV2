@@ -241,11 +241,11 @@ class Inscription extends DataBase
     public function getAllUserParticipation(int $idUser)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT inscription_id, inscription_validate, event_id, user_id , event_name, event_distance, event_date, category_type FROM inscription_race
+        $sql = 'SELECT inscription_id, inscription_validate, event_id, user_id , event_name, event_distance,  DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date, category_type FROM inscription_race
         inner join user on user_id_user = user_id
         inner join events on event_id_events = event_id
         inner join categories on category_id_categories = category_id
-        WHERE inscription_race.user_id_user= :idUser";
+        WHERE inscription_race.user_id_user= :idUser';
         $query = $pdo->prepare($sql);
         $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
         $query->execute();

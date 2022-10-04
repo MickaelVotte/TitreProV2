@@ -303,6 +303,37 @@ class Events extends Database
     }
 
 
+
+
+
+
+    public function getUserOwnerCourse($id): array
+    {
+        $pdo = parent::connectDb();
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
+        inner join categories on category_id=category_id_categories 
+        inner join departement on departement_id=departement_id_departement 
+        inner join inscription_race on event_id_events =event_id
+        inner join user on user_id = inscription_race.user_id_user
+        where events.user_id_user=:id and inscription_validate=0';
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $id, pdo::PARAM_INT); 
+
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+    }
+
+
+
+
+
+
+
+
+
     /**
      * filtre les infos avec les 3 champs selectionners
      */
@@ -473,8 +504,4 @@ class Events extends Database
         $result = $query->fetchAll();
         return $result;
     }
-
-
-
-
 }

@@ -3,7 +3,7 @@
     grid-template-columns: repeat(7, 1fr);
     background-color: #648cfa;
     border-radius: 0.75rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     font-size: 1.25rem;
     
 
@@ -16,11 +16,20 @@
     bottom: 0;
     left: 0;
     right: 0;
-    border-radius: 0.75rem;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     background-color: #1c1b29;
 }
+
+
+
+@media screen and (min-width: 900px) {
+    .case {
+
+        min-height: 4em;
+        min-width: 3em;
+    }
+}
+
 
 
 
@@ -41,27 +50,32 @@
 }
 
 
-@media screen and (max-width:750px) {
-  .week-days
-{
-    
+.iconCalendar{
+    right: 0;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
 }
+.iconCalendar2{
+    right: 0;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10rem;
 }
-  
 
 
 
 .jourj
 {
-    background-color: rgb(245, 227, 237);
+    background-color:#2e486e;
     transition: ease-in 0.2s;
     font-size: 1.25rem;
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 .jourj:hover
 {
-    background-color: rgb(255, 255, 255);
+    background-color: #8687df;
+
     cursor: pointer;
     font-size: 1.25rem;
     color: black;
@@ -81,16 +95,16 @@
 .dayNextMonth:hover
 {
     background-color: rgb(123, 123, 120);
-    border-radius: 0.75rem;
+    color: black;
     cursor: pointer;
 
 }
 
 .monthNow
 {
-    background-color: #648cfa;
+    background-color: #A29694;
     transition: ease-in 0.2s;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.25rem;
     text-decoration: none;
 
@@ -99,9 +113,10 @@
 }
 .monthNow:hover
 {
-    background-color: #1e56f0;
-    border-radius: 0.75rem;
-    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+
+    
+    color: rgb(0, 0, 0);
 
     cursor: pointer;
     
@@ -109,5 +124,24 @@
 
 .courseCaseCalendar
 {
+    right: 0;
     font-size: 0.6em;
+}
+
+
+.specialDaysEvents 
+{
+    background-color: #5E6371;
+    color: #fff;
+}
+.specialDaysEvents:hover 
+{
+    background-color: #8b8f9b;
+    cursor: pointer;
+}
+
+
+.legendCalendar
+{
+    margin-bottom: 10rem;
 }

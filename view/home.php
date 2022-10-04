@@ -118,7 +118,7 @@
         </div>
     </div>
 
-
+<div class="table-responsive">
 
     <div class="mb-5">
         <div class="text-center">
@@ -144,7 +144,12 @@
             </div>
         </div>
     </div>
+</div>
 
+
+<div class="text-center legendCalendar">
+<i class="iconCalendar2 bi bi-trophy-fill"> : Correspond à une course</i>
+</div>
 
     <div class="banner-image3 w-100 d-flex justify-content-center align-items-center">
 
