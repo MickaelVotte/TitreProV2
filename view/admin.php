@@ -17,19 +17,19 @@ require_once "../controllers/controller_subscribe.php";
 
 
 
+<section class="bgAdmin">
 
-
-<div class="text-center mt-5 mb-5 fs-5">
-    <p>je suis l'admin</p>
+<div class="text-center fw-bolder mt-5 mb-5 fs-4">
+    <p>DASHBOARD<i class="logoDashbaord fa-solid fa-chart-pie"></i></p>
 </div>
 
 <div class="row m-0 p-0">
-    <div class="col-lg-6 col-sm-12 m-0 pe-2 ps-2">
-        <p class="text-center m-2">Utilisateur</p>
-        <div class="table-responsive">
+    <div class="col-lg-6 col-sm-12 m-0 mt-5 mb-5 pe-2 ps-2">
+        <p class="text-center m-2 mb-4 fw-bolder fs-5">Utilisateur<i class="logoDashbaord fa-solid fa-user-secret"></i></p>
+        <div class="table-responsive border border-dark">
             <table class="table table-striped">
                 <thead class="text-center">
-                    <tr>
+                    <tr class="table-primary">
                         <th scope="col">#</th>
                         <th scope="col">Prénom</th>
                         <th scope="col">Nom</th>
@@ -125,13 +125,13 @@ require_once "../controllers/controller_subscribe.php";
 
 
 
-    <div class="col-lg-6  col-sm-12 m m-0 pe-2 ps-2">
-        <p class="text-center m-2">Course mise en ligne par les utilisateurs</p>
+    <div class="col-lg-6  col-sm-12  m-0 mt-5 mb-5  pe-2 ps-2">
+        <p class="text-center m-2 mb-4 fw-bolder fs-5">Course mise en ligne par les utilisateurs<i class="logoDashbaord fa-solid fa-flag-checkered"></i></p>
 
-        <div class="table-responsive">
+        <div class="table-responsive border border-dark">
             <table class="table table-striped">
                 <thead class="text-center">
-                    <tr>
+                    <tr class="table-primary" >
                         <th scope="col">#</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Date</th>
@@ -185,7 +185,7 @@ require_once "../controllers/controller_subscribe.php";
 </div>
 
 
-
+</section>
 
 
 <?php include('../elements/footer.php') ?>

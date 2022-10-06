@@ -1,18 +1,17 @@
 <?php session_start(); ?>
 <?php
 require_once "../controllers/controller_editEvent.php";
-  require_once '../controllers/controller_calendar.php';
-  require_once '../controllers/controller_home.php';
+require_once '../controllers/controller_calendar.php';
+require_once '../controllers/controller_home.php';
 
 
 
 include('../elements/top.php');
-include('../elements/header.php');
-
+include('../elements/header.php')
 ?>
 
 <div class=" bglogin3 row d-flex justify-content-center m-0 p-0">
-    <form class="col-lg-4 col-sm-12 formulaire3" action="" method="post"  enctype="multipart/form-data">
+    <form class="col-lg-4 col-sm-12 formulaire3" action="" method="post" enctype="multipart/form-data">
 
 
 
@@ -20,7 +19,7 @@ include('../elements/header.php');
             <div class="text-center titleLogin">
                 <p class="comments2">Créer une course</p>
             </div>
-            
+
             <div class="row justify-content-center">
                 <img id="imgPreview" class="col-8 img-fluid imgPreview" src="../assets/imageDefaut/imgdefault.png" alt="image_par_defaut_course_crée">
             </div>
@@ -28,7 +27,7 @@ include('../elements/header.php');
                 <div class="col-lg-6 col-sm-12">
                     <label for="image"> <span class="text-danger"><?= isset($errors['image']) ? $errors['image'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3" id="image" name="image" type="file" data placeholder="image"  value="<?= $_POST['image'] ?? '' ?>">
+                    <input class="inputfield3" id="image" name="image" type="file" data placeholder="image" value="<?= $_POST['image'] ?? '' ?>">
                 </div>
             </div>
 
@@ -61,10 +60,10 @@ include('../elements/header.php');
 
                 <div class="col-sm-6">
                     <label for="description"> <span id="errorDescription" class="text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span></label>
-                    
+
                     <br>
                     <textarea class="inputfield3 textArea" id="description" name="description" type="description" required placeholder="description" onkeypress="deletemessageError('errorDescription')"></textarea>
-                    
+
                 </div>
 
                 <div class="col-sm-6">
@@ -92,11 +91,13 @@ include('../elements/header.php');
                 <div class="col-sm-6">
                     <label for="type"><span id="type" class="text-danger"><?= isset($errors['type']) ? $errors['type'] : '' ?></span></label>
                     <br>
-                    <select class="inputfield3" id="type" name="type" onclick="deletemessageError('errorType')" >
+                    <select class="inputfield3" id="type" name="type" onclick="deletemessageError('errorType')">
                         <option value="" selected disabled>Veuillez selectionner une catégorie</option>
                         <?php foreach ($arrayCategories as $value) { ?>
-                            <option value="<?=$value['category_id']?>"><?=$value['category_type']?></option>
-                       <?php } ?>
+
+                            <option value="<?= $value['category_id'] ?>" <?= isset($_POST['type']) && $_POST['type'] == $value['category_id'] ? 'selected' : '' ?>>
+                   <?= $value['category_type'] ?></option> 
+                <?php } ?>
                 </select>
                 </div>
 
@@ -110,7 +111,7 @@ include('../elements/header.php');
                     <select class="inputfield3" id="department" name="departement" onclick="deletemessageError('errorDepartement')">
                         <option value="" selected disabled>Veuillez selectionner un departement</option>
                         <?php foreach ($arrayDepartment as $value) { ?>
-                            <option value="<?= $value['departement_id']?>"><?= $value['departement_name'] ?></option>
+                            <option value="<?= $value['departement_id'] ?>"<?= isset($_POST['departement']) && $_POST['departement'] == $value['departement_id'] ? 'selected' : ''?>><?=$value['departement_name'] ?></option>
                         <?php  } ?>
                     </select>
                 </div>
@@ -119,12 +120,12 @@ include('../elements/header.php');
                     <label for=""> <span id="distance" class="text-danger"><?= isset($errors['distance']) ? $errors['distance'] : '' ?></span></label>
                     <br>
                     <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
-                    <option value="">Veuillez choisir une distance</option>
-                       <option value="5">5km</option>
-                       <option value="10">10km</option>
-                       <option value="15">15km</option>
-                       <option value="21">21km</option>
-                       <option value="42">42km</option>
+                        <option value="">Veuillez choisir une distance</option>
+                        <option value="5" <?= isset($_POST['distance']) && $_POST['distance'] == '5' ? 'selected' : ''?>>5km</option>
+                        <option value="10"  <?= isset($_POST['distance']) && $_POST['distance'] == '10' ? 'selected' : ''?>>10km</option>
+                        <option value="15"  <?= isset($_POST['distance']) && $_POST['distance'] == '15' ? 'selected' : ''?>>15km</option>
+                        <option value="21"  <?= isset($_POST['distance']) && $_POST['distance'] == '21' ? 'selected' : ''?>>21km</option>
+                        <option value="42"  <?= isset($_POST['distance']) && $_POST['distance'] == '42' ? 'selected' : ''?>>42km</option>
                     </select>
                 </div>
 
@@ -143,6 +144,9 @@ include('../elements/header.php');
                 </div>
             </div>
     </form>
+
+
+
 
 </div>
 

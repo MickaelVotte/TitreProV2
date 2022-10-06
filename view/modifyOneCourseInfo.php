@@ -54,9 +54,10 @@ include('../elements/header.php');
                     <input class="inputfield3" id="place" name="place" type="text" placeholder="lieu de la course" onkeypress="deletemessageError('errorPlace')" required value="<?= $_POST['place'] ?? $modifyCourse['event_place'] ?>">
                 </div>
                 <div class="col-sm-6 p-0 m-0">
+                   
                     <label for="date"> <span id="errorDate" class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span></label>
                     <br>
-                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? $modifyCourse['event_date'] ?>">
+                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? date_format(date_create_from_format('d/m/Y', $modifyCourse['event_date']),'Y-m-d')?>">
                 </div>
 
 

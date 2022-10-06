@@ -37,10 +37,6 @@ session_start();
 <body class="d-flex flex-column min-vh-100 m-0 p-0">
 
     <header>
-
-
-
-
         <nav class="navbar navbar-expand-lg navbarCss">
             <div class="container-fluid">
 
@@ -96,19 +92,15 @@ session_start();
                 </div>
         </nav>
 
-
-
-
     </header>
+
+
 
     <div class="bglogin5 row d-flex justify-content-center text-center m-0 p-0">
         <p class="text-white">C'est page n'existe pas</p>
     </div>
 
-
-
-
-
+</body>
 
 
     <?php

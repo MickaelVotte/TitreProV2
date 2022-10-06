@@ -99,23 +99,14 @@ function getSpecialDays($year, $getEventCalendar)
         // Jour feries qui dependent du jour de pâque
         strtotime("$easterDay + 1 days") => 'Lundi de paques',
         strtotime("$easterDay + 39 days")  => 'Ascension',
-        strtotime("$easterDay + 50 days") => 'Pentecote',
-
-        // Anniversaires apprenants LHP8
-        strtotime("$year-05-23") => 'Anousone <i class=" logoCalendar bi bi-balloon"></i>',
-        strtotime("$year-09-21") => 'Sophie <i class=" logoCalendar bi bi-balloon-heart"></i>',
-        strtotime("$year-10-11") => 'Jordan <i class=" logoCalendar bi bi-balloon"></i>',
-        strtotime("$year-02-21") => 'Valentin <i class=" logoCalendar bi bi-balloon"></i>',
-        strtotime("$year-12-21") => 'Alex <i class=" logoCalendar bi bi-balloon"></i>',
-        strtotime("$year-12-20") => 'Micka <i class=" logoCalendar bi bi-balloon"></i>',
-        strtotime("$year-04-10") => 'Stella <i class=" logoCalendar bi bi-balloon-heart"></i>'
+        strtotime("$easterDay + 50 days") => 'Pentecote'
 
 
     ];
 
 
     foreach ($getEventCalendar as $value) {
-        $specialDays += [strtotime($value['event_date']) => '<a class=" text-truncate text-decoration-none courseCaseCalendar" href="oneCourseInfo.php?eventId=' . $value["event_id"] . '" >' .  '<i class="iconCalendar bi bi-trophy-fill"></i>' . '</a>'];
+        $specialDays += [strtotime($value['event_date']) => '<a class=" text-truncate text-decoration-none courseCaseCalendar" href="oneCourseInfo.php?eventId=' . $value["event_id"] . '" >' . '<i class="iconCalendar bi bi-trophy-fill"></i>' . '</a>'];
         /*$specialDays += [strtotime($value['event_date']) => '<a class="badge bg-light text-dark text-truncate text-decoration-none courseCaseCalendar" href="oneCourseInfo.php?eventId=' . $value["event_id"] . '" >' . strtoLower($value['event_name']) . '</a>'];*/
     };
 
@@ -137,7 +128,7 @@ function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
     // Nous allons faire des conditions pour modifier les cases selon leurs timestamps.
     // si le timestamps est dans le tableau 
     if (array_key_exists($timestamp, $arraySpecialDays)) {
-        return '<div class =" text-center specialDaysEvents  case">' . date('j', $timestamp) . '<br>' . $arraySpecialDays[$timestamp] . '</div>';
+        return '<div class ="text-center specialDaysEvents  case">'  .date('j', $timestamp) .'<br>' .  '<p>'. $arraySpecialDays[$timestamp] .'<p>'.  '</div>';
         //si le timestamps est égale au jour j
     } elseif (date('Y-m-d', $timestamp) == date('Y-m-d')) {
         return '<a class =" text-center jourj rounded case">' . date('j', $timestamp) . '</a>';

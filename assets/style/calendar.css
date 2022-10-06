@@ -9,6 +9,23 @@
 
 }
 
+
+@media screen and (max-width: 900px) {
+    .calendar {
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(7, 15%);
+        background-color: #648cfa;
+        border-radius: 0.75rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        font-size: 1.25rem;
+        margin: 0;
+        padding: 0;
+    }
+    
+}
+
+
 .case{
     border: 1px solid #fff;
     height: 6em;
@@ -22,11 +39,11 @@
 
 
 
-@media screen and (min-width: 900px) {
-    .case {
-
-        min-height: 4em;
-        min-width: 3em;
+@media screen and (max-width: 900px) {
+    .case {  
+        width: 100%;
+        height: 3em;
+        
     }
 }
 
@@ -52,7 +69,7 @@
 
 .iconCalendar{
     right: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: rgb(255, 255, 255);
 }
 .iconCalendar2{
@@ -97,7 +114,6 @@
     background-color: rgb(123, 123, 120);
     color: black;
     cursor: pointer;
-
 }
 
 .monthNow
@@ -106,20 +122,14 @@
     transition: ease-in 0.2s;
     color: rgb(0, 0, 0);
     font-size: 1.25rem;
-    text-decoration: none;
-
-
-    
+    text-decoration: none; 
 }
+
 .monthNow:hover
 {
     background-color: rgb(255, 255, 255);
-
-    
     color: rgb(0, 0, 0);
-
     cursor: pointer;
-    
 }
 
 .courseCaseCalendar
@@ -134,14 +144,80 @@
     background-color: #5E6371;
     color: #fff;
 }
+
 .specialDaysEvents:hover 
 {
     background-color: #8b8f9b;
     cursor: pointer;
 }
 
+.JourFerrie{
+    background-color: #F1EBEC;
+}
+
+
+@media screen and (max-width: 900px) {
+     .specialDaysEvents p {
+    font-size: 0.5em;
+      
+        
+    }
+}
+@media screen and (max-width: 900px) {
+     .iconCalendar {
+    font-size: 1.2em;
+      
+        
+    }
+}
+
+@media screen and (max-width: 900px) {
+     .iconCalendar2 {
+    font-size: 1em;
+      
+        
+    }
+}
+
+
+
+
 
 .legendCalendar
 {
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
+}
+
+
+
+.blockLegend{
+    position: relative;
+    display: flex ;
+    justify-content: center;
+    text-align: center;
+}
+
+.legendgris{
+    margin-top: 0.2rem;
+    margin-right:0.5rem ;
+    height: 1rem;
+    width: 1rem;
+    background-color: #5E6371;
+    border-radius: 50%; 
+}
+.legendBlueF{
+    margin-top: 0.2rem;
+    margin-right:0.5rem ;
+    height: 1rem;
+    width: 1rem;
+    background-color: #2e486e;
+    border-radius: 50%; 
+}
+.legendGrisClair{
+    margin-top: 0.2rem;
+    margin-right:0.5rem ;
+    height: 1rem;
+    width: 1rem;
+    background-color: #A29694;
+    border-radius: 50%; 
 }

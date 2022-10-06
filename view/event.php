@@ -39,12 +39,15 @@ include('../elements/header.php');
         <h2><a class="btn" href="event.php"><i class=" logoCalendar bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn" href="event.php?<?= isset($_GET['year']) ? 'year=' . $_GET['year'] . '&' : '' ?>month=<?= $monthNumber == 12 ? 1 : $monthNumber + 1 ?>"><i class="logoCalendar bi bi-chevron-right ms-1"></i></a></h2>
     </div>
     <div class="row justify-content-center p-0 mt-3 mx-0 ">
-        <div class="col-10 calendar p-0 m-0">
+        <div class="col-10 calendar p-0 m-0 justify-content-center">
 
             <!-- Nous réalisons une boucle pour afficher les jours de la semaine -->
             <?php
             foreach ($days as $key => $value) { ?>
-                <div class="text-center  week-days"><?= $value ?></div>
+                <div class="text-center  week-days"><span class="d-lg-block d-none"><?= $value ?></span>
+                    <span class="d-lg-none d-block"><?= $value[0] ?></span>
+                </div>
+
             <?php } ?>
 
 
@@ -62,6 +65,26 @@ include('../elements/header.php');
 </div>
 
 
+
+<div class="text-center legendCalendar">
+    <i class="iconCalendar2 bi bi-trophy-fill"> : Correspond à une course</i>
+</div>
+
+<div class="row justify-content m-0 p-0 mb-5">
+    <div class=" col-lg-4 col-sm-12 text-start m-0 p-0 blockLegend ">
+        <p class="legendgris"></p>
+        <p>: Correspond au jours contenant  une course</p>
+    </div>
+    <div class=" col-lg-4 col-sm-12 text-start m-0 p-0 blockLegend ">
+        <p class="legendGrisClair"></p>
+        <p>: Correspond au jours du mois actuel</p>
+    </div>
+    <div class=" col-lg-4 col-sm-12 text-start m-0 p-0 blockLegend ">
+        <p class="legendBlueF"></p>
+        <p>: Correspond à la date d'aujourd'hui</p>
+    </div>
+
+</div>
 
 
 

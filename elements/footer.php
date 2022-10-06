@@ -7,7 +7,7 @@
     </ul>
 
     <ul class="services">
-        <li class="propos">Lien uitile</li>
+        <li class="propos">Lien utile</li>
         <li><a class="footerlink" href="../view/subscribe.php">Créer un compte</a></li>
         <li><a class="footerlink" href="../view/login.php"> Se connecter</a></li>
         <li> <a class="footerlink" href="#">Contact</a> </li>

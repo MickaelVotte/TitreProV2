@@ -11,21 +11,21 @@
 
 
 
-<div class="text-center mt-5 mb-5 p-0">
-  <p>HISTORIQUE</p>
+<div class="text-center mt-5 mb-5 p-0 fw-bolder mt-5 mb-5 fs-4">
+  <p>HISTORIQUE <i class=" logoDashbaord fa-solid fa-folder-open"></i></p>
 </div>
 
-<div class="text-center mt-5 mb-5 p-0">
-  <p>Course en attente de validation</p>
+<div class="text-center mt-5 mb-5 p-0 fw-bolder fs-5">
+  <p>Course en attente de validation des km<i class=" logoDashbaord fa-solid fa-hourglass-half"></i></p>
 </div>
 
 <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_id']) { ?>
-  <div class="row m-0 p-0">
-    <div class="table-responsive">
-      <table class="table">
+  <div class="row m-0 p-0 ">
+    <div class="table-responsive tableStyle">
+      <table class="table table-striped ">
 
-        <thead class="text-center">
-          <tr>
+        <thead class="text-center ">
+          <tr class="table-primary ">
             <th scope="col">Nom de la Course</th>
             <th scope="col"> Personne Inscrite</th>
             <th scope="col">Type</th>
@@ -94,15 +94,15 @@
 
 
 
-<div class="text-center mt-5 mb-5 p-0">
-  <p>Inscription(s) en cours</p>
+<div class="text-center mt-5 mb-5 p-0 fw-bolder fs-5">
+  <p>Inscription(s) en cours <i class="logoDashbaord fa-solid fa-file-signature"></i></p>
 </div>
 
 <div class="row m-0 p-0">
-  <div class="table-responsive">
-    <table class="table">
+  <div class="table-responsive tableStyle">
+    <table class="table table-striped">
       <thead class="text-center">
-        <tr>
+        <tr class="table-primary ">
           <th scope="col">Nom de la Course</th>
           <th scope="col">Type</th>
           <th scope="col">Date</th>
@@ -135,17 +135,17 @@
 
 
 
-<div class="text-center mt-5 mb-5 p-0">
-  <p> Courses participées </p>
+<div class="text-center mt-5 mb-5 p-0 fw-bolder fs-5">
+  <p> Courses participées <i class=" logoDashbaord fa-solid fa-circle-check"></i></p>
 </div>
 
 
 
 <div class="row m-0 p-0 ">
-  <div class="table-responsive">
-    <table class="table">
+  <div class="table-responsive ">
+    <table class="table table-striped">
       <thead class="text-center">
-        <tr>
+        <tr class="table-primary ">
           <th scope="col">Nom de la Course</th>
           <th scope="col">Type</th>
           <th scope="col">Date</th>
@@ -180,20 +180,21 @@
 
 
 <div class="row  m-0 me-5 p-0">
+
   <div class="col d-flex justify-content-end">
-    <p class="fw-bolder">Total de km parcouru: <br> <?= $total ?>km</p>
+    <p class="fw-bolder text-primary">Total de km parcouru: <br> <?= $total ?>km</p>
   </div>
 </div>
 
-<div class="text-center mt-5  p-0">
-  <p> Courses créées </p>
+<div class="text-center mt-5 p-0 fw-bolder fs-5">
+  <p> Courses créées <i class="logoDashbaord fa-solid fa-flag-checkered"></i></p>
 </div>
 
 <div class="row m-0 p-0">
-  <div class="table-responsive">
-    <table class="table">
+  <div class="table-responsive tableStyle">
+    <table class="table table-striped">
       <thead class="text-center">
-        <tr>
+        <tr class="table-primary ">
           <th scope="col">Nom de la Course</th>
           <th scope="col">Type</th>
           <th scope="col">nombre de km</th>

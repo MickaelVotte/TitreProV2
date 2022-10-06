@@ -26,7 +26,7 @@ include('../elements/header.php');
 
         <div>
             <div class="text-center text-white fs-2 fw-bolder title-cardInfo ">
-                Information sur la course: <br><?= $oneCourse['event_name'] ?>
+                Informations sur la course: <br><?= $oneCourse['event_name'] ?>
             </div>
         </div>
 

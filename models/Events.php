@@ -157,7 +157,7 @@ class Events extends Database
     public function getAllEvent(): array
     {
         $pdo = parent::connectDb();
-        $sql = 'SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
         inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
         where event_visible = 1 and event_date >= "' . date("Y-m-d") . '"';
@@ -318,7 +318,7 @@ class Events extends Database
         where events.user_id_user=:id and inscription_validate=0';
 
         $query = $pdo->prepare($sql);
-        $query->bindValue(':id', $id, pdo::PARAM_INT); 
+        $query->bindValue(':id', $id, pdo::PARAM_INT);
 
         $query->execute();
         $result = $query->fetchAll();
@@ -340,15 +340,15 @@ class Events extends Database
     public function getFilterSearchDepartementDistanceType(int $idDepartement, int $idDistance, int $idCategorie)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
         inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-        where departement_id =:idDepartement  and event_distance =:idDistance and category_id_categories =:idCategories";
+        where departement_id =:idDepartement  and event_distance =:idDistance and category_id_categories =:idCategories';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
         $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
-        $query->bindValue(':idCategorie', $idCategorie, pdo::PARAM_INT);
+        $query->bindValue(':idCategories', $idCategorie, pdo::PARAM_INT);
 
         $query->execute();
         $result = $query->fetchAll();
@@ -364,10 +364,10 @@ class Events extends Database
     public function getFilterSearchDepartementDistance(int $idDepartement, int $idDistance)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
          inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-         where departement_id =:idDepartement  and event_distance =:idDistance ";
+         where departement_id =:idDepartement  and event_distance =:idDistance ';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
@@ -385,10 +385,10 @@ class Events extends Database
     public function getFilterSearchDepartementType(int $idDepartement, int $idType)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
          inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-         where departement_id =:idDepartement  and category_id_categories =:idType ";
+         where departement_id =:idDepartement  and category_id_categories =:idType ';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
@@ -404,10 +404,10 @@ class Events extends Database
     public function getFilterSearchDistanceType(int $idDistance, int $idType)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
          inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-         where event_distance =:idDistance  and category_id_categories =:idType ";
+         where event_distance =:idDistance  and category_id_categories =:idType ';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
@@ -423,10 +423,10 @@ class Events extends Database
     public function getFilterSearchDistance(int $idDistance)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT * , DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
          inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-         where event_distance =:idDistance ";
+         where event_distance =:idDistance ';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idDistance', $idDistance, pdo::PARAM_INT);
@@ -440,10 +440,10 @@ class Events extends Database
     public function getFilterSearchType(int $idType)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
          inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-         where category_id=:idType";
+         where category_id=:idType';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idType', $idType, pdo::PARAM_INT);
@@ -457,10 +457,10 @@ class Events extends Database
     public function getFilterSearchDepartement(int $idDepartement)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
          inner join categories on category_id=category_id_categories 
         inner join departement on departement_id=departement_id_departement 
-         where  departement_id_departement= :idDepartement ";
+         where  departement_id_departement= :idDepartement ';
 
         $query = $pdo->prepare($sql);
         $query->bindValue(':idDepartement', $idDepartement, pdo::PARAM_INT);
@@ -479,9 +479,9 @@ class Events extends Database
     public function getFilterType(int $idCategories)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events 
+        $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
         inner join categories on category_id= category_id_categories
-        where category_id_categories= :idCategories";
+        where category_id_categories= :idCategories';
         $query = $pdo->prepare($sql);
         $query->bindValue(':idCategories', $idCategories, pdo::PARAM_INT);
         $query->execute();
