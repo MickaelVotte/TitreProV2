@@ -250,7 +250,7 @@ include('../elements/header.php');
                 <?php if (!isset($_SESSION['user'])) { ?>
 
                     <div class="row m-0 p-0 justify-content-center">
-                        <p class="fs-6 pb-3 fw-bolder">Pour partciper à la course n'hésitez pas à vous s'inscrire <br> en cliquant sur le bouton ci-dessous </p>
+                        <p class="fs-6 pb-3 fw-bolder">Pour partciper à la course n'hésitez pas à vous inscrire <br> en cliquant sur le bouton ci-dessous </p>
 
                         <div class="  m-0 p-0 col-lg-3  col-sm-8 text-center">
                             <a class="btn-login2" href="./subscribe.php">S'inscrire</a>
