@@ -44,18 +44,17 @@ include('../elements/header.php');
             <div class="row">
 
                 <div class="col-sm-6 p-0 m-0">
-                    <label for="name"><span id='errorName' class="text-danger"><?= isset($errors['name']) ? $errors['name'] : '' ?></span></label>
+                    <label for="name" class="sr-only"></label><span id='errorName' class="text-danger"><?= isset($errors['name']) ? $errors['name'] : '' ?></span>
                     <br>
                     <input class="inputfield3" id="name" name="name" type="text" placeholder="Nom de la course" onkeypress="deletemessageError('errorName')" required value="<?= $_POST['name'] ?? $modifyCourse['event_name'] ?>">
                 </div>
                 <div class="col-sm-6 p-0 m-0">
-                    <label for="place"><span id="errorPlace" class="text-danger"><?= isset($errors['place']) ? $errors['place'] : '' ?></span></label>
+                    <label for="place" class="sr-only"></label><span id="errorPlace" class="text-danger"><?= isset($errors['place']) ? $errors['place'] : '' ?></span>
                     <br>
                     <input class="inputfield3" id="place" name="place" type="text" placeholder="lieu de la course" onkeypress="deletemessageError('errorPlace')" required value="<?= $_POST['place'] ?? $modifyCourse['event_place'] ?>">
                 </div>
                 <div class="col-sm-6 p-0 m-0">
-                   
-                    <label for="date"> <span id="errorDate" class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span></label>
+                    <label for="date" class="sr-only"></label><span id="errorDate" class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
                     <br>
                     <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? date_format(date_create_from_format('d/m/Y', $modifyCourse['event_date']),'Y-m-d')?>">
                 </div>
@@ -65,7 +64,7 @@ include('../elements/header.php');
 
 
                 <div class="col-sm-6 p-0 m-0">
-                    <label for="description"> <span id="errorDescription" class="text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span></label>
+                    <label for="description" class="sr-only"></label><span id="errorDescription" class="text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span>
                     <br>
                     <textarea class="inputfield3" id="description" name="description" type="description" required placeholder="description" onkeypress="deletemessageError('errorDescription')"><?= $_POST['description'] ?? $modifyCourse['event_description'] ?></textarea>
                 </div>
@@ -77,7 +76,7 @@ include('../elements/header.php');
                 </div>
 
                 <div class="col-sm-6 p-0 m-0">
-                    <label for="nblimitParticipant"> <span id="errornblimitParticipant" class="text-danger"><?= isset($errors['nblimitParticipant']) ? $errors['nblimitParticipant'] : '' ?></span></label>
+                    <label for="nblimitParticipant" class="sr-only"></label><span id="errornblimitParticipant" class="text-danger"><?= isset($errors['nblimitParticipant']) ? $errors['nblimitParticipant'] : '' ?></span>
                     <br>
                     <input class="inputfield3" id="nblimitParticipant" name="nblimitParticipant" type="number" min="0" max="1000" placeholder="nombre limite de participant " onkeypress="deletemessageError('errornblimitParticipant')" required value="<?= $_POST['nblimitParticipant'] ?? $modifyCourse['event_limitmembers'] ?>">
                 </div>
@@ -93,7 +92,7 @@ include('../elements/header.php');
 
 
                 <div class="col-sm-6 p-0 m-0">
-                    <label for="type"><span id="type" class="text-danger"><?= isset($errors['type']) ? $errors['type'] : '' ?></span></label>
+                    <label for="type" class="sr-only"></label><span id="type" class="text-danger"><?= isset($errors['type']) ? $errors['type'] : '' ?></span>
                     <br>
                     <select class="inputfield3" id="type" name="type" onclick="deletemessageError('errorType')">
                         <option value="" selected disabled>Veuillez selectionner une catégorie</option>
@@ -108,7 +107,7 @@ include('../elements/header.php');
 
 
                 <div class="col-sm-6 p-0 m-0">
-                    <label for="departement"> <span id="departement" class="text-danger"><?= isset($errors['departement']) ? $errors['departement'] : '' ?></span></label>
+                    <label for="departement" class="sr-only"></label><span id="departement" class="text-danger"><?= isset($errors['departement']) ? $errors['departement'] : '' ?></span>
                     <br>
                     <select class="inputfield3" id="department" name="departement" onclick="deletemessageError('errorDepartement')">
                         <option value="" selected disabled>Veuillez selectionner un departement</option>
@@ -119,7 +118,7 @@ include('../elements/header.php');
                 </div>
 
                 <div class="col-sm-6  p-0 m-0">
-                    <label for=""> <span id="distance" class="text-danger"><?= isset($errors['distance']) ? $errors['distance'] : '' ?></span></label>
+                    <label for="" class="sr-only"></label><span id="distance" class="text-danger"><?= isset($errors['distance']) ? $errors['distance'] : '' ?></span>
                     <br>
                     <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
                         <option value="">Veuillez choisir une distance</option>

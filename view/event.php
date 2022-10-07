@@ -66,6 +66,49 @@ include('../elements/header.php');
 
 
 
+
+
+
+
+<!-- Boucles pour la modale des courses-->
+
+<?php foreach ($getEventCalendar as $value) { ?>
+
+<div class="modal fade" id="modalDay-<?= strtotime($value['event_date']) ?>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Course(s) programmée(s) pour le : <?= date_format(date_create($value['event_date']),"d/m/Y") ?></h1>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <?php
+                    // je transforme en tableau le string contenant les ids
+                    $arrayEventsId = explode('-', $value['all_events_id']);
+                    // je transforme en tableau le string contenant les noms des événements
+                    $arrayEventsName = explode('-', $value['all_events_name']);
+
+                    // je fais une boucle permettant le nom des événements avec un lien direct
+                    foreach ($arrayEventsId as $key => $value) { ?>
+                        <a href="oneCourseInfo.php?eventId=<?= $value ?>" class="text-decoration-none"><li><?= $arrayEventsName[$key] ?></li></a>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php } ?>
+
+
+
+
+
+
+
 <div class="text-center legendCalendar">
     <i class="iconCalendar2 bi bi-trophy-fill"> : Correspond à une course</i>
 </div>

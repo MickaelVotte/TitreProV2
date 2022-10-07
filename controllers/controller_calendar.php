@@ -106,22 +106,14 @@ function getSpecialDays($year, $getEventCalendar)
 
 
     foreach ($getEventCalendar as $value) {
-        $specialDays += [strtotime($value['event_date']) => '
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalEvent-'.strtotime($value['event_date']). '.">
-<i class="iconCalendar bi bi-trophy-fill"></i>
-</button>
-'];
+        $specialDays += [
+            strtotime($value['event_date']) => '<button type="button m-0 p-0" class="btnCup" data-bs-toggle="modal" data-bs-target="#modalDay-' . strtotime($value['event_date']) . '"><i class="iconCalendar bi bi-trophy-fill"></i></button>'
+        ];
+    };
 
         /*   '<a class=" text-truncate text-decoration-none courseCaseCalendar" href="oneCourseInfo.php?eventId=' . $value["event_id"] . '" >' . '<i class="iconCalendar bi bi-trophy-fill"></i>' . '</a>'];*/
 
-
-
-
-
-
-
-        /*$specialDays += [strtotime($value['event_date']) => '<a class="badge bg-light text-dark text-truncate text-decoration-none courseCaseCalendar" href="oneCourseInfo.php?eventId=' . $value["event_id"] . '" >' . strtoLower($value['event_name']) . '</a>'];*/
-    };
+        /*$specialDays += [strtotime($value['event_date']) => '<a class="badge bg-light text-dark text-truncate text-decoration-none courseCaseCalendar" href="oneCourseInfo.php?eventId=' . $value["event_id"] . '" >' . strtoLower($value['event_name']) . '</a>'];*/;
 
     return $specialDays;
 }

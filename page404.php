@@ -96,8 +96,9 @@ session_start();
 
 
 
-    <div class="bglogin5 row d-flex justify-content-center text-center m-0 p-0">
-        <p class="text-white">C'est page n'existe pas</p>
+    <div class="bglogin5 row d-flex justify-content-center text-center m-0 p-0 min-vh-100">
+       
+        <p class="fs-2 text-white mt-5">C'est page n'existe pas</p>
     </div>
 
 </body>

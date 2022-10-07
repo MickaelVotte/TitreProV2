@@ -102,18 +102,23 @@ include('../elements/header.php');
                     <div class="box-distance">
                         <p><?= $event['event_distance'] ?>km</p>
                     </div>
+
                     <div class="box-bottom">
                         <div class="stat">
                             <?php if ($event['user_id_user'] == 1) { ?>
                                 <a class="btnbox" href="<?= $event['event_link'] ?>">En savoir plus</a>
                             <?php  } else { ?>
-                                <a class="btnbox" href="./oneCourseInfo.php?eventId=<?= $event['event_id']?>">En savoir plus</a>
+                                <a class="btnbox" href="./oneCourseInfo.php?eventId=<?= $event['event_id'] ?>">En savoir plus</a>
 
                             <?php } ?>
 
                         </div>
                     </div>
+
                 </div>
+
+
+
 
             </div>
         <?php } ?>

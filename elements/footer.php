@@ -16,8 +16,8 @@
     <ul class="visite">
         <li class="blog">Courses</li>
         <li> <a  class="footerlink"href="../view/courses.php">Marathon</a> </li>
-        <li> <a  class="footerlink"href="../view/courses.php">Trial</a></li>
-        <li> <a  class="footerlink"href="../view/courses.php">Evènement créer</a></li>
+        <li> <a  class="footerlink"href="../view/courses.php">Trail</a></li>
+        <li> <a  class="footerlink"href="../view/courses.php">Evènement crée</a></li>
     </ul>
 
 

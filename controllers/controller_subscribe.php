@@ -57,14 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['birthday']))
     {
         if(empty($_POST['birthday'])){
-            $errors['birthday']= 'Champ obligatoire';
+            $errors['birthday']= '*Champ obligatoire';
         }
     }
 
 
     if (isset($_POST['mail'])) {
         if (empty($_POST['mail'])) {
-            $errors['mail'] = "Champ obligatoire";
+            $errors['mail'] = "*Champ obligatoire";
             // on contrôle le format du mail à l'aide d'un filtar_var et filter_validate_email
         } else if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
             $errors['mail'] = "*Format mail invalide ex.dupont@gmail.com";
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if (!isset($_POST['cgu'])) {
-        $errors['cgu'] = "Veuillez valider les CGU";
+        $errors['cgu'] = "*Veuillez valider les CGU";
     }
 
 

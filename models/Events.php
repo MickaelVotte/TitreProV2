@@ -158,9 +158,9 @@ class Events extends Database
     {
         $pdo = parent::connectDb();
         $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
-        inner join categories on category_id=category_id_categories 
-        inner join departement on departement_id=departement_id_departement 
-        where event_visible = 1 and event_date >= "' . date("Y-m-d") . '"';
+        INNER JOIN categories ON category_id=category_id_categories 
+        INNER JOIN departement ON departement_id=departement_id_departement 
+        WHERE event_visible = 1 AND event_date >= "'. date('Y-m-d') .'" ORDER BY event_date ASC';
 
         $query = $pdo->query($sql);
 
@@ -491,17 +491,26 @@ class Events extends Database
     }
 
 
-    public function getMonthEventCalendar($month)
+     /**
+     * Permet de récupérer toutes les courses du mois
+     * 
+     * @param int $month Mois de recherche
+     * 
+     * @return array Tableau associatif qui regroupera : les events du même jour et avec leurs noms
+     */
+    public function getMonthEventCalendar(int $month): array
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM events
-        where MONTH(event_date)=:month
-        order by event_date ASC";
+        $sql = "SELECT DISTINCT `event_date`, GROUP_CONCAT(`event_id` SEPARATOR '-') AS all_events_id, GROUP_CONCAT(`event_name` SEPARATOR '-') AS all_events_name FROM `events`
+        WHERE MONTH(`event_date`) = :month GROUP BY `event_date`";
 
         $query = $pdo->prepare($sql);
-        $query->bindValue(':month', $month, pdo::PARAM_STR);
+
+        $query->bindValue(':month', $month, PDO::PARAM_STR);
         $query->execute();
+
         $result = $query->fetchAll();
         return $result;
     }
 }
+

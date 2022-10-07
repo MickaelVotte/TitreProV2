@@ -221,3 +221,27 @@
     background-color: #A29694;
     border-radius: 50%; 
 }
+
+.btnCup{
+    background-color: transparent;
+  border: white;
+
+}
+.btnCup:hover{
+    
+  border: white;
+
+}
+
+@media screen and (max-width: 900px) {
+    .btnCup {
+  text-decoration: none;
+  border: none;
+   padding: 0;
+   margin: 0;
+   font-size: 0.75rem;
+   background-color: transparent;
+
+   }
+}
+

@@ -26,14 +26,14 @@ include('../elements/header.php');
             <hr>
             <span class="text-danger fst-italic default-span"><?= isset($errors['connection']) ? $errors['connection'] : '' ?></span>
             <div class="divInput">
-                <label for="login"></label>
+                <label for="login" class="sr-only"></label>
                 <br>
                 <input class="inputfield" type="text" id="login" name="login" placeholder="Entrez votre email" required value="<?= isset($errors['login']) ? $_POST['login'] : '' ?>"><i class=" logologin fa-solid fa-envelope"></i>
                 <br>
                 <span class="text-danger fst-italic"><?= isset($errors['login']) ? $errors['login'] : '' ?></span>
             </div>
             <div class="input2 divInput">
-                <label for="password"></label>
+                <label for="password" class="sr-only"></label>
                 <br>
                 <input class="inputfield" id="password" type="password" name="password" required placeholder="Entrez votre mot de passe" value="<?= isset($errors['password']) ? $_POST['password'] : '' ?>"><i class="fa-solid fa-key"></i>
 

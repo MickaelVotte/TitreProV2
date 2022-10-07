@@ -1,7 +1,7 @@
 <?php session_start() ?>
 <?php require_once '../controllers/controller_calendar.php';
 require_once '../controllers/controller_home.php';
-var_dump($arraySpecialDays);
+
 ?>
 
 
@@ -123,6 +123,7 @@ var_dump($arraySpecialDays);
                     <?php
                     foreach ($days as $key => $value) { ?>
                         <div class="text-center week-days"> <span class="d-lg-block d-none"><?= $value ?></span>
+                        <!-- pour afficher seulement la 1er lettre du mot -->
                             <span class="d-lg-none d-block"><?= $value[0] ?></span>
                         </div>
                     <?php } ?>
@@ -140,31 +141,40 @@ var_dump($arraySpecialDays);
     </div>
 
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" >
-        
-    </button>
+    
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+<!-- Boucles pour la modale des courses-->
+
+<?php foreach ($getEventCalendar as $value) { ?>
+
+<div class="modal fade" id="modalDay-<?= strtotime($value['event_date']) ?>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Course(s) programmée(s) pour le : <?= date_format(date_create($value['event_date']),"d/m/Y") ?></h1>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <?php
+                    // je transforme en tableau le string contenant les ids
+                    $arrayEventsId = explode('-', $value['all_events_id']);
+                    // je transforme en tableau le string contenant les noms des événements
+                    $arrayEventsName = explode('-', $value['all_events_name']);
+
+                    // je fais une boucle permettant le nom des événements avec un lien direct
+                    foreach ($arrayEventsId as $key => $value) { ?>
+                        <a href="oneCourseInfo.php?eventId=<?= $value ?>" class="text-decoration-none"><li><?= $arrayEventsName[$key] ?></li></a>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>
+</div>
 
-
+<?php } ?>
 
 
 
