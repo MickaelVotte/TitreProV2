@@ -51,7 +51,7 @@ include('../elements/header.php')
                 <div class="col-sm-6">
                     <label for="date" class="sr-only"></label><span id="errorDate" class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
                     <br>
-                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? '' ?>">
+                    <input class="inputfield3 " min="<?= date('Y-m-d') ?>" id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? '' ?>">
                 </div>
 
 
@@ -94,9 +94,9 @@ include('../elements/header.php')
                         <option value="" selected disabled>Veuillez selectionner une catégorie</option>
                         <?php foreach ($arrayCategories as $value) { ?>
                             <option value="<?= $value['category_id'] ?>" <?= isset($_POST['type']) && $_POST['type'] == $value['category_id'] ? 'selected' : '' ?>>
-                   <?= $value['category_type'] ?></option> 
-                <?php } ?>
-                </select>
+                                <?= $value['category_type'] ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
 
@@ -109,7 +109,7 @@ include('../elements/header.php')
                     <select class="inputfield3" id="department" name="departement" onclick="deletemessageError('errorDepartement')">
                         <option value="" selected disabled>Veuillez selectionner un departement</option>
                         <?php foreach ($arrayDepartment as $value) { ?>
-                            <option value="<?= $value['departement_id'] ?>"<?= isset($_POST['departement']) && $_POST['departement'] == $value['departement_id'] ? 'selected' : ''?>><?=$value['departement_name'] ?></option>
+                            <option value="<?= $value['departement_id'] ?>" <?= isset($_POST['departement']) && $_POST['departement'] == $value['departement_id'] ? 'selected' : '' ?>><?= $value['departement_name'] ?></option>
                         <?php  } ?>
                     </select>
                 </div>
@@ -119,11 +119,11 @@ include('../elements/header.php')
                     <br>
                     <select class="inputfield3" id="distance" name="distance" onclick="deletemessageError('errorDistance')">
                         <option value="">Veuillez choisir une distance</option>
-                        <option value="5" <?= isset($_POST['distance']) && $_POST['distance'] == '5' ? 'selected' : ''?>>5km</option>
-                        <option value="10"  <?= isset($_POST['distance']) && $_POST['distance'] == '10' ? 'selected' : ''?>>10km</option>
-                        <option value="15"  <?= isset($_POST['distance']) && $_POST['distance'] == '15' ? 'selected' : ''?>>15km</option>
-                        <option value="21"  <?= isset($_POST['distance']) && $_POST['distance'] == '21' ? 'selected' : ''?>>21km</option>
-                        <option value="42"  <?= isset($_POST['distance']) && $_POST['distance'] == '42' ? 'selected' : ''?>>42km</option>
+                        <option value="5" <?= isset($_POST['distance']) && $_POST['distance'] == '5' ? 'selected' : '' ?>>5km</option>
+                        <option value="10" <?= isset($_POST['distance']) && $_POST['distance'] == '10' ? 'selected' : '' ?>>10km</option>
+                        <option value="15" <?= isset($_POST['distance']) && $_POST['distance'] == '15' ? 'selected' : '' ?>>15km</option>
+                        <option value="21" <?= isset($_POST['distance']) && $_POST['distance'] == '21' ? 'selected' : '' ?>>21km</option>
+                        <option value="42" <?= isset($_POST['distance']) && $_POST['distance'] == '42' ? 'selected' : '' ?>>42km</option>
                     </select>
                 </div>
 

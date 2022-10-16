@@ -56,7 +56,7 @@ include('../elements/header.php');
                 <div class="col-sm-6 p-0 m-0">
                     <label for="date" class="sr-only"></label><span id="errorDate" class="text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
                     <br>
-                    <input class="inputfield3 " id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? date_format(date_create_from_format('d/m/Y', $modifyCourse['event_date']),'Y-m-d')?>">
+                    <input class="inputfield3 " min="<?= date('Y-m-d') ?>" id="date" name="date" type="date" placeholder="Date" onkeypress="deletemessageError('errorDate')" required value="<?= $_POST['date'] ?? date_format(date_create_from_format('d/m/Y', $modifyCourse['event_date']),'Y-m-d')?>">
                 </div>
 
 

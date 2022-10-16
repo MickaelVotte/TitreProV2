@@ -68,7 +68,7 @@ include('../elements/header.php');
 
             <div class="mt-2 pb-2">
                 <label name="cgu" id="cgu"><span id="errorCgu" class="text-danger"><?= isset($errors['cgu']) ? $errors['cgu'] : '' ?></span></label>
-                <input class="text-decoration-underline" type="checkbox" name="cgu" id='cgu' onclick="deletemessageError('errorCgu')" value="<?= $_POST['cgu'] ?? '' ?>">J'accepte les conditions général d'utilisation</input>
+                <input class="text-decoration-underline" type="checkbox" name="cgu" id='cgu' onclick="deletemessageError('errorCgu')" value="<?= $_POST['cgu'] ?? '' ?>">J'accepte les conditions général d'utilisation <br> je certifie d'avoir plus de 15 ans</input>
 
             </div>
 

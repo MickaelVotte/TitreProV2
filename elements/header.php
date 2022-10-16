@@ -28,7 +28,7 @@ include('../elements/top.php');
                     </li>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="../view/event.php">Organiser un évènement</a>
+                            <a class="nav-link active text-white" href="../view/event.php">Organiser une course</a>
                         </li>
                     <?php } else { ?>
                         <li><a href=""></a></li>
@@ -36,7 +36,7 @@ include('../elements/top.php');
                  
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="../view/logout.php">Deconnexion</a>
+                            <a class="nav-link active text-white" href="../view/logout.php">Déconnexion</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active text-white" href="/view/profil.php"><?= isset($_SESSION['user']) ? $_SESSION['user']['user_firstname'] : "Profil"  ?></a>

@@ -42,7 +42,7 @@ require_once '../controllers/controller_home.php';
                         <h3 class="fw-bolder">Course à pied</h3>
                     </div>
                     <div class="card-paragraph">
-                        <p>Participer à une course de course à pied près de chez vous. Nous regoupons les courses de la region Normandie en plusieurs categories.
+                        <p>Participer à une course près de chez vous. Nous regoupons les courses à pied de la region Normandie.
 
                         </p>
                     </div>

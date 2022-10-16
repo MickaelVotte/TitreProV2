@@ -160,7 +160,7 @@ class Events extends Database
         $sql = 'SELECT *, DATE_FORMAT(`event_date`, "%d/%m/%Y") AS event_date FROM events 
         INNER JOIN categories ON category_id=category_id_categories 
         INNER JOIN departement ON departement_id=departement_id_departement 
-        WHERE event_visible = 1 AND event_date >= "'. date('Y-m-d') .'" ORDER BY event_date ASC';
+        WHERE event_visible = 1 AND event_date >= NOW() ORDER BY event_date ASC';
 
         $query = $pdo->query($sql);
 
@@ -502,7 +502,7 @@ class Events extends Database
     {
         $pdo = parent::connectDb();
         $sql = "SELECT DISTINCT `event_date`, GROUP_CONCAT(`event_id` SEPARATOR '-') AS all_events_id, GROUP_CONCAT(`event_name` SEPARATOR '-') AS all_events_name FROM `events`
-        WHERE MONTH(`event_date`) = :month GROUP BY `event_date`";
+        WHERE MONTH(`event_date`) = :month AND event_visible=1  GROUP BY `event_date`";
 
         $query = $pdo->prepare($sql);
 

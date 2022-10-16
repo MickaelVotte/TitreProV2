@@ -64,7 +64,7 @@ include('../elements/header.php');
 
                 <div class="row">
                     <div class="col-6">
-                        <p class=" cardInfo-title m-0">Nombre de participant:</p>
+                        <p class=" cardInfo-title m-0">Nombre de participants:</p>
                         <p> <?= $oneCourse['event_limitmembers'] ?></p>
 
                     </div>
@@ -91,7 +91,7 @@ include('../elements/header.php');
 
                     </div>
                     <div class="col-6">
-                        <p class=" cardInfo-title m-0">Departement:</p>
+                        <p class=" cardInfo-title m-0">Département:</p>
                         <p> <?= $oneCourse['departement_name'] ?></p>
 
                     </div>

@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $coureurObj->addUser($firstname, $lastname, $pseudo ,$birthday, $mail, $password);
 
-        header('Location: home.php');
+        header('Location: login.php');
 
     }
 }

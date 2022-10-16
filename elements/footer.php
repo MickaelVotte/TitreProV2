@@ -3,7 +3,7 @@
   
     <ul class="naviguer-bloc">
         <li class="naviguer">Running Race</li>
-        <p>Running Race est site qui à pour but de regrouper les énènement sportifs de course à pied et de trial de la région Normandie. Trouver et planifiez vos prochaines courses, créez et partager vos course afin d'en faire participer au plus grand nombre. Organisateur publiez gratuitement votre évènement en quelque clics.</p>
+        <p>Running Race est site qui a pour but de regrouper les évènements sportifs de course à pied et de trial de la région Normandie. Trouver et planifier vos prochaines courses, créer et partager vos course afin d'en faire participer au plus grand nombre. Organisateur publiez gratuitement votre évènement en quelque clics.</p>
     </ul>
 
     <ul class="services">
